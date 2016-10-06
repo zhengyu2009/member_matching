@@ -14,13 +14,18 @@ class ProjectTest extends CakeTestCase {
 	public $fixtures = array(
 		'app.project',
 		'app.user',
+		'app.area',
 		'app.industry',
 		'app.industries_project',
 		'app.industries_user',
 		'app.roll',
 		'app.rolls_project',
+		'app.rolls_user',
 		'app.skill',
-		'app.skills_project'
+		'app.skill_category',
+		'app.skills_project',
+		'app.skills_user',
+		'app.projects_rolls_user'
 	);
 
 /**

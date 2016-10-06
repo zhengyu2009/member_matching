@@ -9,6 +9,13 @@ App::uses('AppModel', 'Model');
 class Roll extends AppModel {
 
 /**
+ * Display field
+ *
+ * @var string
+ */
+	public $displayField = 'rollname';
+
+/**
  * Validation rules
  *
  * @var array

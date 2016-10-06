@@ -31,8 +31,8 @@ class ProjectFixture extends CakeTestFixture {
 	public $records = array(
 		array(
 			'id' => 1,
-			'created' => '2016-10-05 02:34:31',
-			'modified' => '2016-10-05 02:34:31',
+			'created' => '2016-10-06 05:12:21',
+			'modified' => '2016-10-06 05:12:21',
 			'title' => 'Lorem ipsum dolor sit amet',
 			'description' => 'Lorem ipsum dolor sit amet',
 			'user_id' => 1,

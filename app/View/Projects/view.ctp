@@ -23,6 +23,8 @@
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New User'), array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Industries'), array('controller' => 'industries', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Industry'), array('controller' => 'industries', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Rolls Users'), array('controller' => 'rolls_users', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Rolls User'), array('controller' => 'rolls_users', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Rolls'), array('controller' => 'rolls', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Roll'), array('controller' => 'rolls', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Skills'), array('controller' => 'skills', 'action' => 'index'), array('escape' => false)); ?> </li>
@@ -74,7 +76,7 @@
 <tr>
 		<th><?php echo __('User'); ?></th>
 		<td>
-			<?php echo $this->Html->link($project['User']['id'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
+			<?php echo $this->Html->link($project['User']['username'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
 			&nbsp;
 		</td>
 </tr>
@@ -127,6 +129,41 @@
 
 	<div class="actions">
 		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Industry'), array('controller' => 'industries', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
+	</div>
+	</div><!-- end col md 12 -->
+</div>
+<div class="related row">
+	<div class="col-md-12">
+	<h3><?php echo __('Related Rolls Users'); ?></h3>
+	<?php if (!empty($project['RollsUser'])): ?>
+	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
+	<thead>
+	<tr>
+		<th><?php echo __('Id'); ?></th>
+		<th><?php echo __('Roll Id'); ?></th>
+		<th><?php echo __('User Id'); ?></th>
+		<th class="actions"></th>
+	</tr>
+	<thead>
+	<tbody>
+	<?php foreach ($project['RollsUser'] as $rollsUser): ?>
+		<tr>
+			<td><?php echo $rollsUser['id']; ?></td>
+			<td><?php echo $rollsUser['roll_id']; ?></td>
+			<td><?php echo $rollsUser['user_id']; ?></td>
+			<td class="actions">
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'rolls_users', 'action' => 'view', $rollsUser['id']), array('escape' => false)); ?>
+				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'rolls_users', 'action' => 'edit', $rollsUser['id']), array('escape' => false)); ?>
+				<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'rolls_users', 'action' => 'delete', $rollsUser['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $rollsUser['id'])); ?>
+			</td>
+		</tr>
+	<?php endforeach; ?>
+	</tbody>
+	</table>
+<?php endif; ?>
+
+	<div class="actions">
+		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Rolls User'), array('controller' => 'rolls_users', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
 	</div>
 	</div><!-- end col md 12 -->
 </div>

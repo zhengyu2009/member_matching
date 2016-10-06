@@ -5,6 +5,8 @@ App::uses('AppController', 'Controller');
  *
  * @property Project $Project
  * @property PaginatorComponent $Paginator
+ * @property SessionComponent $Session
+ * @property FlashComponent $Flash
  */
 class ProjectsController extends AppController {
 
@@ -13,7 +15,7 @@ class ProjectsController extends AppController {
  *
  * @var array
  */
-	public $components = array('Paginator');
+	public $components = array('Paginator', 'Session', 'Flash');
 
 /**
  * index method
@@ -58,9 +60,10 @@ class ProjectsController extends AppController {
 		$users = $this->Project->User->find('list');
 		$industries = $this->Project->Industry->find('list');
 		$industries = $this->Project->Industry->find('list');
+		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
-		$this->set(compact('users', 'industries', 'industries', 'rolls', 'skills'));
+		$this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));
 	}
 
 /**
@@ -88,9 +91,10 @@ class ProjectsController extends AppController {
 		$users = $this->Project->User->find('list');
 		$industries = $this->Project->Industry->find('list');
 		$industries = $this->Project->Industry->find('list');
+		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
-		$this->set(compact('users', 'industries', 'industries', 'rolls', 'skills'));
+		$this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));
 	}
 
 /**
