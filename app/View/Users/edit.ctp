@@ -45,19 +45,37 @@
 					<?php echo $this->Form->input('username', array('class' => 'form-control', 'placeholder' => 'Username'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Form->input('email', array('class' => 'form-control', 'placeholder' => 'Email'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('url', array('class' => 'form-control', 'placeholder' => 'Url'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('facebook', array('class' => 'form-control', 'placeholder' => 'Facebook'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('twitter', array('class' => 'form-control', 'placeholder' => 'Twitter'));?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Form->input('password', array('class' => 'form-control', 'placeholder' => 'Password'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('area_id', array('class' => 'form-control', 'placeholder' => 'Area Id'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('Industry', array('class' => 'form-control', 'placeholder' => 'Area Id'));?>
+					<?php echo $this->Form->input('abstract', array('class' => 'form-control', 'placeholder' => 'Abstract'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('Roll', array('class' => 'form-control', 'placeholder' => 'Area Id'));?>
+					<?php echo $this->Form->input('profile', array('class' => 'form-control', 'placeholder' => 'Profile'));?>
 				</div>
 				<div class="form-group">
-					<?php echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Area Id'));?>
+					<?php echo $this->Form->input('Industry', array('class' => 'form-control', 'placeholder' => 'Profile'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('Roll', array('class' => 'form-control', 'placeholder' => 'Profile'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Profile'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>

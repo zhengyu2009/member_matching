@@ -43,8 +43,14 @@
 						<th nowrap><?php echo $this->Paginator->sort('created'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('modified'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('username'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('email'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('url'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('facebook'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('twitter'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('password'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('area_id'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('abstract'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('profile'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
@@ -55,10 +61,16 @@
 						<td nowrap><?php echo h($user['User']['created']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($user['User']['modified']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($user['User']['username']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($user['User']['email']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($user['User']['url']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($user['User']['facebook']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($user['User']['twitter']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($user['User']['password']); ?>&nbsp;</td>
 								<td>
 			<?php echo $this->Html->link($user['Area']['areaname'], array('controller' => 'areas', 'action' => 'view', $user['Area']['id'])); ?>
 		</td>
+						<td nowrap><?php echo h($user['User']['abstract']); ?>&nbsp;</td>
+						<td nowrap><?php echo h($user['User']['profile']); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $user['User']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $user['User']['id']), array('escape' => false)); ?>

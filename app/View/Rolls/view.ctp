@@ -122,8 +122,14 @@
 		<th><?php echo __('Created'); ?></th>
 		<th><?php echo __('Modified'); ?></th>
 		<th><?php echo __('Username'); ?></th>
+		<th><?php echo __('Email'); ?></th>
+		<th><?php echo __('Url'); ?></th>
+		<th><?php echo __('Facebook'); ?></th>
+		<th><?php echo __('Twitter'); ?></th>
 		<th><?php echo __('Password'); ?></th>
 		<th><?php echo __('Area Id'); ?></th>
+		<th><?php echo __('Abstract'); ?></th>
+		<th><?php echo __('Profile'); ?></th>
 		<th class="actions"></th>
 	</tr>
 	<thead>
@@ -134,8 +140,14 @@
 			<td><?php echo $user['created']; ?></td>
 			<td><?php echo $user['modified']; ?></td>
 			<td><?php echo $user['username']; ?></td>
+			<td><?php echo $user['email']; ?></td>
+			<td><?php echo $user['url']; ?></td>
+			<td><?php echo $user['facebook']; ?></td>
+			<td><?php echo $user['twitter']; ?></td>
 			<td><?php echo $user['password']; ?></td>
 			<td><?php echo $user['area_id']; ?></td>
+			<td><?php echo $user['abstract']; ?></td>
+			<td><?php echo $user['profile']; ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'users', 'action' => 'view', $user['id']), array('escape' => false)); ?>
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'users', 'action' => 'edit', $user['id']), array('escape' => false)); ?>
