@@ -1,5 +1,6 @@
 <?php
 App::uses('AppController', 'Controller');
+App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
 /**
  * Users Controller
  *
@@ -10,12 +11,35 @@ App::uses('AppController', 'Controller');
  */
 class UsersController extends AppController {
 
+    public function beforeFilter() {
+        parent::beforeFilter();
+
+        $this->Auth->allow('add');
+    }
+
 /**
  * Components
  *
  * @var array
  */
-	public $components = array('Paginator', 'Session', 'Flash');
+	public $components = array('Paginator', 'Session', 'Flash',
+        'Auth' => array(
+//                'loginRedirect' => array(
+//                    'controller' => 'posts',
+//                    'action' => 'index'
+//                ),
+//                'logoutRedirect' => array(
+//                    'controller' => 'pages',
+//                    'action' => 'display',
+//                    'home'
+//                ),
+            'authenticate' => array(
+                'Form' => array(
+                    'passwordHasher' => 'Blowfish'
+                )
+            )
+        )
+        );
 
 /**
  * index method
@@ -113,4 +137,20 @@ class UsersController extends AppController {
 		}
 		return $this->redirect(array('action' => 'index'));
 	}
-}
+
+    public function login() {
+        if($this->request->is('post')) {
+            if ($this->Auth->login()) {
+                $this->redirect(array('controller' => 'projects', 'action' => 'index'));
+            } else {
+                $this->Flash->error(__('Invalid username or password'));
+            }
+        }
+    }
+
+    public function logout() {
+        $this->redirect($this->Auth->logout());
+    }
+
+}//End
+
