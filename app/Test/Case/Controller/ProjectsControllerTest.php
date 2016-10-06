@@ -24,7 +24,8 @@ class ProjectsControllerTest extends ControllerTestCase {
 		'app.skill',
 		'app.skill_category',
 		'app.skills_project',
-		'app.skills_user'
+		'app.skills_user',
+		'app.projects_rolls_user'
 	);
 
 /**

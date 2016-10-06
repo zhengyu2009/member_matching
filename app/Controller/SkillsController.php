@@ -60,6 +60,7 @@ class SkillsController extends AppController {
 		$skillCategories = $this->Skill->SkillCategory->find('list');
 		$projects = $this->Skill->Project->find('list');
 		$users = $this->Skill->User->find('list');
+        $this->log($users);
 		$this->set(compact('skillCategories', 'projects', 'users'));
 	}
 

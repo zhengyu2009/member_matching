@@ -23,6 +23,8 @@
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('New User'), array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('List Industries'), array('controller' => 'industries', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('New Industry'), array('controller' => 'industries', 'action' => 'add'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('List Rolls Users'), array('controller' => 'rolls_users', 'action' => 'index'), array('escape' => false)); ?> </li>
+		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('New Rolls User'), array('controller' => 'rolls_users', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('List Rolls'), array('controller' => 'rolls', 'action' => 'index'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('New Roll'), array('controller' => 'rolls', 'action' => 'add'), array('escape' => false)); ?> </li>
 		<li><?php echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;'.__('List Skills'), array('controller' => 'skills', 'action' => 'index'), array('escape' => false)); ?> </li>
@@ -49,6 +51,9 @@
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('Industry', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
+				</div>
+				<div class="form-group">
+					<?php echo $this->Form->input('RollsUser', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('Roll', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
