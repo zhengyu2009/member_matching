@@ -38,6 +38,12 @@
 		<div class="col-md-9">			
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<tbody>
+<tr>
+		<th><?php echo __('Username'); ?></th>
+		<td>
+			<?php echo h($user['User']['username']); ?>
+		</td>
+</tr>
 				<tr>
 		<th><?php echo __('Id'); ?></th>
 		<td>
@@ -45,6 +51,26 @@
 			&nbsp;
 		</td>
 </tr>
+<tr>
+		<th><?php echo __('Password'); ?></th>
+		<td>
+			<?php echo h($user['User']['password']); ?>
+						&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Abstract'); ?></th>
+		<td>
+			<?php echo h($user['User']['abstract']); ?>				&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Area'); ?></th>
+		<td>
+			<?php echo $this->Html->link($user['Area']['areaname'], array('controller' => 'areas', 'action' => 'view', $user['Area']['id'])); ?>
+		</td>
+</tr>
+<!--
 <tr>
 		<th><?php echo __('Created'); ?></th>
 		<td>
@@ -59,13 +85,7 @@
 			&nbsp;
 		</td>
 </tr>
-<tr>
-		<th><?php echo __('Username'); ?></th>
-		<td>
-			<?php echo h($user['User']['username']); ?>
-			&nbsp;
-		</td>
-</tr>
+-->
 <tr>
 		<th><?php echo __('Email'); ?></th>
 		<td>
@@ -91,27 +111,6 @@
 		<th><?php echo __('Twitter'); ?></th>
 		<td>
 			<?php echo h($user['User']['twitter']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Password'); ?></th>
-		<td>
-			<?php echo h($user['User']['password']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Area'); ?></th>
-		<td>
-			<?php echo $this->Html->link($user['Area']['areaname'], array('controller' => 'areas', 'action' => 'view', $user['Area']['id'])); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Abstract'); ?></th>
-		<td>
-			<?php echo h($user['User']['abstract']); ?>
 			&nbsp;
 		</td>
 </tr>
@@ -173,43 +172,50 @@
 	</div>
 	</div><!-- end col md 12 -->
 </div>
+
+
 <div class="related row">
 	<div class="col-md-12">
-	<h3><?php echo __('Related Industries'); ?></h3>
-	<?php if (!empty($user['Industry'])): ?>
-	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
-	<thead>
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th><?php echo __('Industryname'); ?></th>
-		<th class="actions"></th>
-	</tr>
-	<thead>
-	<tbody>
-	<?php foreach ($user['Industry'] as $industry): ?>
-		<tr>
-			<td><?php echo $industry['id']; ?></td>
-			<td><?php echo $industry['created']; ?></td>
-			<td><?php echo $industry['modified']; ?></td>
-			<td><?php echo $industry['industryname']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'industries', 'action' => 'view', $industry['id']), array('escape' => false)); ?>
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'industries', 'action' => 'edit', $industry['id']), array('escape' => false)); ?>
-				<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'industries', 'action' => 'delete', $industry['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $industry['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</tbody>
-	</table>
-<?php endif; ?>
+		<h3><?php echo __('Related Skills'); ?></h3>
+		<?php if (!empty($user['Skill'])): ?>
+			<table cellpadding = "0" cellspacing = "0" class="table table-striped">
+				<thead>
+				<tr>
+					<th><?php echo __('Id'); ?></th>
+					<th><?php echo __('Created'); ?></th>
+					<th><?php echo __('Modified'); ?></th>
+					<th><?php echo __('Skillname'); ?></th>
+					<th><?php echo __('Skill Category Id'); ?></th>
+					<th class="actions"></th>
+				</tr>
+				<thead>
+				<tbody>
+				<?php foreach ($user['Skill'] as $skill): ?>
+					<tr>
+						<td><?php echo $skill['id']; ?></td>
+						<td><?php echo $skill['created']; ?></td>
+						<td><?php echo $skill['modified']; ?></td>
+						<td><?php echo $skill['skillname']; ?></td>
+						<td><?php echo $skill['skill_category_id']; ?></td>
+						<td class="actions">
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'skills', 'action' => 'view', $skill['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'skills', 'action' => 'edit', $skill['id']), array('escape' => false)); ?>
+							<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'skills', 'action' => 'delete', $skill['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $skill['id'])); ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		<?php endif; ?>
 
-	<div class="actions">
-		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Industry'), array('controller' => 'industries', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
-	</div>
+		<div class="actions">
+			<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Skill'), array('controller' => 'skills', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?>
+		</div>
 	</div><!-- end col md 12 -->
 </div>
+
+
+
 <div class="related row">
 	<div class="col-md-12">
 	<h3><?php echo __('Related Rolls'); ?></h3>
@@ -247,42 +253,41 @@
 	</div>
 	</div><!-- end col md 12 -->
 </div>
+
 <div class="related row">
 	<div class="col-md-12">
-	<h3><?php echo __('Related Skills'); ?></h3>
-	<?php if (!empty($user['Skill'])): ?>
-	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
-	<thead>
-	<tr>
-		<th><?php echo __('Id'); ?></th>
-		<th><?php echo __('Created'); ?></th>
-		<th><?php echo __('Modified'); ?></th>
-		<th><?php echo __('Skillname'); ?></th>
-		<th><?php echo __('Skill Category Id'); ?></th>
-		<th class="actions"></th>
-	</tr>
-	<thead>
-	<tbody>
-	<?php foreach ($user['Skill'] as $skill): ?>
-		<tr>
-			<td><?php echo $skill['id']; ?></td>
-			<td><?php echo $skill['created']; ?></td>
-			<td><?php echo $skill['modified']; ?></td>
-			<td><?php echo $skill['skillname']; ?></td>
-			<td><?php echo $skill['skill_category_id']; ?></td>
-			<td class="actions">
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'skills', 'action' => 'view', $skill['id']), array('escape' => false)); ?>
-				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'skills', 'action' => 'edit', $skill['id']), array('escape' => false)); ?>
-				<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'skills', 'action' => 'delete', $skill['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $skill['id'])); ?>
-			</td>
-		</tr>
-	<?php endforeach; ?>
-	</tbody>
-	</table>
-<?php endif; ?>
+		<h3><?php echo __('Related Industries'); ?></h3>
+		<?php if (!empty($user['Industry'])): ?>
+			<table cellpadding = "0" cellspacing = "0" class="table table-striped">
+				<thead>
+				<tr>
+					<th><?php echo __('Id'); ?></th>
+					<th><?php echo __('Created'); ?></th>
+					<th><?php echo __('Modified'); ?></th>
+					<th><?php echo __('Industryname'); ?></th>
+					<th class="actions"></th>
+				</tr>
+				<thead>
+				<tbody>
+				<?php foreach ($user['Industry'] as $industry): ?>
+					<tr>
+						<td><?php echo $industry['id']; ?></td>
+						<td><?php echo $industry['created']; ?></td>
+						<td><?php echo $industry['modified']; ?></td>
+						<td><?php echo $industry['industryname']; ?></td>
+						<td class="actions">
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'industries', 'action' => 'view', $industry['id']), array('escape' => false)); ?>
+							<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'industries', 'action' => 'edit', $industry['id']), array('escape' => false)); ?>
+							<?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'industries', 'action' => 'delete', $industry['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $industry['id'])); ?>
+						</td>
+					</tr>
+				<?php endforeach; ?>
+				</tbody>
+			</table>
+		<?php endif; ?>
 
-	<div class="actions">
-		<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Skill'), array('controller' => 'skills', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?> 
-	</div>
+		<div class="actions">
+			<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Industry'), array('controller' => 'industries', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?>
+		</div>
 	</div><!-- end col md 12 -->
 </div>

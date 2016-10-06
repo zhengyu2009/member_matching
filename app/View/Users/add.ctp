@@ -62,6 +62,9 @@
 					<?php echo $this->Form->input('twitter', array('class' => 'form-control', 'placeholder' => 'Twitter'));?>
 				</div>
 				<div class="form-group">
+					<?php echo $this->Form->input('profile', array('type' => 'textarea','class' => 'form-control ', 'placeholder' => 'Profile'));?>
+				</div>
+				<div class="form-group">
 					<?php echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Profile'));?>
 				</div>
 				<div class="form-group">
@@ -70,9 +73,7 @@
 				<div class="form-group">
 				<?php echo $this->Form->input('Industry', array('class' => 'form-control', 'placeholder' => 'Profile'));?>
 				</div>
-				<div class="form-group">
-				<?php echo $this->Form->input('profile', array('type' => 'textarea','class' => 'form-control ', 'placeholder' => 'Profile'));?>
-				</div>
+
 				<div class="form-group">
 				<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
 				</div>
