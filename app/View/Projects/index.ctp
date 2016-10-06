@@ -49,7 +49,37 @@
 						<th class="actions"></th>
 					</tr>
 				</thead>
-				<tbody>
+				<tbody id="content">
+				<div id="wrap">
+					<h2>Search By Projects</h2>
+					<div id="contents" class="search">
+						<div id="contentsLeft">
+							<h3>Search By Map</h3>
+							<form action="http://workcollabo.com/matching/search_article/search" method="post" name="form1">
+								<div class="contentsInner areaSearchBox">
+									<div class="areaMapBox">
+										<ul>
+											<li class="foreign"><input type="checkbox" name="area[]" value="12" checked="checked"></li>
+											<li class="hokkaido"><input type="checkbox" name="area[]" value="1" checked="checked"></li>
+											<li class="all"><input type="checkbox" name="area[]" value="999" checked="checked" onclick="Box2_Checked();"></li>
+											<li class="tohoku"><input type="checkbox" name="area[]" value="2" checked="checked"></li>
+											<li class="okinawa"><input type="checkbox" name="area[]" value="11" checked="checked"></li>
+											<li class="shinetsu"><input type="checkbox" name="area[]" value="3" checked="checked"></li>
+											<li class="kyusyu"><input type="checkbox" name="area[]" value="10" checked="checked"></li>
+											<li class="chu-shi">
+												<p class="chugoku"><input type="checkbox" name="area[]" value="8" checked="checked"></p>
+												<p class="shikoku"><input type="checkbox" name="area[]" value="9" checked="checked"></p>
+											</li>
+											<li class="kansai"><input type="checkbox" name="area[]" value="7" checked="checked"></li>
+											<li class="hoku-to">
+												<p class="hokuriku"><input type="checkbox" name="area[]" value="4" checked="checked"></p>
+												<input type="checkbox" name="area[]" value="6" checked="checked">
+											</li>
+											<li class="kanto"><input type="checkbox" name="area[]" value="5" checked="checked"></li>
+										</ul>
+									</div>
+								</div>
+								<div>
 				<?php foreach ($projects as $project): ?>
 					<tr>
 						<td nowrap><?php echo h($project['Project']['id']); ?>&nbsp;</td>
