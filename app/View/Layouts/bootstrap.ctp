@@ -19,7 +19,8 @@
 
   	<!-- Latest compiled and minified CSS -->
   	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
-
+      <!-- CSS for map search contents -->
+      <link href="/member_matching/css/mapcontents.css" rel="stylesheet" type="text/css">
   	<!-- Latest compiled and minified JavaScript -->
   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
