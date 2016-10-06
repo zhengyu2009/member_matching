@@ -1,3 +1,10 @@
+<!-- javascript file for searching by map -->
+<?php $this->Html->scriptStart(array('inline' => false)); ?>
+
+//scriptタグは自動でできます。
+alert('テストだよ');
+<?php $this->Html->scriptEnd(); ?>
+
 <div class="projects index">
 
 	<div class="row">
@@ -55,7 +62,8 @@
 					<div id="contents" class="search">
 						<div id="contentsLeft">
 							<h3>Search By Map</h3>
-							<form action="http://workcollabo.com/matching/search_article/search" method="post" name="form1">
+							<?php echo $this->Form->create('User', array('role' => 'form')); ?>
+							<!--<form action="search" method="post" name="form1">-->
 								<div class="contentsInner areaSearchBox">
 									<div class="areaMapBox">
 										<ul>
@@ -79,7 +87,20 @@
 										</ul>
 									</div>
 								</div>
-								<div>
+								<h3>Search By Industries</h3>
+								<div class="form-group">
+									<?php echo $this->Form->input('Industry', array('class' => 'form-control', 'placeholder' => 'Select industries'));?>
+								</div>
+								<h3>Search By Skills</h3>
+								<div class="form-group">
+									<?php echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Select your skills'));?>
+								</div>
+								<div class="form-group">
+									<?php echo $this->Form->submit(__('Search'), array('class' => 'btn btn-default')); ?>
+								</div>
+
+								<?php echo $this->Form->end() ?>
+							<hr>
 				<?php foreach ($projects as $project): ?>
 					<tr>
 						<td nowrap><?php echo h($project['Project']['id']); ?>&nbsp;</td>
