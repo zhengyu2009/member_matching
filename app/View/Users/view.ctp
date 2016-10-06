@@ -67,6 +67,34 @@
 		</td>
 </tr>
 <tr>
+		<th><?php echo __('Email'); ?></th>
+		<td>
+			<?php echo h($user['User']['email']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Url'); ?></th>
+		<td>
+			<?php echo h($user['User']['url']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Facebook'); ?></th>
+		<td>
+			<?php echo h($user['User']['facebook']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Twitter'); ?></th>
+		<td>
+			<?php echo h($user['User']['twitter']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
 		<th><?php echo __('Password'); ?></th>
 		<td>
 			<?php echo h($user['User']['password']); ?>
@@ -77,6 +105,20 @@
 		<th><?php echo __('Area'); ?></th>
 		<td>
 			<?php echo $this->Html->link($user['Area']['areaname'], array('controller' => 'areas', 'action' => 'view', $user['Area']['id'])); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Abstract'); ?></th>
+		<td>
+			<?php echo h($user['User']['abstract']); ?>
+			&nbsp;
+		</td>
+</tr>
+<tr>
+		<th><?php echo __('Profile'); ?></th>
+		<td>
+			<?php echo h($user['User']['profile']); ?>
 			&nbsp;
 		</td>
 </tr>
