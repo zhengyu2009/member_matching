@@ -4,7 +4,6 @@ App::uses('AppModel', 'Model');
  * Industry Model
  *
  * @property Project $Project
- * @property Project $Project
  * @property User $User
  */
 class Industry extends AppModel {

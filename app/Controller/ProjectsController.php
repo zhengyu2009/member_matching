@@ -9,7 +9,7 @@ App::uses('AppController', 'Controller');
  * @property FlashComponent $Flash
  */
 class ProjectsController extends AppController {
-
+//    public $autoRender = false;
 /**
  * Components
  *
@@ -58,9 +58,9 @@ class ProjectsController extends AppController {
 			}
 		}
 		$users = $this->Project->User->find('list');
+//		$industries = $this->Project->Industry->find('list');
 		$industries = $this->Project->Industry->find('list');
-		$industries = $this->Project->Industry->find('list');
-		$rollsUsers = $this->Project->RollsUser->find('list');
+//		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
 		$this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));
@@ -89,9 +89,9 @@ class ProjectsController extends AppController {
 			$this->request->data = $this->Project->find('first', $options);
 		}
 		$users = $this->Project->User->find('list');
+//		$industries = $this->Project->Industry->find('list');
 		$industries = $this->Project->Industry->find('list');
-		$industries = $this->Project->Industry->find('list');
-		$rollsUsers = $this->Project->RollsUser->find('list');
+//		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
 		$this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));

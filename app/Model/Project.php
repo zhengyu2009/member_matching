@@ -5,7 +5,6 @@ App::uses('AppModel', 'Model');
  *
  * @property User $User
  * @property Industry $Industry
- * @property Industry $Industry
  * @property RollsUser $RollsUser
  * @property Roll $Roll
  * @property Skill $Skill
@@ -35,16 +34,16 @@ class Project extends AppModel {
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
 			),
 		),
-		'description' => array(
-			'notBlank' => array(
-				'rule' => array('notBlank'),
+//		'description' => array(
+//			'notBlank' => array(
+//				'rule' => array('notBlank'),
 				//'message' => 'Your custom message here',
 				//'allowEmpty' => false,
 				//'required' => false,
 				//'last' => false, // Stop validation after this rule
 				//'on' => 'create', // Limit validation to 'create' or 'update' operations
-			),
-		),
+//			),
+//		),
 	);
 
 	// The Associations below have been created with all possible keys, those that are not needed can be removed
@@ -77,32 +76,32 @@ class Project extends AppModel {
  * @var array
  */
 	public $hasAndBelongsToMany = array(
-		'Industry' => array(
-			'className' => 'Industry',
-			'joinTable' => 'industries_projects',
-			'foreignKey' => 'project_id',
-			'associationForeignKey' => 'industry_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		),
-		'RollsUser' => array(
-			'className' => 'RollsUser',
-			'joinTable' => 'projects_rolls_users',
-			'foreignKey' => 'project_id',
-			'associationForeignKey' => 'rolls_user_id',
-			'unique' => 'keepExisting',
-			'conditions' => '',
-			'fields' => '',
-			'order' => '',
-			'limit' => '',
-			'offset' => '',
-			'finderQuery' => '',
-		),
+//		'Industry' => array(
+//			'className' => 'Industry',
+//			'joinTable' => 'industries_projects',
+//			'foreignKey' => 'project_id',
+//			'associationForeignKey' => 'industry_id',
+//			'unique' => 'keepExisting',
+//			'conditions' => '',
+//			'fields' => '',
+//			'order' => '',
+//			'limit' => '',
+//			'offset' => '',
+//			'finderQuery' => '',
+//		),
+//		'RollsUser' => array(
+//			'className' => 'RollsUser',
+//			'joinTable' => 'projects_rolls_users',
+//			'foreignKey' => 'project_id',
+//			'associationForeignKey' => 'rolls_user_id',
+//			'unique' => 'keepExisting',
+//			'conditions' => '',
+//			'fields' => '',
+//			'order' => '',
+//			'limit' => '',
+//			'offset' => '',
+//			'finderQuery' => '',
+//		),
 		'Roll' => array(
 			'className' => 'Roll',
 			'joinTable' => 'rolls_projects',
@@ -128,7 +127,20 @@ class Project extends AppModel {
 			'limit' => '',
 			'offset' => '',
 			'finderQuery' => '',
-		)
+		),
+        'Area' => array(
+			'className' => 'Area',
+			'joinTable' => 'areas_projects',
+			'foreignKey' => 'project_id',
+			'associationForeignKey' => 'area_id',
+			'unique' => 'keepExisting',
+			'conditions' => '',
+			'fields' => '',
+			'order' => '',
+			'limit' => '',
+			'offset' => '',
+			'finderQuery' => '',
+		),
 	);
 
 }
