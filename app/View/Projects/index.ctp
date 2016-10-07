@@ -1,10 +1,32 @@
-<!-- javascript file for searching by map -->
-<?php $this->Html->scriptStart(array('inline' => false)); ?>
+<style>
+*, *:before, *:after {
+-webkit-box-sizing: content-box;
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
 
-//scriptタグは自動でできます。
-alert('テストだよ');
-<?php $this->Html->scriptEnd(); ?>
+<script>
+    $(document).ready(function() {
+//select all checkboxes
+        $("#select_all").change(function () {  //"select all" change
+            var status = this.checked; // "select all" checked status
+            $('.selected-area').each(function () { //iterate all listed checkbox items
+                this.checked = status; //change ".checkbox" checked status
+            });
+        });
+        $('.selected-area').change(function () { //".checkbox" change
+            console.log("hello world!");
+            //uncheck "select all", if one of the listed checkbox item is unchecked
+            if (this.checked == false) { //if this item is unchecked
+                $("#select_all")[0].checked = false; //change "select all" checked status to false
+            }
 
+            //check "select all" if all checkbox items are checked
+            if ($('.selected-area:checked').length == $('.selected-area').length) {
+                $("#select_all")[0].checked = true; //change "select all" checked status to true
+            }
+        });
+    });
+</script>
 <div class="projects index">
 
 	<div class="row">
@@ -42,7 +64,7 @@ alert('テストだよ');
 			</div><!-- end actions -->
 		</div><!-- end col md 3 -->
 
-		<div class="col-md-9">
+		<div class="col-md-8">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
 					<tr>
@@ -67,23 +89,23 @@ alert('テストだよ');
 								<div class="contentsInner areaSearchBox">
 									<div class="areaMapBox">
 										<ul>
-											<li class="foreign"><input type="checkbox" name="area[]" value="12" checked="checked"></li>
-											<li class="hokkaido"><input type="checkbox" name="area[]" value="1" checked="checked"></li>
-											<li class="all"><input type="checkbox" name="area[]" value="999" checked="checked" onclick="Box2_Checked();"></li>
-											<li class="tohoku"><input type="checkbox" name="area[]" value="2" checked="checked"></li>
-											<li class="okinawa"><input type="checkbox" name="area[]" value="11" checked="checked"></li>
-											<li class="shinetsu"><input type="checkbox" name="area[]" value="3" checked="checked"></li>
-											<li class="kyusyu"><input type="checkbox" name="area[]" value="10" checked="checked"></li>
+											<li class="foreign"><input class="selected-area" type="checkbox" name="area[]" value="12"></li>
+											<li class="hokkaido"><input class="selected-area" type="checkbox" name="area[]" value="1"></li>
+											<li class="all"><input type="checkbox" name="area[]" value="999" id="select_all"></li>
+											<li class="tohoku"><input class="selected-area" type="checkbox" name="area[]" value="2"></li>
+											<li class="okinawa"><input class="selected-area" type="checkbox" name="area[]" value="11"></li>
+											<li class="shinetsu"><input class="selected-area" type="checkbox" name="area[]" value="3"></li>
+											<li class="kyusyu"><input class="selected-area" type="checkbox" name="area[]" value="10"></li>
 											<li class="chu-shi">
-												<p class="chugoku"><input type="checkbox" name="area[]" value="8" checked="checked"></p>
-												<p class="shikoku"><input type="checkbox" name="area[]" value="9" checked="checked"></p>
+												<p class="chugoku"><input class="selected-area" type="checkbox" name="area[]" value="8"></p>
+												<p class="shikoku"><input class="selected-area" type="checkbox" name="area[]" value="9"></p>
 											</li>
-											<li class="kansai"><input type="checkbox" name="area[]" value="7" checked="checked"></li>
+											<li class="kansai"><input class="selected-area" type="checkbox" name="area[]" value="7"></li>
 											<li class="hoku-to">
-												<p class="hokuriku"><input type="checkbox" name="area[]" value="4" checked="checked"></p>
-												<input type="checkbox" name="area[]" value="6" checked="checked">
+												<p class="hokuriku"><input class="selected-area" type="checkbox" name="area[]" value="4"></p>
+												<input class="selected-area" type="checkbox" name="area[]" value="6">
 											</li>
-											<li class="kanto"><input type="checkbox" name="area[]" value="5" checked="checked"></li>
+											<li class="kanto"><input class="selected-area"type="checkbox" name="area[]" value="5"></li>
 										</ul>
 									</div>
 								</div>
