@@ -53,12 +53,12 @@
 				<div class="form-group">
 					<?php echo $this->Form->input('industry_id', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
 				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('Industry', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('RollsUser', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
-				</div>
+<!--				<div class="form-group">-->
+<!--					--><?php //echo $this->Form->input('Industry', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
+<!--				</div>-->
+<!--				<div class="form-group">-->
+<!--					--><?php //echo $this->Form->input('RollsUser', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
+<!--				</div>-->
 				<div class="form-group">
 					<?php echo $this->Form->input('Roll', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
 				</div>

@@ -63,7 +63,8 @@ class ProjectsController extends AppController {
 //		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
-		$this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));
+		$this->set(compact('users', 'industries', 'rolls', 'skills'));
+//        $this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));
 	}
 
 /**
@@ -94,7 +95,7 @@ class ProjectsController extends AppController {
 //		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
-		$this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));
+		$this->set(compact('users', 'industries', 'rolls', 'skills'));
 	}
 
 /**
