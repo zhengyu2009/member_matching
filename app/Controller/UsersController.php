@@ -71,22 +71,31 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function add() {
-		if ($this->request->is('post')) {
-			$this->User->create();
-			if ($this->User->save($this->request->data)) {
-				$this->Session->setFlash(__('The user has been saved.'), 'default', array('class' => 'alert alert-success'));
-				return $this->redirect(array('action' => 'index'));
-			} else {
-				$this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
-			}
-		}
-		$areas = $this->User->Area->find('list');
-		$industries = $this->User->Industry->find('list');
-		$rolls = $this->User->Roll->find('list');
-		$skills = $this->User->Skill->find('list');
-		$this->set(compact('areas', 'industries', 'rolls', 'skills'));
-	}
+	public function add()
+    {
+        session_start();
+//        $this->log($_SESSION);
+        $_SESSION['is_new_user'] = true;
+        if (($_SESSION['is_new_user'] == true)) {
+            if ($this->request->is('post')) {
+                $this->User->create();
+                if ($this->User->save($this->request->data)) {
+                    $this->Session->setFlash(__('The user has been saved.'), 'default', array('class' => 'alert alert-success'));
+                    return $this->redirect(array('action' => 'index'));
+                } else {
+                    $this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
+                }
+            }
+            $areas = $this->User->Area->find('list');
+            $industries = $this->User->Industry->find('list');
+            $rolls = $this->User->Roll->find('list');
+            $skills = $this->User->Skill->find('list');
+            $this->set(compact('areas', 'industries', 'rolls', 'skills'));
+        }  else {
+            return $this->redirect(array('action' => 'index'));
+        }
+
+    }
 
 /**
  * edit method

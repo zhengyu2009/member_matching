@@ -113,11 +113,11 @@
 								</div>
 								<h3>Search By Industries</h3>
 								<div class="form-group">
-									<?php echo $this->Form->input('Industry', array('class' => 'form-control', 'placeholder' => 'Select industries'));?>
+									<?php echo $this->Form->input('Industry', array('multiple' => 'checkbox', 'placeholder' => 'Select industries'));?>
 								</div>
 								<h3>Search By Skills</h3>
 								<div class="form-group">
-									<?php echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Select your skills'));?>
+									<?php echo $this->Form->input('Skill', array('multiple' => 'checkbox', 'placeholder' => 'Select your skills'));?>
 								</div>
 								<div class="form-group">
 									<?php echo $this->Form->submit(__('Search'), array('class' => 'btn btn-default')); ?>

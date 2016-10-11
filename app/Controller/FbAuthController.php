@@ -7,8 +7,8 @@ class FbAuthController extends AppController {
 
     public function login() {
         session_start();
-        define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/php-sdk-v4/src/Facebook');
-        require_once __DIR__ . '/../Vendor/facebook/php-sdk-v4/src/Facebook/autoload.php';
+        define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
+        require_once __DIR__ . '/../Vendor/facebook/src/Facebook/autoload.php';
 
         $fb = new Facebook\Facebook([
             'app_id' => '266963893454884',
@@ -25,8 +25,8 @@ class FbAuthController extends AppController {
 
     public function fbCallback() {
         session_start();
-        define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/php-sdk-v4/src/Facebook');
-        require_once __DIR__ . '/../Vendor/facebook/php-sdk-v4/src/Facebook/autoload.php';
+        define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
+        require_once __DIR__ . '/../Vendor/facebook/src/Facebook/autoload.php';
 
         $fb = new Facebook\Facebook([
             'app_id' => '266963893454884',
@@ -95,6 +95,7 @@ class FbAuthController extends AppController {
 
         $_SESSION['fb_access_token'] = (string) $accessToken;
 
+
         try {
             // Returns a `Facebook\FacebookResponse` object
             //   $response = $fb->get('/me?fields=id,name', $accessToken);
@@ -111,11 +112,12 @@ class FbAuthController extends AppController {
 
         //***************
         $repBody = $response->getDecodedBody();
-        $fbUserId = $repBody['id'];
-        $fbUserName = $repBody['name'];
-        $fbEmail = $repBody['email'];
+//        $fbUserId = $repBody['id'];
+        $fbUserId = $_SESSION['fb_user_id'] = $repBody['id'];
+        $_SESSION['fb_user_name'] =  $repBody['name'];
+        $_SESSION['fb_user_email'] =  $repBody['email'];
         $fbPicUrl = "https://graph.facebook.com/$fbUserId/picture?type=large";
-        echo $fbUserId . $fbUserName . $fbEmail . $fbPicUrl;
+        echo $fbUserId . $fbPicUrl;
         // $user = $response->getGraphUser();
         // $graphNode = $response->getGraphNode();
         // echo 'Name: ' . $user['name'];

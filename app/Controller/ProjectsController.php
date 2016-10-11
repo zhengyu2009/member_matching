@@ -24,7 +24,12 @@ class ProjectsController extends AppController {
  */
 	public function index() {
 //		$this->Project->recursive = 0;
-		$this->set('projects', $this->Paginator->paginate());
+        $rolls = $this->Project->Roll->find('list');
+        $skills = $this->Project->Skill->find('list');
+        $industries = $this->Project->Industry->find('list');
+        $projects = $this->Paginator->paginate();
+
+		$this->set(compact('projects','industries', 'rolls', 'skills'));
 //        $options = array('conditions' => array('Project.' . $this->Project->primaryKey => 5));
 //        $this->set('projects', $this->Project->find('all',$options));
 	}
