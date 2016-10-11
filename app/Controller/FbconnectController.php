@@ -1,58 +1,138 @@
 <?php
-define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/Vendor/facebook/src/Facebook');
-require_once __DIR__ . '/Vendor/facebook/src/Facebook/autoload.php';
-//【1】facebook認証
-App::uses('AppController', 'Controller');
-App::import('Vendor','facebook',array('file' => 'facebook'.DS.'src'.DS.'Facebook'.DS.'Facebook'));
+App::uses('Controller', 'AppController');
 
-class FbconnectController extends AppController {
-    public $name = 'Fbconnect';
+class FbAuthController extends AppController {
 
-    function index(){
+    public $autoRender = false;
 
-    }
-
-    function showdata(){//トップページ
-        $facebook = $this->createFacebook(); //【2】アプリに接続
-        $myFbData = $this->Session->read('mydata');       //【3】facebookのデータ
-        $this->set('myFbData', $myFbData);
-    }
-
-    //facebookの認証処理部分
-    public function facebook(){
+    public function login() {
+        session_start();
+        define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/php-sdk-v4/src/Facebook');
+        require_once __DIR__ . '/../Vendor/facebook/php-sdk-v4/src/Facebook/autoload.php';
 
         $fb = new Facebook\Facebook([
             'app_id' => '266963893454884',
             'app_secret' => '12f990b8abc3a6763c6144ad1422716e',
-            'default_graph_version' => 'v2.5',
+            'default_graph_version' => 'v2.8',
         ]);
 
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes']; // optional
-        $loginUrl = $helper->getLoginUrl('http://{your-website}/login-callback.php', $permissions);
+        $loginUrl = $helper->getLoginUrl('https://mecci-zhengyuc9.c9users.io/FbAuth/fbCallback', $permissions);
 
         echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
-
-
-//        $this->autoRender = false;
-//        $this->facebook = $this->createFacebook();
-////        facebook = $this->createFacebook();
-//        $user = $this->facebook->getUser();       //【4】ユーザ情報取得
-//        if($user){//認証後
-//            $me = $this->facebook->api('/me','GET',array('locale'=>'ja_JP'));  //【5】ユーザ情報を日本語で取得
-//            $this->Session->write('mydata',$me);      //【6】ユーザ情報をセッションに保存
-//            $this->redirect('showdata');
-//        }else{//認証前
-//            $url = $this->facebook->getLoginUrl(array(
-//                'scope' => 'email,publish_stream,user_birthday','canvas' => 1,'fbconnect' => 0));   //【7】スコープの確認
-//            $this->redirect($url);
-//        }
     }
 
-    private function createFacebook() {        //【8】appID, secretを記述
-        return new Facebook(array(
-            'appId' => 'xxxxxxxxxxxxxxxxxxx',
-            'secret' => 'xxxxxxxxxxxxxxxxxxx'
-        ));
+    public function fbCallback() {
+        session_start();
+        define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/php-sdk-v4/src/Facebook');
+        require_once __DIR__ . '/../Vendor/facebook/php-sdk-v4/src/Facebook/autoload.php';
+
+        $fb = new Facebook\Facebook([
+            'app_id' => '266963893454884',
+            'app_secret' => '12f990b8abc3a6763c6144ad1422716e',
+            'default_graph_version' => 'v2.8',
+        ]);
+
+        $helper = $fb->getRedirectLoginHelper();
+        try {
+            $accessToken = $helper->getAccessToken();
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+            // When Graph returns an error
+            echo 'Graph returned an error: ' . $e->getMessage();
+            exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+            // When validation fails or other local issues
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            exit;
+        }
+
+        if (! isset($accessToken)) {
+            if ($helper->getError()) {
+                header('HTTP/1.0 401 Unauthorized');
+                echo "Error: " . $helper->getError() . "\n";
+                echo "Error Code: " . $helper->getErrorCode() . "\n";
+                echo "Error Reason: " . $helper->getErrorReason() . "\n";
+                echo "Error Description: " . $helper->getErrorDescription() . "\n";
+            } else {
+                header('HTTP/1.0 400 Bad Request');
+                echo 'Bad request';
+            }
+            exit;
+        }
+
+        // Logged in
+        // echo '<h3>Access Token</h3>';
+        // var_dump($accessToken->getValue());
+
+        // The OAuth 2.0 client handler helps us manage access tokens
+        $oAuth2Client = $fb->getOAuth2Client();
+
+        // Get the access token metadata from /debug_token
+        // $tokenMetadata = $oAuth2Client->debugToken($accessToken);
+        // echo '<h3>Metadata</h3>';
+        // var_dump($tokenMetadata);
+        // $fb_user_id = $tokenMetadata->getUserId();
+
+        // Validation (these will throw FacebookSDKException's when they fail)
+        // $tokenMetadata->validateAppId(266963893454884); // Replace {app-id} with your app id
+        // If you know the user ID this access token belongs to, you can validate it here
+        // $tokenMetadata->validateUserId('123');
+        // $tokenMetadata->validateExpiration();
+
+        if (! $accessToken->isLongLived()) {
+            // Exchanges a short-lived access token for a long-lived one
+            try {
+                $accessToken = $oAuth2Client->getLongLivedAccessToken($accessToken);
+            } catch (Facebook\Exceptions\FacebookSDKException $e) {
+                echo "<p>Error getting long-lived access token: " . $helper->getMessage() . "</p>\n\n";
+                exit;
+            }
+
+            echo '<h3>Long-lived</h3>';
+            //   var_dump($accessToken->getValue());
+        }
+
+        $_SESSION['fb_access_token'] = (string) $accessToken;
+
+        try {
+            // Returns a `Facebook\FacebookResponse` object
+            //   $response = $fb->get('/me?fields=id,name', $accessToken);
+
+            //**************************************************
+            $response = $fb->get('/me?fields=id,name,email,picture', $accessToken);
+        } catch(Facebook\Exceptions\FacebookResponseException $e) {
+            echo 'Graph returned an error: ' . $e->getMessage();
+            exit;
+        } catch(Facebook\Exceptions\FacebookSDKException $e) {
+            echo 'Facebook SDK returned an error: ' . $e->getMessage();
+            exit;
+        }
+
+        //***************
+        $repBody = $response->getDecodedBody();
+        $fbUserId = $repBody['id'];
+        $fbUserName = $repBody['name'];
+        $fbEmail = $repBody['email'];
+        $fbPicUrl = "https://graph.facebook.com/$fbUserId/picture?type=large";
+        echo $fbUserId . $fbUserName . $fbEmail . $fbPicUrl;
+        // $user = $response->getGraphUser();
+        // $graphNode = $response->getGraphNode();
+        // echo 'Name: ' . $user['name'];
+
+        // var_dump($response);
+        // var_dump($repBody);
+        // var_dump($graphNode);
+
+        //use Facebook\FacebookRequest;
+
+        // $request = new Facebook\FacebookRequest(
+        //   $session,
+        //   'GET',
+        //   '/$fb_user_id/picture'
+        // );
+        // $response = $request->execute();
+        // $graphObject = $response->getGraphObject();
     }
+
 }
