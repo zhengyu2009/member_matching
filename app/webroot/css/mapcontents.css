@@ -25,65 +25,63 @@ search
 	margin-top:3px;
 }
 .search .areaSearchBox .areaMapBox ul li.foreign {
-	width:102px;
-	padding:14px 0 0 12px;
+    width:102px;
+    padding:14px 0 0 5px;
 }
 .search .areaSearchBox .areaMapBox ul li.hokkaido {
-	width:102px;
-	padding:14px 0 0 225px;
+    width:102px;
+    padding:14px 0 0 179px;
 }
 .search .areaSearchBox .areaMapBox ul li.all {
-	width:92px;
-	padding:87px 0 0 145px;
-	clear:both;
+    width:92px;
+    padding:72px 0 0 107px;
+    clear:both;
 }
 .search .areaSearchBox .areaMapBox ul li.tohoku {
-	width:81px;
-	padding:87px 0 44px 192px;
+    width:81px;
+    padding:72px 0 44px 105px;
 }
 .search .areaSearchBox .areaMapBox ul li.okinawa {
-	width:38px;
-	padding:29px 0 0 66px;
-	clear:both;
+    width:38px;
+    padding:10px 0 0 52px;
+    clear:both;
 }
 .search .areaSearchBox .areaMapBox ul li.shinetsu {
-	width:18px;
-	padding:16px 12px 39px 200px;
+    width:18px;
+    padding:0px 100px 36px 176px;
 }
 .search .areaSearchBox .areaMapBox ul li.kyusyu {
-	width:38px;
-	padding:42px 0 0 32px;
-	clear:both;
+    width:38px;
+    padding:22px 0 0 19px;
+    clear:both;
 }
 .search .areaSearchBox .areaMapBox ul li.chu-shi {
-	width:28px;
-	height:72px;
-	padding:17px 40px 0 66px;
+    width:28px;
+    height:72px;
+    padding:0px 40px 0 38px;
 }
 .search .areaSearchBox .areaMapBox ul li.chu-shi .chugoku {
-	height:18px;
-	padding-bottom:52px;
-
-
+    height:18px;
+    padding-bottom:30px;
 }
 .search .areaSearchBox .areaMapBox ul li.chu-shi .shikoku {
-	height:18px;
+    height:18px;
 }
 .search .areaSearchBox .areaMapBox ul li.kansai {
-	width:38px;
-	padding:43px 30px 0 32px;
+    width:38px;
+    padding:22px 28px 0 0px;
 }
 .search .areaSearchBox .areaMapBox ul li.hoku-to {
-	width:18px;
-	height:67px;
-	padding:30px 78px 0 25px;
+    width:18px;
+    height:67px;
+    padding:12px 77px 0 0px;
 }
 .search .areaSearchBox .areaMapBox ul li.hoku-to .hokuriku {
-	height:18px;
-	padding-bottom:45px;
+    height:18px;
+    padding-bottom:25px;
 }
 .search .areaSearchBox .areaMapBox ul li.kanto {
-	width:36px;
-	padding:45px 8px 0 0px;
+    width:36px;
+    padding:10px 0 0 0px;
 }
 tbody,body,dl,dt,dd,ul,ol,li,h1,h2,h3,h4,h5,form,p,table,th,td,input,textarea,select { margin:0px; padding:0px; }
