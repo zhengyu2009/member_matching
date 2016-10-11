@@ -75,6 +75,8 @@
 						<th nowrap><?php echo $this->Paginator->sort('description'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('user_id'); ?></th>
 						<th nowrap><?php echo $this->Paginator->sort('industry_id'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('area_id'); ?></th>
+						<th nowrap><?php echo $this->Paginator->sort('skill_id'); ?></th>
 						<th class="actions"></th>
 					</tr>
 				</thead>
@@ -123,6 +125,7 @@
 
 								<?php echo $this->Form->end() ?>
 							<hr>
+<!--							--><?php //$this->log($projects); ?>
 				<?php foreach ($projects as $project): ?>
 					<tr>
 						<td nowrap><?php echo h($project['Project']['id']); ?>&nbsp;</td>
@@ -136,6 +139,24 @@
 								<td>
 			<?php echo $this->Html->link($project['Industry']['industryname'], array('controller' => 'industries', 'action' => 'view', $project['Industry']['id'])); ?>
 		</td>
+						<td>
+			<?php $areas = ' ';
+					foreach ($project['Area'] as $proArea) {
+						$area = $proArea['areaname'];
+						$areas = $area . ',' . $areas ;
+					}
+			echo $areas;
+			?>
+						</td>
+						<td>
+							<?php $skills = ' ';
+							foreach ($project['Skill'] as $proSkill) {
+								$skill = $proSkill['skillname'];
+								$skills = $skill  . ',' .$skills;
+							}
+							echo $skills;
+							?>
+						</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $project['Project']['id']), array('escape' => false)); ?>
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $project['Project']['id']), array('escape' => false)); ?>

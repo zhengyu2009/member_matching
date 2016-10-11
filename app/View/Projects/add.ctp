@@ -56,11 +56,14 @@
 <!--					--><?php //echo $this->Form->input('RollsUser', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
 <!--				</div>-->
 				<div class="form-group">
-					<?php echo $this->Form->input('Roll', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
+					<?php echo $this->Form->input('Roll', array('class' => 'form-control', 'placeholder' => 'Roll Id'));?>
 				</div>
 				<div class="form-group">
 					<?php echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
 				</div>
+                <div class="form-group">
+                    <?php echo $this->Form->input('Area', array('class' => 'form-control', 'placeholder' => 'Area Id'));?>
+                </div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
 				</div>

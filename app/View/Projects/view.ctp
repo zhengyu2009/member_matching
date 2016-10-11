@@ -1,4 +1,4 @@
-<?php //var_dump($project); ?>
+<?php $this->log($project); ?>
 
 <div class="projects view">
 	<div class="row">

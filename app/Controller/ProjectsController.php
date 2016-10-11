@@ -23,8 +23,10 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->Project->recursive = 0;
+//		$this->Project->recursive = 0;
 		$this->set('projects', $this->Paginator->paginate());
+//        $options = array('conditions' => array('Project.' . $this->Project->primaryKey => 5));
+//        $this->set('projects', $this->Project->find('all',$options));
 	}
 
 /**
@@ -63,7 +65,8 @@ class ProjectsController extends AppController {
 //		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
-		$this->set(compact('users', 'industries', 'rolls', 'skills'));
+        $areas = $this->Project->Area->find('list');
+		$this->set(compact('users', 'industries', 'rolls', 'skills', 'areas'));
 //        $this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));
 	}
 
@@ -95,7 +98,8 @@ class ProjectsController extends AppController {
 //		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
-		$this->set(compact('users', 'industries', 'rolls', 'skills'));
+        $areas = $this->Project->Area->find('list');
+		$this->set(compact('users', 'industries', 'rolls', 'skills', 'areas'));
 	}
 
 /**

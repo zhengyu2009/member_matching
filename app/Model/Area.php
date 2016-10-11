@@ -55,4 +55,19 @@ class Area extends AppModel {
 		)
 	);
 
+    public $hasAndBelongsToMany = array(
+        'Project' => array(
+            'className' => 'Project',
+            'joinTable' => 'areas_projects',
+            'foreignKey' => 'area_id',
+            'associationForeignKey' => 'project_id',
+            'unique' => 'keepExisting',
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'finderQuery' => '',
+        ),
+    );
 }
