@@ -37,7 +37,7 @@
 <!--		</div><!-- end col md 3 -->
 
 		<div class="col-md-9">
-			<?php echo $this->Form->create('User', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('User', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('username', array('class' => 'form-control', 'placeholder' => '実名でお願いします'));?>
@@ -60,6 +60,7 @@
 				<div class="form-group">
 					<?php echo $this->Form->input('URL', array('class' => 'form-control', 'placeholder' => ''));?>
 				</div>
+				<div>
 				<div class="form-group">
 					<?php echo $this->Form->input('facebook', array('class' => 'form-control', 'placeholder' => 'Facebook Page'));?>
 				</div>
@@ -69,13 +70,30 @@
 				<div class="form-group">
 					<?php echo $this->Form->input('profile', array('type' => 'textarea','class' => 'form-control ', 'placeholder' => 'あなたの経歴、得意、やりたいことをここで記入してください'));?>
 				</div>
-				<div class="form-group">
-<!--					--><?php //echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Profile'));?>
-                    <?php echo $this->Form->input('skill', array('multiple' => 'checkbox')); ?>
+
+
+<!--photo-->	<div class="form-group">
+					<?php echo $this->Form->input('User.photo', array('type' => 'file'));?>
 				</div>
+<!--photo-->	<div class="form-group">
+					<?php echo $this->Form->input('photo_dir', array('type' => 'hidden'));?>
+				</div>
+
+<!--				<div class="form-group">	-->
+<!--				<?php //echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Profile'));?>	-->
+<!--                    <?php echo $this->Form->input('skill', array('multiple' => 'checkbox')); ?>	-->
+<!--				</div>	-->
+
+				<div class="form-group">
+				<?php echo $this->Form->label('Skill.Skill', 'あなたのスキルを選んでください');?>
+				<?php echo $this->Form->input('Skill', array('label' => false,'class' => 'col-sm-4','multiple' => 'checkbox')); ?>
+				</div>
+
+
 				<div class="form-group">
 				<?php echo $this->Form->input('Roll', array('class' => 'form-control', 'placeholder' => 'Profile'));?>
 				</div>
+
 				<div class="form-group">
 				<?php echo $this->Form->input('Industry', array('class' => 'form-control', 'placeholder' => 'Profile'));?>
 				</div>
