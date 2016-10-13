@@ -11,6 +11,10 @@ App::uses('BlowfishPasswordHasher', 'Controller/Component/Auth');
  */
 class UsersController extends AppController {
 
+    public $helpers = array(
+        'Form', 'Html', 'Js'
+    );
+
     public function beforeFilter() {
         parent::beforeFilter();
 

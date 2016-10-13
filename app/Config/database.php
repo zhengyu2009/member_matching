@@ -69,20 +69,9 @@ class DATABASE_CONFIG {
 	public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
-        'host' => '192.168.1.201',
-        'login' => 'meibo',
-        'password' => 'Aug.2016',
-        'database' => 'member_matching',
-        //'prefix' => '',
-        'encoding' => 'utf8',
-    );
-
-	public $test = array(
-        'datasource' => 'Database/Mysql',
-        'persistent' => false,
-        'host' => '192.168.1.201',
-        'login' => 'meibo',
-        'password' => 'Aug.2016',
+        'host' => 'localhost',
+        'login' => 'root',
+        'password' => 'root',
         'database' => 'member_matching',
         //'prefix' => '',
         'encoding' => 'utf8',
