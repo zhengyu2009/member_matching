@@ -139,7 +139,7 @@
 <!--	<div class="actions">-->
 <!--		--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Industry'), array('controller' => 'industries', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?><!-- -->
 <!--	</div>-->
-<!--	</div><!-- end col md 12 -->-->
+<!--	</div><!-- end col md 12 -->
 <!--</div>-->
 <!--<div class="related row">-->
 <!--	<div class="col-md-12">-->
@@ -174,7 +174,7 @@
 <!--	<div class="actions">-->
 <!--		--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Rolls User'), array('controller' => 'rolls_users', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?><!-- -->
 <!--	</div>-->
-<!--	</div><!-- end col md 12 -->-->
+<!--	</div><!-- end col md 12 -->
 <!--</div>-->
 <!--<div class="related row">-->
 <!--	<div class="col-md-12">-->
@@ -211,7 +211,7 @@
 <!--	<div class="actions">-->
 <!--		--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Roll'), array('controller' => 'rolls', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?><!-- -->
 <!--	</div>-->
-<!--	</div><!-- end col md 12 -->-->
+<!--	</div><!-- end col md 12 -->
 <!--</div>-->
 <!--<div class="related row">-->
 <!--	<div class="col-md-12">-->
@@ -250,5 +250,5 @@
 <!--	<div class="actions">-->
 <!--		--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Skill'), array('controller' => 'skills', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?><!-- -->
 <!--	</div>-->
-<!--	</div><!-- end col md 12 -->-->
+<!--	</div><!-- end col md 12 -->
 <!--</div>-->
