@@ -37,58 +37,65 @@
 			</div><!-- end actions -->
 		</div><!-- end col md 3 -->
 
-		<div class="col-md-9">			
+		<div class="col-md-9">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<tbody>
 				<tr>
-		<th><?php echo __('Id'); ?></th>
-		<td>
-			<?php echo h($project['Project']['id']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Created'); ?></th>
-		<td>
-			<?php echo h($project['Project']['created']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Modified'); ?></th>
-		<td>
-			<?php echo h($project['Project']['modified']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Title'); ?></th>
-		<td>
-			<?php echo h($project['Project']['title']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Description'); ?></th>
-		<td>
-			<?php echo h($project['Project']['description']); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('User'); ?></th>
-		<td>
-			<?php echo $this->Html->link($project['User']['username'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
-			&nbsp;
-		</td>
-</tr>
-<tr>
-		<th><?php echo __('Industry'); ?></th>
-		<td>
-			<?php echo $this->Html->link($project['Industry']['industryname'], array('controller' => 'industries', 'action' => 'view', $project['Industry']['id'])); ?>
-			&nbsp;
-		</td>
-</tr>
+					<th><?php echo __('Id'); ?></th>
+					<td>
+						<?php echo h($project['Project']['id']); ?>
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('Created'); ?></th>
+					<td>
+						<?php echo h($project['Project']['created']); ?>
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('Modified'); ?></th>
+					<td>
+						<?php echo h($project['Project']['modified']); ?>
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('Title'); ?></th>
+					<td>
+						<?php echo h($project['Project']['title']); ?>
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('Description'); ?></th>
+					<td>
+						<?php echo h($project['Project']['description']); ?>
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('User'); ?></th>
+					<td>
+						<?php echo $this->Html->link($project['User']['username'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('Industry'); ?></th>
+					<td>
+						<?php echo $this->Html->link($project['Industry']['industryname'], array('controller' => 'industries', 'action' => 'view', $project['Industry']['id'])); ?>
+						&nbsp;
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('Photo'); ?></th>
+					<td>
+						<?php $base = $this->Html->url("../../files/project/photo/");
+						echo $this->Html->image($base . $project['Project']['photo_dir'] . "/" . $project['Project']['photo']); ?>
+					</td>
+				</tr>
 				</tbody>
 			</table>
 

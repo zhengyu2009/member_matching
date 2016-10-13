@@ -73,11 +73,11 @@
 
 
 <!--photo-->	<div class="form-group">
-					<?php echo $this->Form->input('User.photo', array('type' => 'file'));?>
-				</div>
-<!--photo-->	<div class="form-group">
-					<?php echo $this->Form->input('photo_dir', array('type' => 'hidden'));?>
-				</div>
+						<?php echo $this->Form->input('User.photo', array('type' => 'file'));?>
+					</div>
+					<!--photo-->	<div class="form-group">
+						<?php echo $this->Form->input('photo_dir', array('type' => 'hidden'));?>
+					</div>
 
 <!--				<div class="form-group">	-->
 <!--				<?php //echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Profile'));?>	-->

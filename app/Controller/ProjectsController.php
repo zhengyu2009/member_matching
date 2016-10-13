@@ -9,6 +9,11 @@ App::uses('AppController', 'Controller');
  * @property FlashComponent $Flash
  */
 class ProjectsController extends AppController {
+
+    public $helpers = array(
+        'Form', 'Html', 'Js'
+    );
+
 //    public $autoRender = false;
 /**
  * Components
@@ -105,6 +110,7 @@ class ProjectsController extends AppController {
 		$skills = $this->Project->Skill->find('list');
         $areas = $this->Project->Area->find('list');
 		$this->set(compact('users', 'industries', 'rolls', 'skills', 'areas'));
+        $this->set('projects', $this->request->data);
 	}
 
 /**

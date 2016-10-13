@@ -35,7 +35,7 @@
 				</div>			
 		</div><!-- end col md 3 -->
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Project', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('Project', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('title', array('class' => 'form-control', 'placeholder' => 'Title'));?>
@@ -64,6 +64,14 @@
                 <div class="form-group">
                     <?php echo $this->Form->input('Area', array('class' => 'form-control', 'placeholder' => 'Area Id'));?>
                 </div>
+				<!--photo-->
+				<div class="form-group">
+					<?php echo $this->Form->input('Project.photo', array('type' => 'file')); ?>
+				</div>
+				<!--photo-->
+				<div class="form-group">
+					<?php echo $this->Form->input('photo_dir', array('type' => 'hidden')); ?>
+				</div>
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
 				</div>
