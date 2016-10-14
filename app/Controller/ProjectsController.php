@@ -28,13 +28,88 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function index() {
-//		$this->Project->recursive = 0;
-        $rolls = $this->Project->Roll->find('list');
-        $skills = $this->Project->Skill->find('list');
-        $industries = $this->Project->Industry->find('list');
-        $projects = $this->Paginator->paginate();
+//		$this->Project->recursive = 1;
+        if ($this->request->is('post')) {
+            $areas = $this->request['data']['area'];
+            $skills = $this->request['data']['Skill'];
+            $industries = $this->request['data']['Industry'];
+//            $this->log($areas);
+//            $this->log($skills);
+//            $this->log($industries);
+            $opt_area = array('OR' => array('Area.id' => $areas));
+//            $i = 0;
+//            $opt_area_sub = "";
+//            foreach ($areas as $area) {
+//                $opt_area_sub = array('Area.id' => $area);
+//                $opt_area['OR'][$i] = $opt_area_sub;
+//            }
+//            $this->log($opt_area_sub);
+//            $opt_area['OR'] = "array('OR' => array(" . $opt_area_sub . "))";
+//            $this->log($opt_area);
 
-		$this->set(compact('projects','industries', 'rolls', 'skills'));
+//            $projects = $this->Project->find('all', array(
+//                'conditions' => $opt_area,
+//                'recursive' => 1,
+//                'joins' => array(
+//                        array('table' => 'areas_projects',
+//                            'alias' => 'AreasProject',
+//                            'type' => 'inner',
+//                            'conditions' => array(
+//                                'Project.id = AreasProject.project_id',
+//                            )
+//                        ),
+//                        array(
+//                                'table' => 'areas',
+//                                'alias' => 'Area',
+//                                'type' => 'inner',
+//                                'conditions' => array(
+//                                    'AreasProject.area_id = Area.id',
+//                                ),
+//                            )
+//                    )
+//                )
+//            );
+
+
+            $this->Paginator->settings = array(
+                'conditions' => $opt_area,
+                'recursive' => 1,
+                'joins' => array(
+                    array('table' => 'areas_projects',
+                        'alias' => 'AreasProject',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'Project.id = AreasProject.project_id',
+                        )
+                    ),
+                    array(
+                        'table' => 'areas',
+                        'alias' => 'Area',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'AreasProject.area_id = Area.id',
+                        ),
+                    )
+                )
+            );
+
+            $projects = $this->Paginator->paginate('Project');
+
+            $this->log($projects);
+            $rolls = $this->Project->Roll->find('list');
+            $skills = $this->Project->Skill->find('list');
+            $industries = $this->Project->Industry->find('list');
+            $this->set(compact('projects', 'industries', 'rolls', 'skills'));
+
+
+        } else {
+            $rolls = $this->Project->Roll->find('list');
+            $skills = $this->Project->Skill->find('list');
+            $industries = $this->Project->Industry->find('list');
+            $projects = $this->Paginator->paginate();
+
+            $this->set(compact('projects', 'industries', 'rolls', 'skills'));
+        }
 //        $options = array('conditions' => array('Project.' . $this->Project->primaryKey => 5));
 //        $this->set('projects', $this->Project->find('all',$options));
 	}
