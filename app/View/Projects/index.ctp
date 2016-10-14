@@ -92,11 +92,11 @@
 									<div class="areaMapBox">
 										<ul>
 											<li class="foreign"><input class="selected-area" type="checkbox" name="area[]" value="12"></li>
-											<li class="hokkaido"><input class="selected-area" type="checkbox" name="area[]" value="1"></li>
-											<li class="all"><input type="checkbox" name="area[]" value="999" id="select_all"></li>
-											<li class="tohoku"><input class="selected-area" type="checkbox" name="area[]" value="2"></li>
+											<li class="hokkaido"><input class="selected-area" type="checkbox" name="area[]" value="3"></li>
+											<li class="all"><input type="checkbox" name="area[]" value="13" id="select_all"></li>
+											<li class="tohoku"><input class="selected-area" type="checkbox" name="area[]" value="4"></li>
 											<li class="okinawa"><input class="selected-area" type="checkbox" name="area[]" value="11"></li>
-											<li class="shinetsu"><input class="selected-area" type="checkbox" name="area[]" value="3"></li>
+											<li class="shinetsu"><input class="selected-area" type="checkbox" name="area[]" value="2"></li>
 											<li class="kyusyu"><input class="selected-area" type="checkbox" name="area[]" value="10"></li>
 											<li class="chu-shi">
 												<p class="chugoku"><input class="selected-area" type="checkbox" name="area[]" value="8"></p>
@@ -104,10 +104,10 @@
 											</li>
 											<li class="kansai"><input class="selected-area" type="checkbox" name="area[]" value="7"></li>
 											<li class="hoku-to">
-												<p class="hokuriku"><input class="selected-area" type="checkbox" name="area[]" value="4"></p>
-												<input class="selected-area" type="checkbox" name="area[]" value="6">
+												<p class="hokuriku"><input class="selected-area" type="checkbox" name="area[]" value="5"></p>
+												<p class=""></p><input class="selected-area" type="checkbox" name="area[]" value="6">
 											</li>
-											<li class="kanto"><input class="selected-area"type="checkbox" name="area[]" value="5"></li>
+											<li class="kanto"><input class="selected-area"type="checkbox" name="area[]" value="1"></li>
 										</ul>
 									</div>
 								</div>
