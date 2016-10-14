@@ -3,7 +3,7 @@
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Edit User'); ?></h1>
+				<h1><?php echo __('ユーザ情報編集'); ?></h1>
 			</div>
 		</div>
 	</div>
