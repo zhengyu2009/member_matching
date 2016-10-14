@@ -25,18 +25,10 @@
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
 <!--    -->
         </div>
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
             <span class="navbar-brand"><a href="#">Mecci</a></span>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
-                <!--<li><a href="GA_Apple_A_home.html">ホーム</a></li>-->
                 <li><a href="http://localhost/member_matching/projects">プロジェクト一覧</a></li>
                 <li><a href="http://localhost/member_matching/users">ユーザ一覧</a></li>
                 <li><a href="#">ログイン</a></li>
