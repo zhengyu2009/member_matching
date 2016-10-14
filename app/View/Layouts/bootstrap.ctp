@@ -44,7 +44,7 @@
     <div class="container">
 
 			<?php echo $this->Session->flash(); ?>
-
+            <?php echo $this->element('breadcrumbs'); ?>
 			<?php echo $this->fetch('content'); ?>
 
     </div><!-- /.container -->

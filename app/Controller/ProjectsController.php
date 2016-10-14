@@ -54,6 +54,10 @@ class ProjectsController extends AppController {
 		$this->set('project', $this->Project->find('first', $options));
 	}
 
+
+
+
+
 /**
  * add method
  *
