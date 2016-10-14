@@ -1,3 +1,8 @@
+<?php
+$this->Html->addCrumb('プロジェクト一覧', array('controller'=>'projects','action'=>'index'));
+$this->Html->addCrumb('プロジェクト'.$projects['Project']['id'].'の編集');
+;?>
+
 <div class="projects form">
 
 	<div class="row">

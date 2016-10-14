@@ -1,3 +1,8 @@
+<?php
+$this->Html->addCrumb('プロジェクト一覧', array('controller'=>'projects','action'=>'index'));
+$this->Html->addCrumb('プロジェクトの新規追加');
+;?>
+
 <div class="projects form">
 
 	<div class="row">
@@ -85,6 +90,7 @@
 				<div class="form-group">
 					<?php echo $this->Form->input('photo_dir', array('type' => 'hidden')); ?>
 				</div>
+
 				<div class="form-group">
 					<?php echo $this->Form->submit(__('Submit'), array('class' => 'btn btn-default')); ?>
 				</div>

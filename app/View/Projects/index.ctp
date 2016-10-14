@@ -27,6 +27,9 @@
         });
     });
 </script>
+<?php
+$this->Html->addCrumb('プロジェクト一覧');
+;?>
 <div class="projects index">
 
 	<div class="row">
