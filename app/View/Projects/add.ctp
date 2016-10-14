@@ -55,15 +55,28 @@
 <!--				<div class="form-group">-->
 <!--					--><?php //echo $this->Form->input('RollsUser', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
 <!--				</div>-->
-				<div class="form-group">
-					<?php echo $this->Form->input('Roll', array('class' => 'form-control', 'placeholder' => 'Roll Id'));?>
-				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
-				</div>
-                <div class="form-group">
-                    <?php echo $this->Form->input('Area', array('class' => 'form-control', 'placeholder' => 'Area Id'));?>
-                </div>
+<!--				<div class="form-group">
+					<?php /*echo $this->Form->input('Roll', array('class' => 'form-control', 'placeholder' => 'Roll Id'));*/?>
+				</div>-->
+			<div class="form-group">
+				<?php echo $this->Form->label('Roll.Roll', '募集するロールを選んでください（複数選択可）');?>
+				<?php echo $this->Form->input('Roll', array('label' => false,'class' => 'checkbox-inline','multiple' => 'checkbox')); ?>
+			</div>
+<!--				<div class="form-group">
+					<?php /*echo $this->Form->input('Skill', array('class' => 'form-control', 'placeholder' => 'Industry Id'));*/?>
+				</div>-->
+			<div class="form-group">
+				<?php echo $this->Form->label('Skill.Skill', '募集するスキルを選んでください（複数選択可）');?>
+				<?php echo $this->Form->input('Skill', array('label' => false,'class' => 'checkbox-inline','multiple' => 'checkbox')); ?>
+			</div>
+<!--                <div class="form-group">
+                    <?php /*echo $this->Form->input('Area', array('class' => 'form-control', 'placeholder' => 'Area Id'));*/?>
+                </div>-->
+			<div class="form-group">
+				<?php echo $this->Form->label('Area.Area', '募集エリアを選んでください（複数選択可）');?>
+				<?php echo $this->Form->input('Area', array('label' => false,'class' => 'checkbox-inline','multiple' => 'checkbox')); ?>
+			</div>
+
 				<!--photo-->
 				<div class="form-group">
 					<?php echo $this->Form->input('Project.photo', array('type' => 'file')); ?>
