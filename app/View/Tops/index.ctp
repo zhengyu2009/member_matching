@@ -4,13 +4,14 @@
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="サンプル：メインページです">
-    <meta name="keywords" content="サンプル,メインページ">
+    <meta name="description" content="トップページです">
+    <meta name="keywords" content="トップページ">
     <title>mecci</title>
     <!-- css -->
     <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
-    <link href="top.css" rel="stylesheet">
+    <link href="app/webroot/css/top.css" rel="stylesheet">
+    <link href="app/webroot/css/top2.css" rel="stylesheet">
     <!-- IE対応 -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -22,14 +23,8 @@
 
 <!-- ===== ナビゲーションバー ===== -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-        <!--<div class="text-right">-->
-        <!--<button type="button" class="btn btn-link btn-lg">新規</button>-->
-        <!--<button type="button" class="btn btn-link btn-lg">ログイン</button>-->
-        <!--<button type="button" class="btn btn-link btn-lg">ログアウト</button>-->
-        <!--<button type="button" class="btn btn-link btn-lg">マイページ</button>-->
-        <!--</div>-->
-        <!--</div>-->
+<!--    -->
+        </div>
         <div class="navbar-header">
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
                 <span class="sr-only">Toggle navigation</span>
@@ -37,13 +32,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <span class="navbar-brand"><a href="top.html">Mecci</a></span>
+            <span class="navbar-brand"><a href="#">Mecci</a></span>
         </div>
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
                 <!--<li><a href="GA_Apple_A_home.html">ホーム</a></li>-->
-                <li><a href="#">プロジェクト一覧</a></li>
-                <li><a href="#">ユーザ一覧</a></li>
+                <li><a href="http://localhost/member_matching/projects">プロジェクト一覧</a></li>
+                <li><a href="http://localhost/member_matching/users">ユーザ一覧</a></li>
                 <li><a href="#">ログイン</a></li>
                 <li><a href="#">ログアウト</a></li>
             </ul>
@@ -203,11 +198,11 @@
             <div class="col-sm-4">
                 <div class="boxstyle_02">
                     <h4>プロジェクトX</h4>
-                    <img src="img/main_top4.png" alt="" class="img-responsive">
+                    <img src="app/webroot/img/top.png" alt="" class="img-responsive">
                     <div class="cardtyle">
                         <p>
-                            コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。
-                            写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                            コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                            <button type="button" class="btn btn-link btn-lg">詳細</button>
                         </p>
                     </div>
                 </div>
@@ -215,11 +210,12 @@
             <div class="col-sm-4">
                 <div class="boxstyle_02">
                     <h4>めっち</h4>
-                    <img src="img/main_top20.png" alt="" class="img-responsive">
+                    <img src="" alt="" class="img-responsive">
                     <div class="cardtyle">
                         <p>
-                            コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。
-                            写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                        <p>
+                            コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                            <button type="button" class="btn btn-link btn-lg">詳細</button>
                         </p>
                     </div>
                 </div>
@@ -227,11 +223,12 @@
             <div class="col-sm-4">
                 <div class="boxstyle_02">
                     <h4>mecci</h4>
-                    <img src="img/main_top19.png" alt="" class="img-responsive">
+                    <img src="" alt="" class="img-responsive">
                     <div class="cardtyle">
                         <p>
-                            コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。
-                            写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                        <p>
+                            コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                            <button type="button" class="btn btn-link btn-lg">詳細</button>
                         </p>
                     </div>
                 </div>
@@ -257,11 +254,12 @@
         <div class="col-sm-4">
             <div class="boxstyle_02">
                 <h4>佐藤さん</h4>
-                <img src="img/main_top2.png" alt="" class="img-responsive">
+                <img src="" alt="" class="img-responsive">
                 <div class="cardtyle">
                     <p>
                         コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。
                         写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                        <button type="button" class="btn btn-link btn-lg">詳細</button>
                     </p>
                 </div>
             </div>
@@ -269,11 +267,12 @@
         <div class="col-sm-4">
             <div class="boxstyle_02">
                 <h4>鈴木さん</h4>
-                <img src="img/main_top15.png" alt="" class="img-responsive">
+                <img src="" alt="" class="img-responsive">
                 <div class="cardtyle">
                     <p>
                         コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。
                         写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                        <button type="button" class="btn btn-link btn-lg">詳細</button>
                     </p>
                 </div>
             </div>
@@ -281,11 +280,12 @@
         <div class="col-sm-4">
             <div class="boxstyle_02">
                 <h4>木村さん</h4>
-                <img src="img/main_top3.png" alt="" class="img-responsive">
+                <img src="" alt="" class="img-responsive">
                 <div class="cardtyle">
                     <p>
                         コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。
                         写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                        <button type="button" class="btn btn-link btn-lg">詳細</button>
                     </p>
                 </div>
             </div>
