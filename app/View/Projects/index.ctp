@@ -33,13 +33,13 @@ $this->Html->addCrumb('プロジェクトを探す');
 <div class="projects index">
 
 	<div class="row">
-		<div class="col-md-12">
+		<div class="col-md-">
 			<div class="page-header">
 				<h1><?php echo __('プロジェクトを探す'); ?></h1>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
-
+</div>
 
 
 	<div class="row">
@@ -68,29 +68,13 @@ $this->Html->addCrumb('プロジェクトを探す');
         <!--		</div><!-- end col md 3 -->
         <!--</div><!-- end row -->
 		<div class="col-md-8">
-            <div class="form-horizontal">
-			<table cellpadding="0" cellspacing="0" class="table table-striped">
-				<thead>
-					<tr>
-						<!--<th nowrap><?php /*echo $this->Paginator->sort('id'); */?></th>-->
-						<th nowrap><?php echo $this->Paginator->sort('title', 'タイトル'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('description', '概要'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('user_id', '募集者名'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('industry_id', '業種'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('area_id', '募集エリア'); ?></th>
-						<th nowrap><?php echo $this->Paginator->sort('skill_id', '求めるスキル'); ?></th>
-                        <th nowrap><?php echo $this->Paginator->sort('created', '作成日'); ?></th>
-                        <th nowrap><?php echo $this->Paginator->sort('modified', '編集日'); ?></th>
-						<th class="actions"></th>
-					</tr>
-				</thead>
 				<tbody id="content">
 				<div id="wrap">
-					<h2>Search By Projects</h2>
+					<h2>エリアから探す</h2>
 					<div id="contents" class="search">
 						<div id="contentsLeft">
-							<h3>Search By Map</h3>
 							<?php echo $this->Form->create('User', array('role' => 'form')); ?>
+
 							<!--<form action="search" method="post" name="form1">-->
 								<div class="contentsInner areaSearchBox">
 									<div class="areaMapBox">
@@ -115,27 +99,53 @@ $this->Html->addCrumb('プロジェクトを探す');
 										</ul>
 									</div>
 								</div>
-								<h3>Search By Industries</h3>
+                            </div>
 
+                        <div class="row">
+
+                            <h2>業種から探す</h2>
+                            <div class="form-horizontal">
                             <div class="form-group">
-                                <?php echo $this->Form->label('Industry.Industry', '業種を選んでください');?>
                                 <div class="checkbox">
-                                    <?php echo $this->Form->input('Industry', array('label' => false,'class' => 'col-sm-6','multiple' => 'checkbox')); ?>
+                                    <?php echo $this->Form->input('Industry', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
                                 </div>
 							<!--		--><?php /*echo $this->Form->input('Industry', array('multiple' => 'checkbox', 'placeholder' => 'Select industries'));*/?>
-								</div>
+								</div></div>
+
                             <div style="clear: both;"></div>
-								<h3>Search By Skills</h3>
+                            <h2>スキルから探す</h2>
+                            <div class="form-horizontal">
 								<div class="form-group">
-									<?php echo $this->Form->input('Skill', array('multiple' => 'checkbox', 'placeholder' => 'Select your skills'));?>
+                                    <div class="checkbox">
+                                        <?php echo $this->Form->input('Skill', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
+                                    </div>
+									<?php /*echo $this->Form->input('Skill', array('multiple' => 'checkbox', 'placeholder' => 'Select your skills'));*/?>
 								</div>
+                            </div>
+                            <div style="clear: both;"></div>
 								<div class="form-group">
 									<?php echo $this->Form->submit(__('Search'), array('class' => 'btn btn-default')); ?>
 								</div>
 
 								<?php echo $this->Form->end() ?>
-							<hr>
-<!--							--><?php //$this->log($projects); ?>
+                            </div>
+
+                        <div class="row">
+                            <table cellpadding="0" cellspacing="0" class="table table-striped">
+                                <thead>
+                                <tr>
+                                    <!--<th nowrap><?php /*echo $this->Paginator->sort('id'); */?></th>-->
+                                    <th nowrap><?php echo $this->Paginator->sort('title', 'タイトル'); ?></th>
+                                    <th nowrap><?php echo $this->Paginator->sort('description', '概要'); ?></th>
+                                    <th nowrap><?php echo $this->Paginator->sort('user_id', '募集者名'); ?></th>
+                                    <th nowrap><?php echo $this->Paginator->sort('industry_id', '業種'); ?></th>
+                                    <th nowrap><?php echo $this->Paginator->sort('area_id', '募集エリア'); ?></th>
+                                    <th nowrap><?php echo $this->Paginator->sort('skill_id', '求めるスキル'); ?></th>
+                                    <th nowrap><?php echo $this->Paginator->sort('created', '作成日'); ?></th>
+                                    <th nowrap><?php echo $this->Paginator->sort('modified', '編集日'); ?></th>
+                                    <th class="actions"></th>
+                                </tr>
+                                </thead>
 				<?php foreach ($projects as $project): ?>
 					<tr>
 						<!--<td nowrap><?php /*echo h($project['Project']['id']); */?>&nbsp;</td>-->
@@ -178,7 +188,6 @@ $this->Html->addCrumb('プロジェクトを探す');
 				<?php endforeach; ?>
 				</tbody>
 			</table>
-
 			<p>
 				<small><?php echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));?></small>
 			</p>
@@ -195,9 +204,8 @@ $this->Html->addCrumb('プロジェクトを探す');
 				?>
 			</ul>
 			<?php } ?>
-</div>
-		</div> <!-- end col md 9 -->
-	</div><!-- end row -->
+            </div>
+</div><!-- end col md 8 -->
 
 
 </div><!-- end containing of content -->
