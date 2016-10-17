@@ -1,6 +1,7 @@
 <?php
 class TopsController extends AppController {
 
+    public $uses = array('Project', 'User');
 //    var $name = 'Tops';
 //
     function index() {
@@ -20,7 +21,12 @@ class TopsController extends AppController {
         $this->set('loginUrl', $loginUrl);
         $logoutUrl = 'https://mecci2-zhengyuc9.c9users.io/FbAuth/logout';
         $this->set('logoutUrl', $logoutUrl);
-        // $this->log($loginUrl);
+
+        $options = array(
+            'order' => array('Project.created DESC'),
+            'limit' => 3
+        );
+        $this->set('projects', $this->Project->find('all', $options));
     }
 }
 ?>

@@ -1,4 +1,4 @@
-<!--<?php session_start(); ?>-->
+<?php $this->log($projects); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -75,11 +75,11 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4>プロジェクトX</h4>
-                    <img src="app/webroot/img/top.png" alt="" class="img-responsive">
+                    <h4><?php echo $projects[0]['Project']['title']; ?></h4>
+                    <img src="app/webroot/files/project/photo/<?php echo $projects[0]['Project']['photo_dir'] . '/' . $projects[0]['Project']['photo']; ?>" alt="" class="img-responsive">
                     <div class="cardtyle">
                         <p>
-                            コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                            <?php echo $projects[0]['Project']['description']?>
                             <button type="button" class="btn btn-link btn-lg">詳細</button>
                         </p>
                     </div>
@@ -87,12 +87,11 @@
             </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4>めっち</h4>
-                    <img src="" alt="" class="img-responsive">
+                    <h4><?php echo $projects[1]['Project']['title']; ?></h4>
+                    <img src="app/webroot/files/project/photo/<?php echo $projects[1]['Project']['photo_dir'] . '/' . $projects[1]['Project']['photo']; ?>" alt="" class="img-responsive">
                     <div class="cardtyle">
                         <p>
-                        <p>
-                            コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                            <?php echo $projects[1]['Project']['description']?>
                             <button type="button" class="btn btn-link btn-lg">詳細</button>
                         </p>
                     </div>
@@ -100,12 +99,11 @@
             </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4>mecci</h4>
-                    <img src="" alt="" class="img-responsive">
+                    <h4><?php echo $projects[2]['Project']['title']; ?></h4>
+                    <img src="app/webroot/files/project/photo/<?php echo $projects[2]['Project']['photo_dir'] . '/' . $projects[2]['Project']['photo']; ?>" alt="" class="img-responsive">
                     <div class="cardtyle">
                         <p>
-                        <p>
-                            コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                            <?php echo $projects[2]['Project']['description']?>
                             <button type="button" class="btn btn-link btn-lg">詳細</button>
                         </p>
                     </div>
