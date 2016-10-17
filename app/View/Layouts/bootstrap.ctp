@@ -59,7 +59,7 @@
             cursor:pointer;
             width:50px;
             height:50px;
-            background-color:#3498db;
+            background-color:#74D2FF;
             text-indent:-9999px;
             display:none;
             -webkit-border-radius:60px;
@@ -78,7 +78,7 @@
             border-bottom-color:#ffffff
         }
         #scroll:hover {
-            background-color:#e74c3c;
+            background-color:#5CA4CA;
             opacity:1;filter:"alpha(opacity=100)";
             -ms-filter:"alpha(opacity=100)";
         }
