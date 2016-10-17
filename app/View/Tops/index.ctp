@@ -1,4 +1,4 @@
-<?php $this->log($projects); ?>
+<?php $this->log($users); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -134,12 +134,11 @@
     <div class="row">
         <div class="col-sm-4">
             <div class="boxstyle_02">
-                <h4>佐藤さん</h4>
-                <img src="" alt="" class="img-responsive">
+                <h4><?php echo $users[0]['User']['username']; ?></h4>
+                <img src="app/webroot/files/user/photo/<?php echo $users[0]['User']['photo_dir'] . '/' . $users[0]['User']['photo']; ?>" alt="" class="img-responsive">
                 <div class="cardtyle">
                     <p>
-                        コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。
-                        写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                        <?php echo $users[0]['User']['abstract']?>
                         <button type="button" class="btn btn-link btn-lg">詳細</button>
                     </p>
                 </div>
@@ -147,12 +146,11 @@
         </div>
         <div class="col-sm-4">
             <div class="boxstyle_02">
-                <h4>鈴木さん</h4>
-                <img src="" alt="" class="img-responsive">
+                <h4><?php echo $users[1]['User']['username']; ?></h4>
+                <img src="app/webroot/files/user/photo/<?php echo $users[1]['User']['photo_dir'] . '/' . $users[1]['User']['photo']; ?>" alt="" class="img-responsive">
                 <div class="cardtyle">
                     <p>
-                        コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。
-                        写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                        <?php echo $users[1]['User']['abstract']?>
                         <button type="button" class="btn btn-link btn-lg">詳細</button>
                     </p>
                 </div>
@@ -160,12 +158,11 @@
         </div>
         <div class="col-sm-4">
             <div class="boxstyle_02">
-                <h4>木村さん</h4>
-                <img src="" alt="" class="img-responsive">
+                <h4><?php echo $users[2]['User']['username']; ?></h4>
+                <img src="app/webroot/files/user/photo/<?php echo $users[2]['User']['photo_dir'] . '/' . $users[2]['User']['photo']; ?>" alt="" class="img-responsive">
                 <div class="cardtyle">
                     <p>
-                        コンテンツのサンプルです。行のコンテンツ数を変更したい場合は段組設定を編集して下さい。
-                        写真とコメント部分の表示を変更する場合は、付属のCSSファイルの該当クラスを編集して下さい。
+                        <?php echo $users[2]['User']['abstract']?>
                         <button type="button" class="btn btn-link btn-lg">詳細</button>
                     </p>
                 </div>

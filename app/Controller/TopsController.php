@@ -27,6 +27,12 @@ class TopsController extends AppController {
             'limit' => 3
         );
         $this->set('projects', $this->Project->find('all', $options));
+
+        $options = array(
+            'order' => array('User.created DESC'),
+            'limit' => 3
+        );
+        $this->set('users', $this->User->find('all', $options));
     }
 }
 ?>
