@@ -1,4 +1,4 @@
-<?php session_start(); ?>
+<?php //session_start(); ?>
 <div class="users form">
 
 	<div class="row">
@@ -83,6 +83,10 @@
 					<?php echo $this->Form->input('User.photo', array('type' => 'file'));?>
 					<?php echo $this->Form->input('photo_dir', array('type' => 'hidden'));?>
 				</div>
+
+					<div class="form-group">
+						<?php echo $this->Form->input('fb_user_id', array('type' => 'hidden'));?>
+					</div>
 <!--					<p id="output" class="output"></p>
 					<p id="error" class="error none"></p>
 					<div id="output"></div>
