@@ -18,6 +18,8 @@ class TopsController extends AppController {
         $permissions = ['email', 'user_likes']; // optional
         $loginUrl = $helper->getLoginUrl('https://mecci2-zhengyuc9.c9users.io/FbAuth/fbCallback', $permissions);
         $this->set('loginUrl', $loginUrl);
+        $logoutUrl = 'https://mecci2-zhengyuc9.c9users.io/FbAuth/logout';
+        $this->set('logoutUrl', $logoutUrl);
         // $this->log($loginUrl);
     }
 }

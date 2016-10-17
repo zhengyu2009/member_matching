@@ -4,6 +4,7 @@ App::uses('Controller', 'AppController');
 class FbAuthController extends AppController {
 
     public $autoRender = false;
+    public $uses = array('User');
 
     public function login() {
         session_start();
@@ -21,6 +22,13 @@ class FbAuthController extends AppController {
         $loginUrl = $helper->getLoginUrl('https://mecci2-zhengyuc9.c9users.io/FbAuth/fbCallback', $permissions);
 
         echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
+    }
+
+    public function logout() {
+        session_start();
+        $_SESSION = array();
+        session_destroy();
+        return $this->redirect(array('controller' => 'Tops', 'action' => 'index'));
     }
 
     public function fbCallback() {
@@ -117,14 +125,21 @@ class FbAuthController extends AppController {
         $_SESSION['fb_user_name'] =  $repBody['name'];
         $_SESSION['fb_user_email'] =  $repBody['email'];
         $fbPicUrl = "https://graph.facebook.com/$fbUserId/picture?type=large";
-        echo $fbUserId . $fbPicUrl;
+        // echo $fbUserId . $fbPicUrl;
+        
+        $options = array('conditions' => array('User.fb_user_id' => $fbUserId));
+        $userInfo = $this->User->find('first', $options);
+        if($userInfo) {
+            // echo 'Hello ' . $userInfo['User']['username'];
+            return $this->redirect(array('controller' => 'Projects', 'action' => 'index'));
+        } else {
+            $_SESSION['is_new_user'] = true;
+            return $this->redirect(array('controller' => 'Users', 'action' => 'add'));
+        }
+        
         // $user = $response->getGraphUser();
         // $graphNode = $response->getGraphNode();
         // echo 'Name: ' . $user['name'];
-
-        // var_dump($response);
-        // var_dump($repBody);
-        // var_dump($graphNode);
 
         //use Facebook\FacebookRequest;
 

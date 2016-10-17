@@ -79,7 +79,7 @@ class UsersController extends AppController {
     {
         session_start();
 //        $this->log($_SESSION);
-        $_SESSION['is_new_user'] = true;
+        // $_SESSION['is_new_user'] = true;
         if (($_SESSION['is_new_user'] == true)) {
             if ($this->request->is('post')) {
                 $this->User->create();
@@ -89,6 +89,11 @@ class UsersController extends AppController {
                 } else {
                     $this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
                 }
+            } else {
+                $this->request->data('User.username', $_SESSION['fb_user_name'])
+                ->data('User.email', $_SESSION['fb_user_email'])
+                ->data('User.facebook', 'https://www.facebook.com/' . $_SESSION['fb_user_id'])
+                ->data('User.fb_user_id', $_SESSION['fb_user_id']);
             }
             $areas = $this->User->Area->find('list');
             $industries = $this->User->Industry->find('list');
@@ -122,6 +127,7 @@ class UsersController extends AppController {
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 			$this->request->data = $this->User->find('first', $options);
+// 			$this->log($this->request->data);
 		}
 		$areas = $this->User->Area->find('list');
 		$industries = $this->User->Industry->find('list');

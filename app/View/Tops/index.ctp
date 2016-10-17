@@ -27,14 +27,14 @@
     <span class="navbar-brand"><a href="#">Mecci</a></span>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="http://localhost/member_matching/projects">プロジェクト一覧</a></li>
-            <li><a href="http://localhost/member_matching/users">ユーザ一覧</a></li>
+            <li><a href="#projects">プロジェクト</a></li>
+            <li><a href="#users">ユーザ</a></li>
             <?php
                 if(isset($_SESSION['fb_user_id'])){
-                    echo '<li><a href="#">ログアウト</a></li>';
+                    echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
             
                 } else {
-                    echo '<li><a href="' . $loginUrl. '">facebookでログイン</a></li>';
+                    echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
                 }
             ?>
         </ul>
@@ -53,7 +53,7 @@
 </header>
 
 <!-- ===== コンテンツ ===== -->
-<div class="container contents_area">
+<div id="projects" class="container contents_area">
 
 <!-- コンテンツサンプル：プロジェクト -->
     <div class="container">
@@ -68,7 +68,7 @@
         <div class="collapse navbar-collapse navbar-ex1-collapse">
             <ul class="nav navbar-nav navbar-right">
 
-                <li><a href="#">もっと見る</a></li>
+                <li><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
             </ul>
         </div>
 
@@ -116,7 +116,7 @@
 </div>
 
 <!-- コンテンツサンプル： ユーザー -->
-<div class="container">
+<div id="users" class="container">
     <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> ユーザー</h4>
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -124,7 +124,7 @@
     </div>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
-            <li><a href="#">もっと見る</a></li>
+            <li><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Users', 'action' => 'index')); ?></li>
         </ul>
     </div>
 
