@@ -1,4 +1,4 @@
-<?php $this->log($users); ?>
+<?php //$this->log($users); ?>
 <!DOCTYPE html>
 <html lang="ja">
 <head>
@@ -29,6 +29,7 @@
 
 <!-- ===== ナビゲーションバー ===== -->
 <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+    <div class="container">
     <span class="navbar-brand"><a href="#">Mecci</a></span>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
         <ul class="nav navbar-nav navbar-right">
@@ -36,6 +37,7 @@
             <li><a href="#users">ユーザ</a></li>
             <?php
                 if(isset($_SESSION['fb_user_id'])){
+                    echo '<li><a href="">マイページ</a></li>';
                     echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
             
                 } else {
@@ -43,6 +45,7 @@
                 }
             ?>
         </ul>
+    </div>
     </div>
 </nav>
 
@@ -58,24 +61,27 @@
 </header>
 
 <!-- ===== コンテンツ ===== -->
-<div id="projects" class="container contents_area">
+<div id="projects" class="contents_area">
 
 <!-- コンテンツサンプル：プロジェクト -->
-    <div class="container">
-        <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> プロジェクト</h4>
+    <div class="">
+        <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> プロジェクト
+            <p class="" style="float: right"><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?></small></p>
+        </h4>
 
         <div class="navbar-header">
+
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
 
             </button>
 
         </div>
-        <div class="collapse navbar-collapse navbar-ex1-collapse">
-            <ul class="nav navbar-nav navbar-right">
-
-                <li><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
-            </ul>
-        </div>
+<!--        <div class="collapse navbar-collapse navbar-ex1-collapse">-->
+<!--            <ul class="nav navbar-nav navbar-right">-->
+<!---->
+<!--                <li>--><?php //echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?><!--</li>-->
+<!--            </ul>-->
+<!--        </div>-->
 
         <div class="row">
             <div class="col-sm-4">
@@ -119,7 +125,7 @@
 </div>
 
 <!-- コンテンツサンプル： ユーザー -->
-<div id="users" class="container">
+<div id="users" class="contents_area">
     <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> ユーザー</h4>
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -194,7 +200,7 @@
 <!-- ===== copyright ===== -->
 <div class="copyright">
     <div class="container">
-        <p class="text-right">
+        <p class="text-right" style="padding-right: 30px">
             Copyright &copy; <a href="#">Mecci</a> 2016. All Rights Reserved.
         </p>
     </div>
