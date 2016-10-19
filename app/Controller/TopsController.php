@@ -2,8 +2,7 @@
 class TopsController extends AppController {
 
     public $uses = array('Project', 'User');
-//    var $name = 'Tops';
-//
+
     function index() {
         session_start();
         define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');

@@ -1,4 +1,4 @@
-<?php $this->log($user); ?>
+<?php //$this->log($user); ?>
 <div class="users view">
 	<div class="row">
 		<div class="col-md-9">

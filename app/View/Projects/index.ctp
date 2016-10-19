@@ -43,30 +43,6 @@ $this->Html->addCrumb('プロジェクトを探す');
 
 
 	<div class="row">
-
-<!--		<div class="col-md-3">-->
-<!--			<div class="actions">-->
-        <!--				<div class="panel panel-default">-->
-<!--<!--					<div class="panel-heading"><?php /*echo __('Actions'); */?></div>-->
-<!--						<div class="panel-body">-->
-<!--							<ul class="nav nav-pills nav-stacked">-->
-<!--								<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;'.__('New Project'), array('action' => 'add'), array('escape' => false)); */?></li>-->
-<!--								<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Users'), array('controller' => 'users', 'action' => 'index'), array('escape' => false)); */?> </li>-->
-<!--		<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('User'), array('controller' => 'users', 'action' => 'add'), array('escape' => false)); */?> </li>-->
-<!--		<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Industries'), array('controller' => 'industries', 'action' => 'index'), array('escape' => false)); */?> </li>-->
-<!--		<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('Industry'), array('controller' => 'industries', 'action' => 'add'), array('escape' => false)); */?> </li>-->
-<!--		<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Rolls Users'), array('controller' => 'rolls_users', 'action' => 'index'), array('escape' => false)); */?> </li>-->
-<!--		<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('Rolls User'), array('controller' => 'rolls_users', 'action' => 'add'), array('escape' => false)); */?> </li>-->
-<!--		<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Rolls'), array('controller' => 'rolls', 'action' => 'index'), array('escape' => false)); */?> </li>-->
-<!--		<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('Roll'), array('controller' => 'rolls', 'action' => 'add'), array('escape' => false)); */?> </li>-->
-<!--		<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-list"></span>&nbsp;&nbsp;List'.__('Skills'), array('controller' => 'skills', 'action' => 'index'), array('escape' => false)); */?> </li>-->
-<!--		<li><?php /*echo $this->Html->link('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New'.__('Skill'), array('controller' => 'skills', 'action' => 'add'), array('escape' => false)); */?> </li>-->
-<!--							</ul>
-<!--						</div><!-- end body -->
-        <!--				</div><!-- end panel -->
-        <!--			</div><!-- end actions -->
-        <!--		</div><!-- end col md 3 -->
-        <!--</div><!-- end row -->
 		<div class="col-md-8">
 				<tbody id="content">
 				<div id="wrap">
@@ -102,15 +78,14 @@ $this->Html->addCrumb('プロジェクトを探す');
                             </div>
 
                         <div class="row">
-
                             <h2>業種から探す</h2>
                             <div class="form-horizontal">
-                            <div class="form-group">
-                                <div class="checkbox">
-                                    <?php echo $this->Form->input('Industry', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
-                                </div>
-							<!--		--><?php /*echo $this->Form->input('Industry', array('multiple' => 'checkbox', 'placeholder' => 'Select industries'));*/?>
-								</div></div>
+                            	<div class="form-group">
+									<div class="checkbox">
+										<?php echo $this->Form->input('Industry', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
+									</div>
+								</div>
+							</div>
 
                             <div style="clear: both;"></div>
                             <h2>スキルから探す</h2>
@@ -119,7 +94,6 @@ $this->Html->addCrumb('プロジェクトを探す');
                                     <div class="checkbox">
                                         <?php echo $this->Form->input('Skill', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
                                     </div>
-									<?php /*echo $this->Form->input('Skill', array('multiple' => 'checkbox', 'placeholder' => 'Select your skills'));*/?>
 								</div>
                             </div>
                             <div style="clear: both;"></div>
@@ -128,7 +102,7 @@ $this->Html->addCrumb('プロジェクトを探す');
 								</div>
 
 								<?php echo $this->Form->end() ?>
-                            </div>
+						</div>
 
                         <div class="row">
                             <table cellpadding="0" cellspacing="0" class="table table-striped">
@@ -151,26 +125,26 @@ $this->Html->addCrumb('プロジェクトを探す');
 						<!--<td nowrap><?php /*echo h($project['Project']['id']); */?>&nbsp;</td>-->
 						<td nowrap><?php echo h($project['Project']['title']); ?>&nbsp;</td>
 						<td nowrap><?php echo h($project['Project']['description']); ?>&nbsp;</td>
-								<td>
-			<?php echo $this->Html->link($project['User']['username'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
-		</td>
-								<td>
-			<?php echo $this->Html->link($project['Industry']['industryname'], array('controller' => 'industries', 'action' => 'view', $project['Industry']['id'])); ?>
-		</td>
 						<td>
-			<?php $areas = ' ';
-					foreach ($project['Area'] as $proArea) {
-						$area = $proArea['areaname'];
-						$areas = $area . ',' . $areas ;
-					}
-			echo $areas;
-			?>
+				<?php echo $this->Html->link($project['User']['username'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
+						</td>
+						<td>
+				<?php echo $this->Html->link($project['Industry']['industryname'], array('controller' => 'industries', 'action' => 'view', $project['Industry']['id'])); ?>
+						</td>
+						<td>
+				<?php $areas = ' ';
+						foreach ($project['Area'] as $proArea) {
+							$area = $proArea['areaname'];
+							$areas = $area . '  ' . $areas ;
+						}
+				echo $areas;
+				?>
 						</td>
 						<td>
 							<?php $skills = ' ';
 							foreach ($project['Skill'] as $proSkill) {
 								$skill = $proSkill['skillname'];
-								$skills = $skill  . ',' .$skills;
+								$skills = $skill  . '  ' .$skills;
 							}
 							echo $skills;
 							?>
@@ -181,8 +155,11 @@ $this->Html->addCrumb('プロジェクトを探す');
                         <td><?php echo h(date('Y-m-d', strtotime($project['Project']['modified']))); ?>&nbsp;</td>
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $project['Project']['id']), array('escape' => false)); ?>
-							<?php echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $project['Project']['id']), array('escape' => false)); ?>
-							<?php echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $project['Project']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $project['Project']['id'])); ?>
+<!--							テスト用、あとで削除。見た目改善しただけ、routeのアクセス権も必要-->
+							<?php $_SESSION['login_user_id'] = 2; ?>
+							<?php if($_SESSION['login_user_id'] == $project['Project']['user_id']) {
+								echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $project['Project']['id']), array('escape' => false));
+								echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $project['Project']['id']), array('escape' => false), __('削除しても大丈夫ですか?')); }?>
 						</td>
 					</tr>
 				<?php endforeach; ?>

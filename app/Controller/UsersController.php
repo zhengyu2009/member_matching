@@ -79,7 +79,7 @@ class UsersController extends AppController {
     {
         session_start();
 //        $this->log($_SESSION);
-        // $_SESSION['is_new_user'] = true;
+         $_SESSION['is_new_user'] = true;
         if (($_SESSION['is_new_user'] == true)) {
             if ($this->request->is('post')) {
                 $this->User->create();

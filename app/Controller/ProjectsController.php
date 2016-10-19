@@ -28,48 +28,14 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function index() {
+        session_start();
 //		$this->Project->recursive = 1;
         if ($this->request->is('post')) {
             $areas = $this->request['data']['area'];
             $skills = $this->request['data']['Skill'];
             $industries = $this->request['data']['Industry'];
-//            $this->log($areas);
-//            $this->log($skills);
-//            $this->log($industries);
+
             $opt_area = array('OR' => array('Area.id' => $areas));
-//            $i = 0;
-//            $opt_area_sub = "";
-//            foreach ($areas as $area) {
-//                $opt_area_sub = array('Area.id' => $area);
-//                $opt_area['OR'][$i] = $opt_area_sub;
-//            }
-//            $this->log($opt_area_sub);
-//            $opt_area['OR'] = "array('OR' => array(" . $opt_area_sub . "))";
-//            $this->log($opt_area);
-
-//            $projects = $this->Project->find('all', array(
-//                'conditions' => $opt_area,
-//                'recursive' => 1,
-//                'joins' => array(
-//                        array('table' => 'areas_projects',
-//                            'alias' => 'AreasProject',
-//                            'type' => 'inner',
-//                            'conditions' => array(
-//                                'Project.id = AreasProject.project_id',
-//                            )
-//                        ),
-//                        array(
-//                                'table' => 'areas',
-//                                'alias' => 'Area',
-//                                'type' => 'inner',
-//                                'conditions' => array(
-//                                    'AreasProject.area_id = Area.id',
-//                                ),
-//                            )
-//                    )
-//                )
-//            );
-
 
             $this->Paginator->settings = array(
                 'conditions' => $opt_area,
@@ -122,6 +88,7 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+        session_start();
 		if (!$this->Project->exists($id)) {
 			throw new NotFoundException(__('Invalid project'));
 		}
@@ -149,14 +116,11 @@ class ProjectsController extends AppController {
 			}
 		}
 		$users = $this->Project->User->find('list');
-//		$industries = $this->Project->Industry->find('list');
 		$industries = $this->Project->Industry->find('list');
-//		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
         $areas = $this->Project->Area->find('list');
 		$this->set(compact('users', 'industries', 'rolls', 'skills', 'areas'));
-//        $this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));
 	}
 
 /**
@@ -167,11 +131,20 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+//        session_start();
 		if (!$this->Project->exists($id)) {
 			throw new NotFoundException(__('Invalid project'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
+//            $this->log("HHHHHHH" . $this->request->data['Project']['photo']);
+//            $photo = $_SESSION['project_photo'];
+//		    if($photo && (!$this->request->data['Project']['photo'])) {
+//                $this->log("here" . $photo);
+//                $this->log($this->request->data['Project']['photo']);
+//                $this->request->data('Project.photo', $photo);
+//            }
 			if ($this->Project->save($this->request->data)) {
+//                unset($_SESSION['project_photo']);
 				$this->Session->setFlash(__('The project has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {
@@ -190,7 +163,8 @@ class ProjectsController extends AppController {
         $areas = $this->Project->Area->find('list');
 		$this->set(compact('users', 'industries', 'rolls', 'skills', 'areas'));
         $this->set('projects', $this->request->data);
-	}
+//        $_SESSION['project_photo'] = $this->request->data['Project']['photo'];
+ 	}
 
 /**
  * delete method

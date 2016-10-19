@@ -1,92 +1,47 @@
-<?php $this->log($project); ?>
+<?php //$this->log($project); ?>
 
 <div class="projects view">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Project'); ?></h1>
+				<h1><?php
+					echo __('プロジェクトの詳細   ');
+					if($_SESSION['login_user_id'] == $project['Project']['user_id']) {
+						echo $this->Html->link('編集', array( 'controller' => 'projects', 'action' => 'edit', $project['Project']['id']), array('class' => 'btn btn-primary'));
+//						echo '<a class="btn btn-primary" role="button" href="">編集</a>';
+					}
+					?>
+				</h1>
 			</div>
 		</div>
 	</div>
 
-	<div class="row">
-
-		<div class="col-md-3">
-			<div class="actions">
-				<div class="panel panel-default">
-					<div class="panel-heading"><?php echo __('Actions'); ?></div>
-						<div class="panel-body">
-							<ul class="nav nav-pills nav-stacked">
-									<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>&nbsp&nbsp;Edit Project'), array('action' => 'edit', $project['Project']['id']), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>&nbsp;&nbsp;Delete Project'), array('action' => 'delete', $project['Project']['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $project['Project']['id'])); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Projects'), array('action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Project'), array('action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Users'), array('controller' => 'users', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New User'), array('controller' => 'users', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Industries'), array('controller' => 'industries', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Industry'), array('controller' => 'industries', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Rolls Users'), array('controller' => 'rolls_users', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Rolls User'), array('controller' => 'rolls_users', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Rolls'), array('controller' => 'rolls', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Roll'), array('controller' => 'rolls', 'action' => 'add'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-list"></span>&nbsp&nbsp;List Skills'), array('controller' => 'skills', 'action' => 'index'), array('escape' => false)); ?> </li>
-		<li><?php echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp&nbsp;New Skill'), array('controller' => 'skills', 'action' => 'add'), array('escape' => false)); ?> </li>
-							</ul>
-						</div><!-- end body -->
-				</div><!-- end panel -->
-			</div><!-- end actions -->
-		</div><!-- end col md 3 -->
-
 		<div class="col-md-9">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<tbody>
+<!--				<tr>-->
+<!--					<th>--><?php //echo __('Id'); ?><!--</th>-->
+<!--					<td>-->
+<!--						--><?php //echo h($project['Project']['id']); ?>
+<!--						&nbsp;-->
+<!--					</td>-->
+<!--				</tr>-->
 				<tr>
-					<th><?php echo __('Id'); ?></th>
+					<th><?php echo __('作成日'); ?></th>
 					<td>
-						<?php echo h($project['Project']['id']); ?>
-						&nbsp;
+						<?php echo h(date('Y-m-d', strtotime($project['Project']['created']))); ?>
 					</td>
 				</tr>
 				<tr>
-					<th><?php echo __('Created'); ?></th>
+					<th><?php echo __('編集日'); ?></th>
 					<td>
-						<?php echo h($project['Project']['created']); ?>
-						&nbsp;
+						<?php echo h(date('Y-m-d', strtotime($project['Project']['modified']))); ?>
 					</td>
 				</tr>
 				<tr>
-					<th><?php echo __('Modified'); ?></th>
-					<td>
-						<?php echo h($project['Project']['modified']); ?>
-						&nbsp;
-					</td>
-				</tr>
-				<tr>
-					<th><?php echo __('Title'); ?></th>
+					<th><?php echo __('プロジェクト名'); ?></th>
 					<td>
 						<?php echo h($project['Project']['title']); ?>
-						&nbsp;
-					</td>
-				</tr>
-				<tr>
-					<th><?php echo __('Description'); ?></th>
-					<td>
-						<?php echo h($project['Project']['description']); ?>
-						&nbsp;
-					</td>
-				</tr>
-				<tr>
-					<th><?php echo __('User'); ?></th>
-					<td>
-						<?php echo $this->Html->link($project['User']['username'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
-						&nbsp;
-					</td>
-				</tr>
-				<tr>
-					<th><?php echo __('Industry'); ?></th>
-					<td>
-						<?php echo $this->Html->link($project['Industry']['industryname'], array('controller' => 'industries', 'action' => 'view', $project['Industry']['id'])); ?>
-						&nbsp;
 					</td>
 				</tr>
 				<tr>
@@ -96,6 +51,60 @@
 						echo $this->Html->image($base . $project['Project']['photo_dir'] . "/" . $project['Project']['photo']); ?>
 					</td>
 				</tr>
+				<tr>
+					<th><?php echo __('プロジェクトオーナー'); ?></th>
+					<td>
+						<?php echo $this->Html->link($project['User']['username'], array('controller' => 'users', 'action' => 'view', $project['User']['id'])); ?>
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('業界'); ?></th>
+					<td>
+						<?php echo $project['Industry']['industryname']; ?>
+					</td>
+				</tr>
+				<tr>
+					<th>募集エリア</th>
+					<td>
+						<?php $areas = ' ';
+						foreach ($project['Area'] as $proArea) {
+							$area = $proArea['areaname'];
+							$areas = $area . '  ' . $areas ;
+						}
+						echo $areas;
+						?>
+					</td>
+				</tr>
+				<tr>
+					<th>求めるスキル</th>
+					<td>
+						<?php $skills = ' ';
+						foreach ($project['Skill'] as $proSkill) {
+							$skill = $proSkill['skillname'];
+							$skills = $skill  . '  ' .$skills;
+						}
+						echo $skills;
+						?>
+					</td>
+				</tr>
+				<tr>
+					<th>求めるメンバー</th>
+					<td>
+						<?php $rolls = ' ';
+						foreach ($project['Roll'] as $proRoll) {
+							$roll = $proRoll['rollname'];
+							$rolls = $roll  . '  ' .$rolls;
+						}
+						echo $rolls;
+						?>
+					</td>
+				</tr>
+				<tr>
+					<th><?php echo __('概要'); ?></th>
+					<td>
+						<?php echo h($project['Project']['description']); ?>
+					</td>
+				</tr>
 				</tbody>
 			</table>
 
@@ -103,152 +112,3 @@
 
 	</div>
 </div>
-
-<!--<div class="related row">-->
-<!--	<div class="col-md-12">-->
-<!--	<h3>--><?php //echo __('Related Industries'); ?><!--</h3>-->
-<!--	--><?php //if (!empty($project['Industry'])): ?>
-<!--	<table cellpadding = "0" cellspacing = "0" class="table table-striped">-->
-<!--	<thead>-->
-<!--	<tr>-->
-<!--		<th>--><?php //echo __('Id'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Created'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Modified'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Industryname'); ?><!--</th>-->
-<!--		<th class="actions"></th>-->
-<!--	</tr>-->
-<!--	<thead>-->
-<!--	<tbody>-->
-<!--	--><?php //foreach ($project['Industry'] as $industry): ?>
-<!--		<tr>-->
-<!--			<td>--><?php //echo $industry['id']; ?><!--</td>-->
-<!--			<td>--><?php //echo $industry['created']; ?><!--</td>-->
-<!--			<td>--><?php //echo $industry['modified']; ?><!--</td>-->
-<!--			<td>--><?php //echo $industry['industryname']; ?><!--</td>-->
-<!--			<td class="actions">-->
-<!--				--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'industries', 'action' => 'view', $industry['id']), array('escape' => false)); ?>
-<!--				--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'industries', 'action' => 'edit', $industry['id']), array('escape' => false)); ?>
-<!--				--><?php //echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'industries', 'action' => 'delete', $industry['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $industry['id'])); ?>
-<!--			</td>-->
-<!--		</tr>-->
-<!--	--><?php //endforeach; ?>
-<!--	</tbody>-->
-<!--	</table>-->
-<?php //endif; ?>
-<!---->
-<!--	<div class="actions">-->
-<!--		--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Industry'), array('controller' => 'industries', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?><!-- -->
-<!--	</div>-->
-<!--	</div><!-- end col md 12 -->
-<!--</div>-->
-<!--<div class="related row">-->
-<!--	<div class="col-md-12">-->
-<!--	<h3>--><?php //echo __('Related Rolls Users'); ?><!--</h3>-->
-<!--	--><?php //if (!empty($project['RollsUser'])): ?>
-<!--	<table cellpadding = "0" cellspacing = "0" class="table table-striped">-->
-<!--	<thead>-->
-<!--	<tr>-->
-<!--		<th>--><?php //echo __('Id'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Roll Id'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('User Id'); ?><!--</th>-->
-<!--		<th class="actions"></th>-->
-<!--	</tr>-->
-<!--	<thead>-->
-<!--	<tbody>-->
-<!--	--><?php //foreach ($project['RollsUser'] as $rollsUser): ?>
-<!--		<tr>-->
-<!--			<td>--><?php //echo $rollsUser['id']; ?><!--</td>-->
-<!--			<td>--><?php //echo $rollsUser['roll_id']; ?><!--</td>-->
-<!--			<td>--><?php //echo $rollsUser['user_id']; ?><!--</td>-->
-<!--			<td class="actions">-->
-<!--				--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'rolls_users', 'action' => 'view', $rollsUser['id']), array('escape' => false)); ?>
-<!--				--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'rolls_users', 'action' => 'edit', $rollsUser['id']), array('escape' => false)); ?>
-<!--				--><?php //echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'rolls_users', 'action' => 'delete', $rollsUser['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $rollsUser['id'])); ?>
-<!--			</td>-->
-<!--		</tr>-->
-<!--	--><?php //endforeach; ?>
-<!--	</tbody>-->
-<!--	</table>-->
-<?php //endif; ?>
-<!---->
-<!--	<div class="actions">-->
-<!--		--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Rolls User'), array('controller' => 'rolls_users', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?><!-- -->
-<!--	</div>-->
-<!--	</div><!-- end col md 12 -->
-<!--</div>-->
-<!--<div class="related row">-->
-<!--	<div class="col-md-12">-->
-<!--	<h3>--><?php //echo __('Related Rolls'); ?><!--</h3>-->
-<!--	--><?php //if (!empty($project['Roll'])): ?>
-<!--	<table cellpadding = "0" cellspacing = "0" class="table table-striped">-->
-<!--	<thead>-->
-<!--	<tr>-->
-<!--		<th>--><?php //echo __('Id'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Created'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Modified'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Rollname'); ?><!--</th>-->
-<!--		<th class="actions"></th>-->
-<!--	</tr>-->
-<!--	<thead>-->
-<!--	<tbody>-->
-<!--	--><?php //foreach ($project['Roll'] as $roll): ?>
-<!--		<tr>-->
-<!--			<td>--><?php //echo $roll['id']; ?><!--</td>-->
-<!--			<td>--><?php //echo $roll['created']; ?><!--</td>-->
-<!--			<td>--><?php //echo $roll['modified']; ?><!--</td>-->
-<!--			<td>--><?php //echo $roll['rollname']; ?><!--</td>-->
-<!--			<td class="actions">-->
-<!--				--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'rolls', 'action' => 'view', $roll['id']), array('escape' => false)); ?>
-<!--				--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'rolls', 'action' => 'edit', $roll['id']), array('escape' => false)); ?>
-<!--				--><?php //echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'rolls', 'action' => 'delete', $roll['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $roll['id'])); ?>
-<!--			</td>-->
-<!--		</tr>-->
-<!--	--><?php //endforeach; ?>
-<!--	</tbody>-->
-<!--	</table>-->
-<?php //endif; ?>
-<!---->
-<!--	<div class="actions">-->
-<!--		--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Roll'), array('controller' => 'rolls', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?><!-- -->
-<!--	</div>-->
-<!--	</div><!-- end col md 12 -->
-<!--</div>-->
-<!--<div class="related row">-->
-<!--	<div class="col-md-12">-->
-<!--	<h3>--><?php //echo __('Related Skills'); ?><!--</h3>-->
-<!--	--><?php //if (!empty($project['Skill'])): ?>
-<!--	<table cellpadding = "0" cellspacing = "0" class="table table-striped">-->
-<!--	<thead>-->
-<!--	<tr>-->
-<!--		<th>--><?php //echo __('Id'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Created'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Modified'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Skillname'); ?><!--</th>-->
-<!--		<th>--><?php //echo __('Skill Category Id'); ?><!--</th>-->
-<!--		<th class="actions"></th>-->
-<!--	</tr>-->
-<!--	<thead>-->
-<!--	<tbody>-->
-<!--	--><?php //foreach ($project['Skill'] as $skill): ?>
-<!--		<tr>-->
-<!--			<td>--><?php //echo $skill['id']; ?><!--</td>-->
-<!--			<td>--><?php //echo $skill['created']; ?><!--</td>-->
-<!--			<td>--><?php //echo $skill['modified']; ?><!--</td>-->
-<!--			<td>--><?php //echo $skill['skillname']; ?><!--</td>-->
-<!--			<td>--><?php //echo $skill['skill_category_id']; ?><!--</td>-->
-<!--			<td class="actions">-->
-<!--				--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'skills', 'action' => 'view', $skill['id']), array('escape' => false)); ?>
-<!--				--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'skills', 'action' => 'edit', $skill['id']), array('escape' => false)); ?>
-<!--				--><?php //echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'skills', 'action' => 'delete', $skill['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $skill['id'])); ?>
-<!--			</td>-->
-<!--		</tr>-->
-<!--	--><?php //endforeach; ?>
-<!--	</tbody>-->
-<!--	</table>-->
-<?php //endif; ?>
-<!---->
-<!--	<div class="actions">-->
-<!--		--><?php //echo $this->Html->link(__('<span class="glyphicon glyphicon-plus"></span>&nbsp;&nbsp;New Skill'), array('controller' => 'skills', 'action' => 'add'), array('escape' => false, 'class' => 'btn btn-default')); ?><!-- -->
-<!--	</div>-->
-<!--	</div><!-- end col md 12 -->
-<!--</div>-->
