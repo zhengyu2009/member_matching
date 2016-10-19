@@ -136,7 +136,6 @@ class ProjectsController extends AppController {
 			throw new NotFoundException(__('Invalid project'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-//            $this->log("HHHHHHH" . $this->request->data['Project']['photo']);
 //            $photo = $_SESSION['project_photo'];
 //		    if($photo && (!$this->request->data['Project']['photo'])) {
 //                $this->log("here" . $photo);

@@ -17,6 +17,7 @@ class User extends AppModel {
                 "fields" => array(
                     "dir" => "photo_dir"
                 ),
+                // 'deleteOnUpdate' => true,
             ),
         ),
     );

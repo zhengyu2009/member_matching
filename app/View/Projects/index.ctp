@@ -49,7 +49,7 @@ $this->Html->addCrumb('プロジェクトを探す');
 					<h2>エリアから探す</h2>
 					<div id="contents" class="search">
 						<div id="contentsLeft">
-							<?php echo $this->Form->create('User', array('role' => 'form')); ?>
+							<?php echo $this->Form->create('Area', array('role' => 'form')); ?>
 
 							<!--<form action="search" method="post" name="form1">-->
 								<div class="contentsInner areaSearchBox">
@@ -156,7 +156,8 @@ $this->Html->addCrumb('プロジェクトを探す');
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $project['Project']['id']), array('escape' => false)); ?>
 <!--							テスト用、あとで削除。見た目改善しただけ、routeのアクセス権も必要-->
-							<?php $_SESSION['login_user_id'] = 2; ?>
+
+							<!--<?php //$this->log($_SESSION['login_user_id']); ?>-->
 							<?php if($_SESSION['login_user_id'] == $project['Project']['user_id']) {
 								echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $project['Project']['id']), array('escape' => false));
 								echo $this->Form->postLink('<span class="glyphicon glyphicon-remove"></span>', array('action' => 'delete', $project['Project']['id']), array('escape' => false), __('削除しても大丈夫ですか?')); }?>

@@ -14,7 +14,7 @@ $this->Html->addCrumb('プロジェクト'.$projects['Project']['id'].'の編集
 	</div>
 
 		<div class="col-md-9">
-			<?php echo $this->Form->create('Project', array('role' => 'form')); ?>
+			<?php echo $this->Form->create('Project', array('role' => 'form', 'type' => 'file')); ?>
 
 				<div class="form-group">
 					<?php echo $this->Form->input('id', array('class' => 'form-control', 'placeholder' => 'Id'));?>
