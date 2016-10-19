@@ -31,6 +31,7 @@ class ProjectsController extends AppController {
         session_start();
 //		$this->Project->recursive = 1;
         if ($this->request->is('post')) {
+        	$this->log($this->request);
             $areas = $this->request['data']['area'];
             $skills = $this->request['data']['Skill'];
             $industries = $this->request['data']['Industry'];
@@ -61,7 +62,7 @@ class ProjectsController extends AppController {
 
             $projects = $this->Paginator->paginate('Project');
 
-            $this->log($projects);
+            // $this->log($projects);
             $rolls = $this->Project->Roll->find('list');
             $skills = $this->Project->Skill->find('list');
             $industries = $this->Project->Industry->find('list');
