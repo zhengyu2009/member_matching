@@ -33,8 +33,8 @@ class ProjectsController extends AppController {
         if ($this->request->is('post')) {
         	$this->log($this->request);
             $areas = $this->request['data']['area'];
-            $skills = $this->request['data']['Skill'];
-            $industries = $this->request['data']['Industry'];
+            $skills = $this->request['data']['Project']['Skill'];
+            $industries = $this->request['data']['Project']['Industry'];
 
             $opt_area = array('OR' => array('Area.id' => $areas));
 
@@ -137,14 +137,7 @@ class ProjectsController extends AppController {
 			throw new NotFoundException(__('Invalid project'));
 		}
 		if ($this->request->is(array('post', 'put'))) {
-//            $photo = $_SESSION['project_photo'];
-//		    if($photo && (!$this->request->data['Project']['photo'])) {
-//                $this->log("here" . $photo);
-//                $this->log($this->request->data['Project']['photo']);
-//                $this->request->data('Project.photo', $photo);
-//            }
 			if ($this->Project->save($this->request->data)) {
-//                unset($_SESSION['project_photo']);
 				$this->Session->setFlash(__('The project has been saved.'), 'default', array('class' => 'alert alert-success'));
 				return $this->redirect(array('action' => 'index'));
 			} else {

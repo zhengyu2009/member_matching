@@ -53,7 +53,7 @@ $this->Html->addCrumb('プロジェクトを探す');
 
 							<!--<form action="search" method="post" name="form1">-->
 								<div class="contentsInner areaSearchBox">
-									<div class="areaMapBox">
+									<div class="areaMapBox form-group">
 										<ul>
 											<li class="foreign"><input class="selected-area" type="checkbox" name="area[]" value="12"></li>
 											<li class="hokkaido"><input class="selected-area" type="checkbox" name="area[]" value="3"></li>
@@ -82,7 +82,7 @@ $this->Html->addCrumb('プロジェクトを探す');
                             <div class="form-horizontal">
                             	<div class="form-group">
 									<div class="checkbox">
-										<?php echo $this->Form->input('Industry', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
+										<?php echo $this->Form->input('Project.Industry', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
 									</div>
 								</div>
 							</div>
@@ -92,7 +92,7 @@ $this->Html->addCrumb('プロジェクトを探す');
                             <div class="form-horizontal">
 								<div class="form-group">
                                     <div class="checkbox">
-                                        <?php echo $this->Form->input('Skill', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
+                                        <?php echo $this->Form->input('Project.Skill', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
                                     </div>
 								</div>
                             </div>
@@ -156,8 +156,7 @@ $this->Html->addCrumb('プロジェクトを探す');
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $project['Project']['id']), array('escape' => false)); ?>
 <!--							テスト用、あとで削除。見た目改善しただけ、routeのアクセス権も必要-->
-
-							<!--<?php //$this->log($_SESSION['login_user_id']); ?>-->
+							<?php $_SESSION['login_user_id'] = 2; ?>
 							<?php if(isset($_SESSION['login_user_id'])) {
 								if($_SESSION['login_user_id'] == $project['Project']['user_id']) {
 								echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $project['Project']['id']), array('escape' => false));
