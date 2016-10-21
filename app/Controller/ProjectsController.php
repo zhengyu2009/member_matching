@@ -28,52 +28,30 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function index() {
+        session_start();
 //		$this->Project->recursive = 1;
         if ($this->request->is('post')) {
+        	$this->log($this->request);
             $areas = $this->request['data']['area'];
-            $skills = $this->request['data']['Skill'];
-            $industries = $this->request['data']['Industry'];
-//            $this->log($areas);
-//            $this->log($skills);
-//            $this->log($industries);
-            $opt_area = array('OR' => array('Area.id' => $areas));
-//            $i = 0;
-//            $opt_area_sub = "";
-//            foreach ($areas as $area) {
-//                $opt_area_sub = array('Area.id' => $area);
-//                $opt_area['OR'][$i] = $opt_area_sub;
-//            }
-//            $this->log($opt_area_sub);
-//            $opt_area['OR'] = "array('OR' => array(" . $opt_area_sub . "))";
-//            $this->log($opt_area);
+            $skills = $this->request['data']['Project']['Skill'];
+            $industries = $this->request['data']['Project']['Industry'];
 
-//            $projects = $this->Project->find('all', array(
-//                'conditions' => $opt_area,
-//                'recursive' => 1,
-//                'joins' => array(
-//                        array('table' => 'areas_projects',
-//                            'alias' => 'AreasProject',
-//                            'type' => 'inner',
-//                            'conditions' => array(
-//                                'Project.id = AreasProject.project_id',
-//                            )
-//                        ),
-//                        array(
-//                                'table' => 'areas',
-//                                'alias' => 'Area',
-//                                'type' => 'inner',
-//                                'conditions' => array(
-//                                    'AreasProject.area_id = Area.id',
-//                                ),
-//                            )
-//                    )
-//                )
+            $opt_area = array('OR' => array('Area.id' => $areas));
+            $opt_skill = array('OR' => array('Skill.id' => $skills));
+            $opt_industry = array('OR' => array('Industry.id' => $industries));
+
+            $opt = array($opt_area, $opt_skill, $opt_industry);
+//            $opt = array(
+//                array('OR' => array('Area.id' => $areas)),
+//                array('OR' => array('Skill.id' => $skills)),
+//                array('OR' => array('Industry.id' => $industries))
 //            );
 
 
             $this->Paginator->settings = array(
-                'conditions' => $opt_area,
+                'conditions' => $opt,
                 'recursive' => 1,
+                'group' => array('Project.id'),
                 'joins' => array(
                     array('table' => 'areas_projects',
                         'alias' => 'AreasProject',
@@ -89,7 +67,37 @@ class ProjectsController extends AppController {
                         'conditions' => array(
                             'AreasProject.area_id = Area.id',
                         ),
-                    )
+                    ),
+                     array('table' => 'skills_projects',
+                         'alias' => 'SkillsProject',
+                         'type' => 'inner',
+                         'conditions' => array(
+                             'Project.id = SkillsProject.project_id',
+                         )
+                     ),
+                    array(
+                        'table' => 'skills',
+                        'alias' => 'Skill',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'SkillsProject.skill_id = Skill.id',
+                        ),
+                    ),
+//                    array('table' => 'industries_projects',
+//                        'alias' => 'IndustriesProject',
+//                        'type' => 'inner',
+//                        'conditions' => array(
+//                            'Project.id = IndustriesProject.project_id',
+//                        )
+//                    ),
+//                    array(
+//                        'table' => 'industries',
+//                        'alias' => 'Industry',
+//                        'type' => 'inner',
+//                        'conditions' => array(
+//                            'IndustriesProject.industry_id = Industry.id',
+//                        ),
+//                    )
                 )
             );
 
@@ -122,11 +130,14 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+        session_start();
 		if (!$this->Project->exists($id)) {
 			throw new NotFoundException(__('Invalid project'));
 		}
 		$options = array('conditions' => array('Project.' . $this->Project->primaryKey => $id));
 		$this->set('project', $this->Project->find('first', $options));
+        $users = $this->Project->User->find('list');
+        $this->set(compact('users'));
 	}
 
 
@@ -149,14 +160,11 @@ class ProjectsController extends AppController {
 			}
 		}
 		$users = $this->Project->User->find('list');
-//		$industries = $this->Project->Industry->find('list');
 		$industries = $this->Project->Industry->find('list');
-//		$rollsUsers = $this->Project->RollsUser->find('list');
 		$rolls = $this->Project->Roll->find('list');
 		$skills = $this->Project->Skill->find('list');
         $areas = $this->Project->Area->find('list');
 		$this->set(compact('users', 'industries', 'rolls', 'skills', 'areas'));
-//        $this->set(compact('users', 'industries', 'industries', 'rollsUsers', 'rolls', 'skills'));
 	}
 
 /**
@@ -167,6 +175,7 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+//        session_start();
 		if (!$this->Project->exists($id)) {
 			throw new NotFoundException(__('Invalid project'));
 		}
@@ -190,7 +199,8 @@ class ProjectsController extends AppController {
         $areas = $this->Project->Area->find('list');
 		$this->set(compact('users', 'industries', 'rolls', 'skills', 'areas'));
         $this->set('projects', $this->request->data);
-	}
+//        $_SESSION['project_photo'] = $this->request->data['Project']['photo'];
+ 	}
 
 /**
  * delete method

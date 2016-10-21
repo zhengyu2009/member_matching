@@ -51,7 +51,9 @@ class UsersController extends AppController {
  * @return void
  */
 	public function index() {
-		$this->User->recursive = 0;
+        session_start();
+
+		$this->User->recursive = 1;
 		$this->set('users', $this->Paginator->paginate());
 	}
 
@@ -68,6 +70,8 @@ class UsersController extends AppController {
 		}
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 		$this->set('user', $this->User->find('first', $options));
+        $industryLists = $this->User->Industry->find('list');
+        $this->set(compact( 'industryLists'));
 	}
 
 /**
@@ -79,7 +83,7 @@ class UsersController extends AppController {
     {
         session_start();
 //        $this->log($_SESSION);
-        // $_SESSION['is_new_user'] = true;
+         $_SESSION['is_new_user'] = true;
         if (($_SESSION['is_new_user'] == true)) {
             if ($this->request->is('post')) {
                 $this->User->create();
@@ -114,6 +118,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+        session_start();
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}

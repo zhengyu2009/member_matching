@@ -17,6 +17,7 @@ class User extends AppModel {
                 "fields" => array(
                     "dir" => "photo_dir"
                 ),
+                // 'deleteOnUpdate' => true,
             ),
         ),
     );
@@ -91,9 +92,21 @@ class User extends AppModel {
 			'exclusive' => '',
 			'finderQuery' => '',
 			'counterQuery' => ''
-		)
+		),
+        'ProjectsRollsUser' => array(
+            'className' => 'ProjectsRollsUser',
+            'foreignKey' => 'user_id',
+            'dependent' => false,
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => '',
+            'finderQuery' => '',
+            'counterQuery' => ''
+        )
 	);
-
 
 /**
  * hasAndBelongsToMany associations

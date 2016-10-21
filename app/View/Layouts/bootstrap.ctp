@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ja">
   <head>
 	<title>
 		<?php echo $title_for_layout; ?>
@@ -20,7 +20,11 @@
   	<!-- Latest compiled and minified CSS -->
   	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
       <!-- CSS for map search contents -->
-      <link href="/member_matching/css/mapcontents.css" rel="stylesheet" type="text/css">
+      <?php echo $this->Html->css( 'top.css'); ?>
+      <?php echo $this->Html->css( 'top2.css'); ?>
+    <?php echo $this->Html->css( 'mapcontents.css'); ?>
+
+    <!--<link href="/member_matching/css/mapcontents.css" rel="stylesheet" type="text/css">-->
   	<!-- Latest compiled and minified JavaScript -->
   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
   	<script src="//netdna.bootstrapcdn.com/bootstrap/3.0.0/js/bootstrap.min.js"></script>
@@ -30,15 +34,64 @@
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js"></script>
     <![endif]-->
+      <script type='text/javascript'>
+          $(document).ready(function(){
+              $(window).scroll(function(){
+                  if ($(this).scrollTop() > 100) {
+                      $('#scroll').fadeIn();
+                  } else {
+                      $('#scroll').fadeOut();
+                  }
+              });
+              $('#scroll').click(function(){
+                  $("html, body").animate({ scrollTop: 0 }, 600);
+                  return false;
+              });
+          });
+      </script>
+
+
 
     <style type="text/css">
     	body{ padding: 70px 0px; }
+
+        /* BackToTop button css */
+        #scroll {
+            position:fixed;
+            right:10px;
+            bottom:10px;
+            cursor:pointer;
+            width:50px;
+            height:50px;
+            background-color:#74D2FF;
+            text-indent:-9999px;
+            display:none;
+            -webkit-border-radius:60px;
+            -moz-border-radius:60px;
+            border-radius:60px
+        }
+        #scroll span {
+            position:absolute;
+            top:50%;
+            left:50%;
+            margin-left:-8px;
+            margin-top:-12px;
+            height:0;
+            width:0;
+            border:8px solid transparent;
+            border-bottom-color:#ffffff
+        }
+        #scroll:hover {
+            background-color:#5CA4CA;
+            opacity:1;filter:"alpha(opacity=100)";
+            -ms-filter:"alpha(opacity=100)";
+        }
     </style>
 
   </head>
 
   <body>
-
+  <!-- Header Area -->
     <?php echo $this->Element('navigation'); ?>
 
     <div class="container">
@@ -49,5 +102,10 @@
 
     </div><!-- /.container -->
 
+    <!-- Footer Area -->
+    <?php echo $this->Element('footer'); ?>
+
+    <!-- BackToTop Button -->
+    <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
   </body>
 </html>
