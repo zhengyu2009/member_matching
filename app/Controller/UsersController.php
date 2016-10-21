@@ -70,6 +70,8 @@ class UsersController extends AppController {
 		}
 		$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
 		$this->set('user', $this->User->find('first', $options));
+        $industryLists = $this->User->Industry->find('list');
+        $this->set(compact( 'industryLists'));
 	}
 
 /**
@@ -116,6 +118,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
+        session_start();
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
