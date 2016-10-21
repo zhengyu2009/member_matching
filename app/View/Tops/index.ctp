@@ -93,7 +93,11 @@
                         <p>
                             <?php echo $projects[0]['Project']['description']?>
                         </p>
-                        <button type="button" class="btn btn-link btn-lg"><?php echo $this->Html->link(__('詳細'), array('controller' => 'Projects', 'action' => 'view',$projects[0]['Project']['id'])); ?></button>
+                        <?php echo $this->Html->link(
+                            '詳細',
+                            array('controller' => 'Projects', 'action' => 'view', $projects[0]['Project']['id']),
+                            array('class' => 'btn btn-primary', 'role' => 'button')
+                        ); ?>
                     </div>
                 </div>
             </div>
@@ -106,7 +110,12 @@
                         <p>
                             <?php echo $projects[1]['Project']['description']?>
                         </p>
-                        <button type="button" class="btn btn-link btn-lg"><?php echo $this->Html->link(__('詳細'), array('controller' => 'Projects', 'action' => 'view',$projects[1]['Project']['id'])); ?></button>
+                        <div class="moreBottunBox">
+                            <?php echo $this->Html->link(
+                            '詳細',
+                            array('controller' => 'Projects', 'action' => 'view', $projects[1]['Project']['id']),
+                            array('class' => 'btn btn-primary', 'role' => 'button')
+                        ); ?>
                     </div>
                 </div>
             </div>
@@ -119,7 +128,11 @@
                         <p>
                             <?php echo $projects[2]['Project']['description']?>
                         </p>
-                        <button type="button" class="btn btn-link btn-lg"><?php echo $this->Html->link(__('詳細'), array('controller' => 'Projects', 'action' => 'view',$projects[2]['Project']['id'])); ?></button>
+                        <?php echo $this->Html->link(
+                            '詳細',
+                            array('controller' => 'Projects', 'action' => 'view', $projects[2]['Project']['id']),
+                            array('class' => 'btn btn-primary', 'role' => 'button')
+                        ); ?>
                     </div>
                 </div>
             </div>
@@ -147,7 +160,11 @@
                     <p>
                         <?php echo $users[0]['User']['abstract']?>
                     </p>
-                    <button type="button" class="btn btn-link btn-lg">詳細</button>
+                    <?php echo $this->Html->link(
+                        '詳細',
+                        array('controller' => 'Users', 'action' => 'view', $users[0]['User']['id']),
+                        array('class' => 'btn btn-primary', 'role' => 'button')
+                    ); ?>
                 </div>
             </div>
         </div>
@@ -159,7 +176,11 @@
                     <p>
                         <?php echo $users[1]['User']['abstract']?>
                     </p>
-                    <button type="button" class="btn btn-link btn-lg">詳細</button>
+                    <?php echo $this->Html->link(
+                        '詳細',
+                        array('controller' => 'Users', 'action' => 'view', $users[1]['User']['id']),
+                        array('class' => 'btn btn-primary', 'role' => 'button')
+                    ); ?>
                 </div>
             </div>
         </div>
@@ -171,7 +192,11 @@
                     <p>
                         <?php echo $users[2]['User']['abstract']?>
                     </p>
-                    <button type="button" class="btn btn-link btn-lg">詳細</button>
+                    <?php echo $this->Html->link(
+                        '詳細',
+                        array('controller' => 'Users', 'action' => 'view', $users[2]['User']['id']),
+                        array('class' => 'btn btn-primary', 'role' => 'button')
+                    ); ?>
                 </div>
             </div>
         </div>
