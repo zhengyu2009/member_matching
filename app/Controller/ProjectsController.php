@@ -29,7 +29,7 @@ class ProjectsController extends AppController {
  */
 	public function index() {
         session_start();
-//		$this->Project->recursive = 1;
+		$this->Project->recursive = 1;
         if ($this->request->is('post')) {
         	$this->log($this->request);
             $areas = $this->request['data']['area'];
@@ -37,9 +37,13 @@ class ProjectsController extends AppController {
             $industries = $this->request['data']['Project']['Industry'];
 
             $opt_area = array('OR' => array('Area.id' => $areas));
+            $opt_skill = array('OR' => array('Skill.id' => $skills));
+            $opt_industry = array('OR' => array('Industry.id' => $industries));
+
+            $opt = array($opt_area, $opt_skill, $opt_industry);
 
             $this->Paginator->settings = array(
-                'conditions' => $opt_area,
+                'conditions' => $opt,
                 'recursive' => 1,
                 'joins' => array(
                     array('table' => 'areas_projects',
@@ -55,6 +59,36 @@ class ProjectsController extends AppController {
                         'type' => 'inner',
                         'conditions' => array(
                             'AreasProject.area_id = Area.id',
+                        ),
+                    ),
+                     array('table' => 'skills_projects',
+                         'alias' => 'SkillsProject',
+                         'type' => 'inner',
+                         'conditions' => array(
+                             'Project.id = SkillsProject.project_id',
+                         )
+                     ),
+                    array(
+                        'table' => 'skills',
+                        'alias' => 'Skill',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'SkillsProject.skill_id = Skill.id',
+                        ),
+                    ),
+                    array('table' => 'industries_projects',
+                        'alias' => 'IndustriesProject',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'Project.id = IndustriesProject.project_id',
+                        )
+                    ),
+                    array(
+                        'table' => 'industries',
+                        'alias' => 'Industry',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'IndustriesProject.industry_id = Industry.id',
                         ),
                     )
                 )
