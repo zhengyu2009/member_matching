@@ -180,6 +180,7 @@
                     </div>
                 </div>
             </div>
+                </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
                     <h4><?php echo $projects[2]['Project']['title']; ?></h4>
