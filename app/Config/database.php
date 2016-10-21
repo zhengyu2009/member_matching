@@ -66,12 +66,12 @@
  */
 class DATABASE_CONFIG {
 
-	public $default = array(
+    public $default = array(
         'datasource' => 'Database/Mysql',
         'persistent' => false,
-        'host' => 'localhost',
-        'login' => 'root',
-        'password' => 'root',
+        'host' => '192.168.1.201',
+        'login' => 'meibo',
+        'password' => 'Aug.2016',
         'database' => 'member_matching',
         //'prefix' => '',
         'encoding' => 'utf8',

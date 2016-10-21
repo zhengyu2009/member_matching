@@ -28,7 +28,7 @@
 <body>
 
 <!-- ===== ナビゲーションバー ===== -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
     <span class="navbar-brand"><a href="#">Mecci</a></span>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -36,18 +36,18 @@
             <li><a href="#projects">プロジェクト</a></li>
             <li><a href="#users">ユーザ</a></li>
             <?php
-                if(isset($_SESSION['fb_user_id'])){
+/*                if(isset($_SESSION['fb_user_id'])){
                     echo '<li><a href="">マイページ</a></li>';
                     echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
             
                 } else {
                     echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
                 }
-            ?>
+            */?>
         </ul>
     </div>
     </div>
-</nav>
+</nav>-->
 
 <!-- ===== ページタイトル ===== -->
 <header class="page_top home_top">
@@ -174,34 +174,6 @@
         </div>
     </div>
 </div>
-</div>
-
-<!-- ===== footer ===== -->
-<!--<footer>-->
-<!--    <div class="container">-->
-        <!--<ul class="pages list-unstyled text-center">-->
-        <!--    <li><a href="http://localhost/member_matching/projects">Projects</a></li>-->
-        <!--    <li><a href="http://localhost/member_matching/users">Users</a></li>-->
-        <!--    <li><a href="#">Login</a></li>-->
-        <!--    <li><a href="#">Logout</a></li>-->
-        <!--</ul>-->
-        <!--<ul class="social_icons list-unstyled text-center">-->
-        <!--    <li><i class="fa fa-twitter fa-2x s_icon color_twitter"></i></li>-->
-        <!--    <li><i class="fa fa-facebook fa-2x s_icon color_facebook"></i></li>-->
-        <!--    <li><i class="fa fa-google-plus fa-2x s_icon color_google_plus"></i></li>-->
-        <!--    <li><i class="fa fa-instagram fa-2x s_icon color_instagram"></i></li>-->
-        <!--    <li><i class="fa fa-pinterest-p fa-2x s_icon color_pinterest"></i></li>-->
-        <!--</ul>-->
-<!--    </div>-->
-<!--</footer>-->
-
-<!-- ===== copyright ===== -->
-<div class="copyright">
-    <div class="container">
-        <p class="text-right" style="padding-right: 30px">
-            Copyright &copy; <a href="#">Mecci</a> 2016. All Rights Reserved.
-        </p>
-    </div>
 </div>
 
 <!-- ===== javascriptの読み込み ===== -->

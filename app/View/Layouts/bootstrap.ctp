@@ -20,7 +20,10 @@
   	<!-- Latest compiled and minified CSS -->
   	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
       <!-- CSS for map search contents -->
+      <?php echo $this->Html->css( 'top.css'); ?>
+      <?php echo $this->Html->css( 'top2.css'); ?>
     <?php echo $this->Html->css( 'mapcontents.css'); ?>
+
     <!--<link href="/member_matching/css/mapcontents.css" rel="stylesheet" type="text/css">-->
   	<!-- Latest compiled and minified JavaScript -->
   	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
@@ -88,7 +91,7 @@
   </head>
 
   <body>
-
+  <!-- Header Area -->
     <?php echo $this->Element('navigation'); ?>
 
     <div class="container">
@@ -98,6 +101,10 @@
 			<?php echo $this->fetch('content'); ?>
 
     </div><!-- /.container -->
+
+    <!-- Footer Area -->
+    <?php echo $this->Element('footer'); ?>
+
     <!-- BackToTop Button -->
     <a href="javascript:void(0);" id="scroll" title="Scroll to Top" style="display: none;">Top<span></span></a>
   </body>
