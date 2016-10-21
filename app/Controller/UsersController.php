@@ -65,6 +65,9 @@ class UsersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
+	    if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}

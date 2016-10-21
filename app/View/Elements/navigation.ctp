@@ -15,7 +15,9 @@
             <li><?php echo $this->Html->link(__('ユーザー一覧'), array('controller' => 'Users', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('リソース'), array('controller' => 'Tops', 'action' => 'resource')); ?></li>
             <?php if(isset($_SESSION['fb_user_id'])){
-                    echo '<li><a href="">マイページ</a></li>';
+                    $login_user_id = $this->requestAction('FbAuth/fbCallback');
+                    //echo '<li><a href="">マイページ</a></li>';
+                    echo '<li>' . $this->Html->link(__('マイページ'), array('controller' => 'Users', 'action' => 'view', $login_user_id)) . '</li>';
                     $logoutUrl = 'https://mecci2-zhengyuc9.c9users.io/FbAuth/logout';
                     echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
             

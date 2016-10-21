@@ -1,12 +1,8 @@
-<?php $this->log($user);
-$this->log($industryLists);
-?>
-
 <div class="users view">
 	<div class="row">
 		<div class="col-md-9">
 			<div class="page-header">
-				<h1><?php $_SESSION['login_user_id'] = 2;
+				<h1><?php //$_SESSION['login_user_id'] = 2;
 					if($_SESSION['login_user_id'] == $user['User']['id']) {
 						echo __('マイページ    ');
 						echo $this->Html->link('編集', array('controller' => 'users', 'action' => 'edit', $user['User']['id']), array('class' => 'btn btn-primary'));
