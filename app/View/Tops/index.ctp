@@ -50,7 +50,7 @@
 </nav>-->
 
 <!-- ===== ページタイトル ===== -->
-<header class="page_top home_top">
+<!--<header class="page_top home_top">
     <div class="container">
         <h1>乗ってかない？</h1>
         <p>
@@ -59,9 +59,70 @@
         </p>
     </div>
 </header>
+-->
+
+<!-- ===== スライダー ===== -->
+<!--  data-ride="carousel"を入れると自動的にスライドが開始される -->
+<div id="carousel_sample" class="carousel slide" data-ride="carousel">
+    <!-- 中央に表示される丸いボタン -->
+    <ol class="carousel-indicators">
+        <!--Carouselのid名を合わせる、スライダーの数だけ用意する
+                data-slide-toで何番目のスライドへ移動するか指定する、0から始めるので１つめのスライドなら0を指定-->
+        <li data-target="#carousel_sample" data-slide-to="0" class="active"></li>
+        <li data-target="#carousel_sample" data-slide-to="1" class=""></li>
+        <li data-target="#carousel_sample" data-slide-to="2" class=""></li>
+    </ol>
+    <!-- ここからCarouselの中身 -->
+    <div class="carousel-inner">
+        <!-- item = １ページ、activeを入れたところが最初に表示される -->
+        <div class="item active">
+            <?php echo $this->Html->image('top1.jpg');
+            ?>
+            <div class="carousel-caption">
+                <h1>なんかおもしろいことやりたいな</h1>
+            </div>
+        </div>
+        <div class="item">
+            <?php echo $this->Html->image('top2.jpg');
+            ?>
+            <div class="carousel-caption">
+                <h1>アイディアを公開！</h1>
+            </div>
+        </div>
+        <div class="item">
+            <?php echo $this->Html->image('top3.jpg');
+            ?>
+            <div class="carousel-caption">
+                <h1>いっしょにやるひと探し！</h1>
+            </div>
+        </div>
+        <div class="item">
+            <?php echo $this->Html->image('top4.jpg');
+            ?>
+            <div class="carousel-caption">
+                <h1>協力！</h1>
+            </div>
+        </div>
+    </div>
+    <!-- ページ送りボタン、ここもCarouselのid名を合わせる -->
+    <a class="left carousel-control" href="#carousel_sample" data-slide="prev">
+        <span class="glyphicon glyphicon-chevron-left"></span>
+    </a>
+    <a class="right carousel-control" href="#carousel_sample" data-slide="next">
+        <span class="glyphicon glyphicon-chevron-right"></span>
+    </a>
+</div>
 
 <!-- ===== コンテンツ ===== -->
 <div id="projects" class="contents_area">
+
+<!-- フロー-->
+<div class="row">
+    <div class="col-xs-12" align="center">
+        <?php echo $this->Html->image('flow.png');
+        ?>
+    </div>
+</div>
 
 <!-- コンテンツサンプル：プロジェクト -->
     <div class="noticestyle">
