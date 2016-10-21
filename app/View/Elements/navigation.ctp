@@ -10,18 +10,9 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li class="active"><a href="#">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
-<!--            --><?php
-//            if(isset($_SESSION['fb_user_id'])){
-//              echo '<li><a href="">マイページ</a></li>';
-//              echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
-//
-//            } else {
-//              echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
-//            }
-//            ?>
+            <li><?php echo $this->Html->link(__('プロジェクト一覧'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
+            <li><?php echo $this->Html->link(__('ユーザー一覧'), array('controller' => 'Users', 'action' => 'index')); ?></li>
+            <li><?php echo $this->Html->link(__('facebookでログイン'), array('controller' => 'FbAuth', 'action' => 'login')); ?></li>
           </ul>
         </div><!--/.nav-collapse -->
       </div>
