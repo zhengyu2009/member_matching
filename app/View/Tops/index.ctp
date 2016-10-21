@@ -28,7 +28,7 @@
 <body>
 
 <!-- ===== ナビゲーションバー ===== -->
-<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+<!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
     <div class="container">
     <span class="navbar-brand"><a href="#">Mecci</a></span>
     <div class="collapse navbar-collapse navbar-ex1-collapse">
@@ -36,18 +36,18 @@
             <li><a href="#projects">プロジェクト</a></li>
             <li><a href="#users">ユーザ</a></li>
             <?php
-                if(isset($_SESSION['fb_user_id'])){
+/*                if(isset($_SESSION['fb_user_id'])){
                     echo '<li><a href="">マイページ</a></li>';
                     echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
             
                 } else {
                     echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
                 }
-            ?>
+            */?>
         </ul>
     </div>
     </div>
-</nav>
+</nav>-->
 
 <!-- ===== ページタイトル ===== -->
 <header class="page_top home_top">
