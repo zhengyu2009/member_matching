@@ -6,7 +6,8 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="/member_matching/">Mecci</a>
+          <?php echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); ?>
+          <!--<a class="navbar-brand" href="/member_matching/">Mecci</a>-->
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">

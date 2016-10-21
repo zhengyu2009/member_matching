@@ -3,7 +3,7 @@ class TopsController extends AppController {
 
     public $uses = array('Project', 'User');
 
-    function index() {
+    public function index() {
         session_start();
         define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
         require_once __DIR__ . '/../Vendor/facebook/src/Facebook/autoload.php';
@@ -33,7 +33,7 @@ class TopsController extends AppController {
         );
         $this->set('users', $this->User->find('all', $options));
     }
-    function resource() {
+    
+    public function resource() {
     }
 }
-?>
