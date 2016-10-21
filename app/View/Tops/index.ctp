@@ -176,34 +176,6 @@
 </div>
 </div>
 
-<!-- ===== footer ===== -->
-<!--<footer>-->
-<!--    <div class="container">-->
-        <!--<ul class="pages list-unstyled text-center">-->
-        <!--    <li><a href="http://localhost/member_matching/projects">Projects</a></li>-->
-        <!--    <li><a href="http://localhost/member_matching/users">Users</a></li>-->
-        <!--    <li><a href="#">Login</a></li>-->
-        <!--    <li><a href="#">Logout</a></li>-->
-        <!--</ul>-->
-        <!--<ul class="social_icons list-unstyled text-center">-->
-        <!--    <li><i class="fa fa-twitter fa-2x s_icon color_twitter"></i></li>-->
-        <!--    <li><i class="fa fa-facebook fa-2x s_icon color_facebook"></i></li>-->
-        <!--    <li><i class="fa fa-google-plus fa-2x s_icon color_google_plus"></i></li>-->
-        <!--    <li><i class="fa fa-instagram fa-2x s_icon color_instagram"></i></li>-->
-        <!--    <li><i class="fa fa-pinterest-p fa-2x s_icon color_pinterest"></i></li>-->
-        <!--</ul>-->
-<!--    </div>-->
-<!--</footer>-->
-
-<!-- ===== copyright ===== -->
-<div class="copyright">
-    <div class="container">
-        <p class="text-right" style="padding-right: 30px">
-            Copyright &copy; <a href="#">Mecci</a> 2016. All Rights Reserved.
-        </p>
-    </div>
-</div>
-
 <!-- ===== javascriptの読み込み ===== -->
 <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
 <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>

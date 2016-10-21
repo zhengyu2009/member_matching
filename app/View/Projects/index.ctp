@@ -43,7 +43,7 @@ $this->Html->addCrumb('プロジェクトを探す');
 
 
 	<div class="row">
-		<div class="col-md-8">
+		<div class="col-md-12">
 				<tbody id="content">
 				<div id="wrap">
 					<h2>エリアから探す</h2>
@@ -185,6 +185,4 @@ $this->Html->addCrumb('プロジェクトを探す');
 			<?php } ?>
             </div>
 </div><!-- end col md 8 -->
-
-
 </div><!-- end containing of content -->
