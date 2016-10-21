@@ -80,6 +80,27 @@ class Project extends AppModel {
 		)
 	);
 
+    /**
+     * hasMany associations
+     *
+     * @var array
+     */
+    public $hasMany = array(
+        'ProjectsRollsUser' => array(
+            'className' => 'ProjectsRollsUser',
+            'foreignKey' => 'project_id',
+            'dependent' => false,
+            'conditions' => '',
+            'fields' => '',
+            'order' => '',
+            'limit' => '',
+            'offset' => '',
+            'exclusive' => '',
+            'finderQuery' => '',
+            'counterQuery' => ''
+        )
+    );
+
 /**
  * hasAndBelongsToMany associations
  *

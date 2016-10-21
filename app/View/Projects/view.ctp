@@ -1,4 +1,4 @@
-<?php //$this->log($project); ?>
+<?php $this->log($project); ?>
 
 <div class="projects view">
 	<div class="row">
@@ -58,6 +58,14 @@
 					</td>
 				</tr>
 				<tr>
+					<th><?php echo __('チームメンバー'); ?></th>
+					<td id="team-member">
+						<?php if(!empty($project['ProjectsRollsUser'])){
+							foreach ($project['ProjectsRollsUser'] as $member) {
+						echo $this->Html->link($users[$member['user_id']], array('controller' => 'users', 'action' => 'view', $member['user_id']));}} ?>
+					</td>
+				</tr>
+				<tr>
 					<th><?php echo __('業界'); ?></th>
 					<td>
 						<?php echo $project['Industry']['industryname']; ?>
@@ -89,14 +97,23 @@
 				</tr>
 				<tr>
 					<th>求めるメンバー</th>
+<!--					<td>-->
+<!--						--><?php //$rolls = ' ';
+//						foreach ($project['Roll'] as $proRoll) {
+//							$roll = $proRoll['rollname'];
+//							$rolls = $roll  . '  ' .$rolls;
+//						}
+//						echo $rolls;
+//						?>
+<!--					</td>-->
 					<td>
-						<?php $rolls = ' ';
-						foreach ($project['Roll'] as $proRoll) {
-							$roll = $proRoll['rollname'];
-							$rolls = $roll  . '  ' .$rolls;
-						}
-						echo $rolls;
-						?>
+					<?php foreach ($project['Roll'] as $proRoll) : ?>
+					<div class="checkbox-inline">
+						<input type="checkbox" value="<?=$proRoll['id']?>" name="proRoll[]">
+						<label><?=$proRoll['rollname']?></label>
+					</div>
+					<?php endforeach; ?>
+						<input class="btn btn-primary btn-sm" type="button" value="参画" onclick="asyncSend()">
 					</td>
 				</tr>
 				<tr>
