@@ -33,7 +33,7 @@ class TopsController extends AppController {
         );
         $this->set('users', $this->User->find('all', $options));
     }
-    function resouce() {
+    function resource() {
     }
 }
 ?>
