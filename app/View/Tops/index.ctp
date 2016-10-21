@@ -87,36 +87,39 @@
             <div class="col-sm-4">
                 <div class="boxstyle_02">
                     <h4><?php echo $projects[0]['Project']['title']; ?></h4>
-                    <img src="app/webroot/files/project/photo/<?php echo $projects[0]['Project']['photo_dir'] . '/' . $projects[0]['Project']['photo']; ?>" alt="" class="img-responsive">
+
                     <div class="cardtyle">
+                        <img src="app/webroot/files/project/photo/<?php echo $projects[0]['Project']['photo_dir'] . '/' . $projects[0]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
                             <?php echo $projects[0]['Project']['description']?>
-                            <button type="button" class="btn btn-link btn-lg">詳細</button>
                         </p>
+                        <button type="button" class="btn btn-link btn-lg"><?php echo $this->Html->link(__('詳細'), array('controller' => 'Projects', 'action' => 'view',$projects[0]['Project']['id'])); ?></button>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
                     <h4><?php echo $projects[1]['Project']['title']; ?></h4>
-                    <img src="app/webroot/files/project/photo/<?php echo $projects[1]['Project']['photo_dir'] . '/' . $projects[1]['Project']['photo']; ?>" alt="" class="img-responsive">
+
                     <div class="cardtyle">
+                        <img src="app/webroot/files/project/photo/<?php echo $projects[1]['Project']['photo_dir'] . '/' . $projects[1]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
                             <?php echo $projects[1]['Project']['description']?>
-                            <button type="button" class="btn btn-link btn-lg">詳細</button>
                         </p>
+                        <button type="button" class="btn btn-link btn-lg"><?php echo $this->Html->link(__('詳細'), array('controller' => 'Projects', 'action' => 'view',$projects[1]['Project']['id'])); ?></button>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
                     <h4><?php echo $projects[2]['Project']['title']; ?></h4>
-                    <img src="app/webroot/files/project/photo/<?php echo $projects[2]['Project']['photo_dir'] . '/' . $projects[2]['Project']['photo']; ?>" alt="" class="img-responsive">
+
                     <div class="cardtyle">
+                        <img src="app/webroot/files/project/photo/<?php echo $projects[2]['Project']['photo_dir'] . '/' . $projects[2]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
                             <?php echo $projects[2]['Project']['description']?>
-                            <button type="button" class="btn btn-link btn-lg">詳細</button>
                         </p>
+                        <button type="button" class="btn btn-link btn-lg"><?php echo $this->Html->link(__('詳細'), array('controller' => 'Projects', 'action' => 'view',$projects[2]['Project']['id'])); ?></button>
                     </div>
                 </div>
             </div>
@@ -139,36 +142,36 @@
         <div class="col-sm-4">
             <div class="boxstyle_02">
                 <h4><?php echo $users[0]['User']['username']; ?></h4>
-                <img src="app/webroot/files/user/photo/<?php echo $users[0]['User']['photo_dir'] . '/' . $users[0]['User']['photo']; ?>" alt="" class="img-responsive">
                 <div class="cardtyle">
+                    <img src="app/webroot/files/user/photo/<?php echo $users[0]['User']['photo_dir'] . '/' . $users[0]['User']['photo']; ?>" alt="" class="img-responsive">
                     <p>
                         <?php echo $users[0]['User']['abstract']?>
-                        <button type="button" class="btn btn-link btn-lg">詳細</button>
                     </p>
+                    <button type="button" class="btn btn-link btn-lg">詳細</button>
                 </div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="boxstyle_02">
                 <h4><?php echo $users[1]['User']['username']; ?></h4>
-                <img src="app/webroot/files/user/photo/<?php echo $users[1]['User']['photo_dir'] . '/' . $users[1]['User']['photo']; ?>" alt="" class="img-responsive">
                 <div class="cardtyle">
+                    <img src="app/webroot/files/user/photo/<?php echo $users[1]['User']['photo_dir'] . '/' . $users[1]['User']['photo']; ?>" alt="" class="img-responsive">
                     <p>
                         <?php echo $users[1]['User']['abstract']?>
-                        <button type="button" class="btn btn-link btn-lg">詳細</button>
                     </p>
+                    <button type="button" class="btn btn-link btn-lg">詳細</button>
                 </div>
             </div>
         </div>
         <div class="col-sm-4">
             <div class="boxstyle_02">
                 <h4><?php echo $users[2]['User']['username']; ?></h4>
-                <img src="app/webroot/files/user/photo/<?php echo $users[2]['User']['photo_dir'] . '/' . $users[2]['User']['photo']; ?>" alt="" class="img-responsive">
                 <div class="cardtyle">
+                    <img src="app/webroot/files/user/photo/<?php echo $users[2]['User']['photo_dir'] . '/' . $users[2]['User']['photo']; ?>" alt="" class="img-responsive">
                     <p>
                         <?php echo $users[2]['User']['abstract']?>
-                        <button type="button" class="btn btn-link btn-lg">詳細</button>
                     </p>
+                    <button type="button" class="btn btn-link btn-lg">詳細</button>
                 </div>
             </div>
         </div>
