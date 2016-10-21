@@ -64,7 +64,7 @@
 <div id="projects" class="contents_area">
 
 <!-- コンテンツサンプル：プロジェクト -->
-    <div class="">
+    <div class="noticestyle">
         <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> プロジェクト
             <p class="" style="float: right"><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?></small></p>
         </h4>
@@ -126,15 +126,13 @@
 
 <!-- コンテンツサンプル： ユーザー -->
 <div id="users" class="contents_area">
-    <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> ユーザー</h4>
+    <div class="noticestyle">
+    <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> ユーザー
+        <p class="" style="float: right"><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Users', 'action' => 'index')); ?></small></p>
+    </h4>
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
         </button>
-    </div>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav navbar-right">
-            <li><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Users', 'action' => 'index')); ?></li>
-        </ul>
     </div>
 
     <div class="row">
@@ -175,7 +173,7 @@
             </div>
         </div>
     </div>
-
+</div>
 </div>
 
 <!-- ===== footer ===== -->
