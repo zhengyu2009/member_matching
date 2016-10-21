@@ -33,8 +33,15 @@ class FbAuthController extends AppController {
     }
 
     public function fbCallback() {
-        session_start();
-        define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if ($this->request->is('requested')) {
+            return $_SESSION['login_user_id'];
+        }
+        if(!defined('FACEBOOK_SDK_V4_SRC_DIR')){
+            define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
+        }
         require_once __DIR__ . '/../Vendor/facebook/src/Facebook/autoload.php';
 
         $fb = new Facebook\Facebook([
@@ -107,11 +114,13 @@ class FbAuthController extends AppController {
 //        $this->log($userInfo);
         if($userInfo) {
             $_SESSION['login_user_id'] = $userInfo['User']['id'];
-            $_SESSION['login_user_id'] = 2;//テスト用
+            //$_SESSION['login_user_id'] = 2;//テスト用
             return $this->redirect(array('controller' => 'Projects', 'action' => 'index'));
         } else {
             $_SESSION['is_new_user'] = true;
             return $this->redirect(array('controller' => 'Users', 'action' => 'add'));
         }
+        
+        
     }
 }
