@@ -14,7 +14,17 @@
             <li><?php echo $this->Html->link(__('プロジェクト一覧'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('ユーザー一覧'), array('controller' => 'Users', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('リソース'), array('controller' => 'Tops', 'action' => 'resource')); ?></li>
-            <li><?php echo $this->Html->link(__('facebookでログイン'), array('controller' => 'FbAuth', 'action' => 'login')); ?></li>
+            <?php if(isset($_SESSION['fb_user_id'])){
+                    echo '<li><a href="">マイページ</a></li>';
+                    $logoutUrl = 'https://mecci2-zhengyuc9.c9users.io/FbAuth/logout';
+                    echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
+            
+                } else {
+                    $loginUrl = $this->requestAction('Tops/index');
+                    echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
+                }
+            ?>
+            <!--<li><?php //echo $this->Html->link(__('facebookでログイン'), array('controller' => 'FbAuth', 'action' => 'login')); ?></li>-->
           </ul>
         </div><!--/.nav-collapse -->
       </div>

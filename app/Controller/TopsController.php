@@ -4,8 +4,12 @@ class TopsController extends AppController {
     public $uses = array('Project', 'User');
 
     public function index() {
-        session_start();
-        define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if(!defined('FACEBOOK_SDK_V4_SRC_DIR')){
+            define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
+        }
         require_once __DIR__ . '/../Vendor/facebook/src/Facebook/autoload.php';
 
         $fb = new Facebook\Facebook([
@@ -32,6 +36,10 @@ class TopsController extends AppController {
             'limit' => 3
         );
         $this->set('users', $this->User->find('all', $options));
+        
+        if ($this->request->is('requested')) {
+            return $loginUrl;
+        }
     }
     
     public function resource() {
