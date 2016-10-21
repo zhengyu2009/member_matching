@@ -71,6 +71,7 @@
         <li data-target="#carousel_sample" data-slide-to="0" class="active"></li>
         <li data-target="#carousel_sample" data-slide-to="1" class=""></li>
         <li data-target="#carousel_sample" data-slide-to="2" class=""></li>
+        <li data-target="#carousel_sample" data-slide-to="3" class=""></li>
     </ol>
     <!-- ここからCarouselの中身 -->
     <div class="carousel-inner">
