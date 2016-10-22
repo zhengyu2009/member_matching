@@ -71,6 +71,7 @@
         <li data-target="#carousel_sample" data-slide-to="0" class="active"></li>
         <li data-target="#carousel_sample" data-slide-to="1" class=""></li>
         <li data-target="#carousel_sample" data-slide-to="2" class=""></li>
+        <li data-target="#carousel_sample" data-slide-to="3" class=""></li>
     </ol>
     <!-- ここからCarouselの中身 -->
     <div class="carousel-inner">
@@ -126,8 +127,8 @@
 
 <!-- コンテンツサンプル：プロジェクト -->
     <div class="noticestyle">
-        <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> プロジェクト
-            <p class="" style="float: right"><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?></small></p>
+        <h4 class="titlestyle"><span class="glyphicon glyphicon-briefcase"></span> 新着プロジェクト
+            <p class="" style="float: right"><span class="glyphicon glyphicon-hand-right" style="padding-right: 5px;"></span><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?></small></p>
         </h4>
 
         <div class="navbar-header">
@@ -210,8 +211,9 @@
 <!-- コンテンツサンプル： ユーザー -->
 <div id="users" class="contents_area">
     <div class="noticestyle">
-    <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> ユーザー
-        <p class="" style="float: right"><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Users', 'action' => 'index')); ?></small></p>
+    <h4 class="titlestyle"><span class="glyphicon glyphicon-user"></span> 新着ユーザー
+        <p class="" style="float: right"><span class="glyphicon glyphicon-hand-right" style="padding-right: 5px;"></span>
+                <small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Users', 'action' => 'index')); ?></small></p>
     </h4>
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
