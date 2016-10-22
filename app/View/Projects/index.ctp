@@ -6,7 +6,7 @@
 
 <script>
     $(document).ready(function() {
-//select all checkboxes
+        //select all checkboxes for area
         $("#select_all").change(function () {  //"select all" change
             var status = this.checked; // "select all" checked status
             $('.selected-area').each(function () { //iterate all listed checkbox items
@@ -23,6 +23,48 @@
             //check "select all" if all checkbox items are checked
             if ($('.selected-area:checked').length == $('.selected-area').length) {
                 $("#select_all")[0].checked = true; //change "select all" checked status to true
+            }
+        });
+        //select all checkboxes for industry
+            $("#select_all_industry").change(function () {  //"select all" change
+                console.log("hello world!22");
+                var status = this.checked; // "select all" checked status
+                    $('.industry input').each(function () {
+                    console.log("hello world!11");
+                    this.checked = status; //change ".checkbox" checked status
+                });
+            });
+            $('.industry input').change(function () { //".checkbox" change
+                console.log("hello world!");
+                //uncheck "select all", if one of the listed checkbox item is unchecked
+                if (this.checked == false) { //if this item is unchecked
+                    $("#select_all_industry")[0].checked = false; //change "select all" checked status to false
+                }
+
+                //check "select all" if all checkbox items are checked
+                if ($('.industry input:checked').length == $('.industry').length) {
+                    $("#select_all_industry")[0].checked = true; //change "select all" checked status to true
+                }
+            });
+        //select all checkboxes for skill
+        $("#select_all_skill").change(function () {  //"select all" change
+            console.log("hello world!22");
+            var status = this.checked; // "select all" checked status
+            $('.skill input').each(function () {
+                console.log("hello world!11");
+                this.checked = status; //change ".checkbox" checked status
+            });
+        });
+        $('.skill input').change(function () { //".checkbox" change
+            console.log("hello world!");
+            //uncheck "select all", if one of the listed checkbox item is unchecked
+            if (this.checked == false) { //if this item is unchecked
+                $("#select_all_skill")[0].checked = false; //change "select all" checked status to false
+            }
+
+            //check "select all" if all checkbox items are checked
+            if ($('.skill input:checked').length == $('.skill').length) {
+                $("#select_all_skill")[0].checked = true; //change "select all" checked status to true
             }
         });
     });
@@ -57,7 +99,7 @@ $this->Html->addCrumb('プロジェクトを探す');
 										<ul>
 											<li class="foreign"><input class="selected-area" type="checkbox" name="area[]" value="12"></li>
 											<li class="hokkaido"><input class="selected-area" type="checkbox" name="area[]" value="3"></li>
-											<li class="all"><input type="checkbox" name="area[]" value="13" id="select_all"></li>
+                                            <li class="all"><input type="checkbox" name="area[]" value="13" id="select_all"></li>
 											<li class="tohoku"><input class="selected-area" type="checkbox" name="area[]" value="4"></li>
 											<li class="okinawa"><input class="selected-area" type="checkbox" name="area[]" value="11"></li>
 											<li class="shinetsu"><input class="selected-area" type="checkbox" name="area[]" value="2"></li>
@@ -82,7 +124,8 @@ $this->Html->addCrumb('プロジェクトを探す');
                             <div class="form-horizontal">
                             	<div class="form-group">
 									<div class="checkbox">
-										<?php echo $this->Form->input('Project.Industry', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
+                                        <div class="col-sm-12"><input type="checkbox" id="select_all_industry"><label for="select_all_industry">全て選択</label></div>
+										<?php echo $this->Form->input('Project.Industry', array('label' => false,'class' => 'col-sm-2 industry','multiple' => 'checkbox')); ?>
 									</div>
 								</div>
 							</div>
@@ -92,7 +135,8 @@ $this->Html->addCrumb('プロジェクトを探す');
                             <div class="form-horizontal">
 								<div class="form-group">
                                     <div class="checkbox">
-                                        <?php echo $this->Form->input('Project.Skill', array('label' => false,'class' => 'col-sm-2','multiple' => 'checkbox')); ?>
+                                        <div class="col-sm-12"><input type="checkbox" id="select_all_skill"><label for="select_all_skill">全て選択</label></div>
+                                        <?php echo $this->Form->input('Project.Skill', array('label' => false,'class' => 'col-sm-2 skill','multiple' => 'checkbox')); ?>
                                     </div>
 								</div>
                             </div>
