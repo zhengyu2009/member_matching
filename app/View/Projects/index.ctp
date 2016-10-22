@@ -230,3 +230,5 @@ $this->Html->addCrumb('プロジェクトを探す');
             </div>
 </div><!-- end col md 8 -->
 </div><!-- end containing of content -->
+</div><!-- end containing of content -->
+</div><!-- end containing of content -->
