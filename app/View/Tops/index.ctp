@@ -154,29 +154,32 @@
                         <p>
                             <?php echo $projects[0]['Project']['description']?>
                         </p>
+                        <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                         <?php echo $this->Html->link(
                             '詳細',
                             array('controller' => 'Projects', 'action' => 'view', $projects[0]['Project']['id']),
-                            array('class' => 'btn btn-primary', 'role' => 'button')
+                            array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                         ); ?>
+                        </p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
                     <h4><?php echo $projects[1]['Project']['title']; ?></h4>
-
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[1]['Project']['photo_dir'] . '/' . $projects[1]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
                             <?php echo $projects[1]['Project']['description']?>
                         </p>
                         <div class="moreBottunBox">
+                            <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                             <?php echo $this->Html->link(
                             '詳細',
                             array('controller' => 'Projects', 'action' => 'view', $projects[1]['Project']['id']),
-                            array('class' => 'btn btn-primary', 'role' => 'button')
+                            array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                         ); ?>
+                            </p>
                     </div>
                 </div>
             </div>
@@ -190,11 +193,13 @@
                         <p>
                             <?php echo $projects[2]['Project']['description']?>
                         </p>
+                        <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                         <?php echo $this->Html->link(
                             '詳細',
                             array('controller' => 'Projects', 'action' => 'view', $projects[2]['Project']['id']),
-                            array('class' => 'btn btn-primary', 'role' => 'button')
+                            array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                         ); ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -222,11 +227,13 @@
                     <p>
                         <?php echo $users[0]['User']['abstract']?>
                     </p>
+                    <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                     <?php echo $this->Html->link(
                         '詳細',
                         array('controller' => 'Users', 'action' => 'view', $users[0]['User']['id']),
-                        array('class' => 'btn btn-primary', 'role' => 'button')
+                        array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                     ); ?>
+                    </p>
                 </div>
             </div>
         </div>
@@ -238,11 +245,13 @@
                     <p>
                         <?php echo $users[1]['User']['abstract']?>
                     </p>
+                    <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                     <?php echo $this->Html->link(
                         '詳細',
                         array('controller' => 'Users', 'action' => 'view', $users[1]['User']['id']),
-                        array('class' => 'btn btn-primary', 'role' => 'button')
+                        array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                     ); ?>
+                    </p>
                 </div>
             </div>
         </div>
@@ -254,11 +263,13 @@
                     <p>
                         <?php echo $users[2]['User']['abstract']?>
                     </p>
+                    <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                     <?php echo $this->Html->link(
                         '詳細',
                         array('controller' => 'Users', 'action' => 'view', $users[2]['User']['id']),
-                        array('class' => 'btn btn-primary', 'role' => 'button')
+                        array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                     ); ?>
+                    </p>
                 </div>
             </div>
         </div>
