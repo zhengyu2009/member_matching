@@ -2,6 +2,7 @@
 <footer>
   <div class="container">
     <ul class="pages list-unstyled text-center">
+        <li><?php echo $this->Html->link(__('Home'), array('controller' => 'Tops', 'action' => 'index')); ?></li>
       <li><?php echo $this->Html->link(__('プロジェクト一覧'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
       <li><?php echo $this->Html->link(__('ユーザー一覧'), array('controller' => 'Users', 'action' => 'index')); ?></li>
         <li><?php echo $this->Html->link(__('リソース'), array('controller' => 'Tops', 'action' => 'resource')); ?></li>
