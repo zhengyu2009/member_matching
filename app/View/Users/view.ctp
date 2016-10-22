@@ -21,8 +21,10 @@
 				<tr>
 					<th><?php echo __('Photo'); ?></th>
 					<td>
+						<div class="thumbnail">
 						<?php $base = $this->Html->url("../../files/user/photo/");
 						echo $this->Html->image($base . $user['User']['photo_dir'] . "/" . $user['User']['photo']); ?>
+						</div>
 					</td>
 				</tr>
 				<tr>
