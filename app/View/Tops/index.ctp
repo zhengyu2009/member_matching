@@ -80,7 +80,7 @@
             <?php echo $this->Html->image('top1.jpg');
             ?>
             <div class="carousel-caption">
-                <h1>なんかおもしろいことやりたいな</h1>
+                <h1>なんかおもしろいこと<br>やりたいな</h1>
             </div>
         </div>
         <div class="item">
@@ -119,9 +119,11 @@
 
 <!-- フロー-->
 <div class="row">
-    <div class="col-xs-12" align="center">
+    <div class="col-xs-12">
+        <div class="flow">
         <?php echo $this->Html->image('flow.png');
         ?>
+        </div>
     </div>
 </div>
 
