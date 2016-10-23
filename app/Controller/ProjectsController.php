@@ -21,6 +21,7 @@ class ProjectsController extends AppController {
  * @var array
  */
 	public $components = array('Paginator', 'Session', 'Flash');
+// 	public $components = array('Paginator', 'Session', 'Flash', 'RequestHandler');
 
 /**
  * index method
@@ -139,10 +140,6 @@ class ProjectsController extends AppController {
         $users = $this->Project->User->find('list');
         $this->set(compact('users'));
 	}
-
-
-
-
 
 /**
  * add method

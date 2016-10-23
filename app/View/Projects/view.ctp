@@ -1,16 +1,54 @@
+<<<<<<< HEAD
+<!--<?php //$this->log($project); ?>-->
+
+<script>
+	function asyncSend(){
+		var rollArray = [];
+		var rollElement = document.getElementById("rollList");
+		var rollAll = rollElement.querySelectorAll('input[type=checkbox]');
+		// console.log(rollAll);
+		for (var i = 0; i < rollAll.length; i++) {
+			if(rollAll[i].checked){
+				rollArray.push(rollAll[i].value);
+			}
+		}
+		// console.log(rollArray);
+		
+		var xhttp = new XMLHttpRequest();
+		xhttp.onreadystatechange = function() {
+    		if (this.readyState == 4 && this.status == 200) {
+    		document.getElementById("teamMember").innerHTML = this.responseText;
+    		}
+		};
+		var url = "<?php echo $this->Html->url(array('controller' =>'ProjectsRollsUsers', 'action' => 'ajaxCall')); ?>";
+		var project_id = "<?php echo $project['Project']['id']; ?>";
+		// console.log(url);
+		xhttp.open("POST", url, true);
+		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
+		xhttp.setRequestHeader('X-Requested-With','XMLHttpRequest');
+		xhttp.send("rollList=" + rollArray + "&project_id=" + project_id);
+	}
+</script>
+=======
 <?php
 $this->Html->addCrumb('プロジェクトを探す', array('controller'=>'projects','action'=>'index'));
 $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」の詳細');
 ;?>
 <?php $this->log($project); ?>
+>>>>>>> afa57766f148f51ae486bac5e99fc002b0bf93de
 
 <div class="projects view">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1><?php
+<<<<<<< HEAD
+					echo __('プロジェクトの詳細   ');
+					if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $project['Project']['user_id'])) {
+=======
 					echo __('プロジェクト「'.$project['Project']['title'].'」の詳細   ');
 					if($_SESSION['login_user_id'] == $project['Project']['user_id']) {
+>>>>>>> afa57766f148f51ae486bac5e99fc002b0bf93de
 						echo $this->Html->link('編集', array( 'controller' => 'projects', 'action' => 'edit', $project['Project']['id']), array('class' => 'btn btn-primary'));
 //						echo '<a class="btn btn-primary" role="button" href="">編集</a>';
 					}
@@ -63,7 +101,7 @@ $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」�
 				</tr>
 				<tr>
 					<th><?php echo __('チームメンバー'); ?></th>
-					<td id="team-member">
+					<td id="teamMember">
 						<?php if(!empty($project['ProjectsRollsUser'])){
 							foreach ($project['ProjectsRollsUser'] as $member) {
 						echo $this->Html->link($users[$member['user_id']], array('controller' => 'users', 'action' => 'view', $member['user_id']));}} ?>
@@ -111,13 +149,15 @@ $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」�
 //						?>
 <!--					</td>-->
 					<td>
+					<div id="rollList">
 					<?php foreach ($project['Roll'] as $proRoll) : ?>
 					<div class="checkbox-inline">
 						<input type="checkbox" value="<?=$proRoll['id']?>" name="proRoll[]">
 						<label><?=$proRoll['rollname']?></label>
 					</div>
 					<?php endforeach; ?>
-						<input class="btn btn-primary btn-sm" type="button" value="参画" onclick="asyncSend()">
+					<input class="btn btn-primary btn-sm" type="button" value="参画" onclick="asyncSend()">
+					</div>
 					</td>
 				</tr>
 				<tr>
