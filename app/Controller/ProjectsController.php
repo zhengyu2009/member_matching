@@ -138,7 +138,8 @@ class ProjectsController extends AppController {
 		$options = array('conditions' => array('Project.' . $this->Project->primaryKey => $id));
 		$this->set('project', $this->Project->find('first', $options));
         $users = $this->Project->User->find('list');
-        $this->set(compact('users'));
+        $rolls = $this->Project->Roll->find('list');
+        $this->set(compact('users', 'rolls'));
 	}
 
 /**

@@ -1,6 +1,6 @@
 <?php
 $this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
-$this->Html->addCrumb('ユーザー'.$users['User']['id'].'の情報編集');
+$this->Html->addCrumb('ユーザー'.$users['User']['username'].'の情報編集');
 ;?>
 <div class="users form">
 

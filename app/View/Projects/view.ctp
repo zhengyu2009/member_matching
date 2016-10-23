@@ -97,7 +97,8 @@ $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」�
 					<td id="teamMember">
 						<?php if(!empty($project['ProjectsRollsUser'])){
 							foreach ($project['ProjectsRollsUser'] as $member) {
-						echo $this->Html->link($users[$member['user_id']], array('controller' => 'users', 'action' => 'view', $member['user_id']));}} ?>
+						echo $this->Html->link($users[$member['user_id']], array('controller' => 'users', 'action' => 'view', $member['user_id'])); 
+						echo " :" . $rolls[$member['roll_id']] . " "; }}?>
 					</td>
 				</tr>
 				<tr>
