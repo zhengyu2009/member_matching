@@ -1,3 +1,7 @@
+<?php
+$this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
+$this->Html->addCrumb($user['User']['username'].'さんのページ');
+;?>
 <div class="users view">
 	<div class="row">
 		<div class="col-md-9">
@@ -21,8 +25,10 @@
 				<tr>
 					<th><?php echo __('Photo'); ?></th>
 					<td>
+						<div class="thumbnail">
 						<?php $base = $this->Html->url("../../files/user/photo/");
 						echo $this->Html->image($base . $user['User']['photo_dir'] . "/" . $user['User']['photo']); ?>
+						</div>
 					</td>
 				</tr>
 				<tr>

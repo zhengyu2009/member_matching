@@ -1,5 +1,5 @@
 <?php
-$this->Html->addCrumb('プロジェクト一覧', array('controller'=>'projects','action'=>'index'));
+$this->Html->addCrumb('プロジェクトを探す', array('controller'=>'projects','action'=>'index'));
 $this->Html->addCrumb('プロジェクトの新規追加');
 ;?>
 
