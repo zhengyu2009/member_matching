@@ -1,5 +1,3 @@
-<!--<?php //$this->log($project); ?>-->
-
 <script>
 	function asyncSend(){
 		var rollArray = [];
@@ -16,7 +14,7 @@
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
     		if (this.readyState == 4 && this.status == 200) {
-    		document.getElementById("teamMember").innerHTML = this.responseText;
+    			document.getElementById("teamMember").innerHTML = this.responseText;
     		}
 		};
 		var url = "<?php echo $this->Html->url(array('controller' =>'ProjectsRollsUsers', 'action' => 'ajaxCall')); ?>";
@@ -29,6 +27,12 @@
 	}
 </script>
 
+<?php
+$this->Html->addCrumb('プロジェクトを探す', array('controller'=>'projects','action'=>'index'));
+$this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」の詳細');
+?>
+
+
 <div class="projects view">
 	<div class="row">
 		<div class="col-md-12">
@@ -36,9 +40,11 @@
 				<h1><?php
 					echo __('プロジェクトの詳細   ');
 					if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $project['Project']['user_id'])) {
-						echo $this->Html->link('編集', array( 'controller' => 'projects', 'action' => 'edit', $project['Project']['id']), array('class' => 'btn btn-primary'));
-//						echo '<a class="btn btn-primary" role="button" href="">編集</a>';
-					}
+						echo __('プロジェクト「'.$project['Project']['title'].'」の詳細   ');
+						if($_SESSION['login_user_id'] == $project['Project']['user_id']) {
+							echo $this->Html->link('編集', array( 'controller' => 'projects', 'action' => 'edit', $project['Project']['id']), array('class' => 'btn btn-primary'));
+//							echo '<a class="btn btn-primary" role="button" href="">編集</a>';
+					}}
 					?>
 				</h1>
 			</div>
@@ -159,4 +165,3 @@
 		</div><!-- end col md 9 -->
 
 	</div>
-</div>

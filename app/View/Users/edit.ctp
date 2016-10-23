@@ -1,9 +1,13 @@
+<?php
+$this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
+$this->Html->addCrumb('ユーザー'.$users['User']['id'].'の情報編集');
+;?>
 <div class="users form">
 
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('ユーザ情報編集'); ?></h1>
+				<h1><?php echo __('ユーザーの情報編集'); ?></h1>
 			</div>
 		</div>
 	</div>
