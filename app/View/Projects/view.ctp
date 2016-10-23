@@ -5,11 +5,13 @@
 		var rollArray = [];
 		var rollElement = document.getElementById("rollList");
 		var rollAll = rollElement.querySelectorAll('input[type=checkbox]');
-		console.log(rollAll);
+		// console.log(rollAll);
 		for (var i = 0; i < rollAll.length; i++) {
-			var checkedValue = rollAll[i].value;
-			console.log(checkedValue);
+			if(rollAll[i].checked){
+				rollArray.push(rollAll[i].value);
+			}
 		}
+		// console.log(rollArray);
 		
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
@@ -17,12 +19,13 @@
     		document.getElementById("teamMember").innerHTML = this.responseText;
     		}
 		};
-		var url = "<?php echo $this->Html->url(array('controller' =>'Projects', 'action' => 'ajaxCall')); ?>";
+		var url = "<?php echo $this->Html->url(array('controller' =>'ProjectsRollsUsers', 'action' => 'ajaxCall')); ?>";
+		var project_id = "<?php echo $project['Project']['id']; ?>";
 		// console.log(url);
 		xhttp.open("POST", url, true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.setRequestHeader('X-Requested-With','XMLHttpRequest');
-		xhttp.send("rollList=" + rollArray);
+		xhttp.send("rollList=" + rollArray + "&project_id=" + project_id);
 	}
 </script>
 

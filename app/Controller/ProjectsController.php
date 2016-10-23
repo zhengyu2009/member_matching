@@ -141,19 +141,6 @@ class ProjectsController extends AppController {
         $this->set(compact('users'));
 	}
 
-    public function ajaxCall() {
-        $this->autoRender = FALSE;
-        $this->log("AAAAAAAA" . $this->request->method());
-        if($this->request->is('ajax')) {
-            $this->log("HHHHHHHHHHHHHHHHHH" . $this->request);
-            // return $this->data[];
-        } else {
-            $this->log("XXXXXXXXXXXXXXXXXX" . $this->request);
-        }
-    }
-
-
-
 /**
  * add method
  *
