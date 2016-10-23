@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!--<?php //$this->log($project); ?>-->
 
 <script>
@@ -28,14 +29,26 @@
 		xhttp.send("rollList=" + rollArray + "&project_id=" + project_id);
 	}
 </script>
+=======
+<?php
+$this->Html->addCrumb('プロジェクトを探す', array('controller'=>'projects','action'=>'index'));
+$this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」の詳細');
+;?>
+<?php $this->log($project); ?>
+>>>>>>> afa57766f148f51ae486bac5e99fc002b0bf93de
 
 <div class="projects view">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1><?php
+<<<<<<< HEAD
 					echo __('プロジェクトの詳細   ');
 					if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $project['Project']['user_id'])) {
+=======
+					echo __('プロジェクト「'.$project['Project']['title'].'」の詳細   ');
+					if($_SESSION['login_user_id'] == $project['Project']['user_id']) {
+>>>>>>> afa57766f148f51ae486bac5e99fc002b0bf93de
 						echo $this->Html->link('編集', array( 'controller' => 'projects', 'action' => 'edit', $project['Project']['id']), array('class' => 'btn btn-primary'));
 //						echo '<a class="btn btn-primary" role="button" href="">編集</a>';
 					}

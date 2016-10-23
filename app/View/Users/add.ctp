@@ -1,4 +1,7 @@
-<div class="users form">
+<?php
+$this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
+$this->Html->addCrumb('ユーザーの新規追加');
+;?><div class="users form">
 
 	<div class="row">
 		<div class="col-md-12">
