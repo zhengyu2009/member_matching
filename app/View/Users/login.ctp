@@ -1,4 +1,7 @@
-<div class="row">
+<?php
+$this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
+$this->Html->addCrumb('ログイン');
+;?><div class="row">
     <div class="col-lg-6 col-lg-offset-3">
 
         <h2>Login</h2>

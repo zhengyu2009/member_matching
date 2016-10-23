@@ -1,3 +1,7 @@
+<?php
+$this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
+$this->Html->addCrumb($user['User']['username'].'さんのページ');
+;?>
 <div class="users view">
 	<div class="row">
 		<div class="col-md-9">
