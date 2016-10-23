@@ -134,14 +134,14 @@ class UsersController extends AppController {
 			}
 		} else {
 			$options = array('conditions' => array('User.' . $this->User->primaryKey => $id));
-			$this->request->data = $this->User->find('first', $options);
+			$users = $this->request->data = $this->User->find('first', $options);
 // 			$this->log($this->request->data);
 		}
 		$areas = $this->User->Area->find('list');
 		$industries = $this->User->Industry->find('list');
 		$rolls = $this->User->Roll->find('list');
 		$skills = $this->User->Skill->find('list');
-		$this->set(compact('areas', 'industries', 'rolls', 'skills'));
+		$this->set(compact('users', 'areas', 'industries', 'rolls', 'skills'));
 	}
 
 /**
