@@ -76,7 +76,7 @@ $this->Html->addCrumb('ユーザーを探す');
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('ユーザーを探す'); ?></h1>
+				<h1><span class="glyphicon glyphicon-search" style="padding-right: 5px;"></span><?php echo __('ユーザーを探す'); ?></h1>
 			</div>
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
@@ -85,12 +85,12 @@ $this->Html->addCrumb('ユーザーを探す');
 		<div class="col-md-12">
 			<tbody id="content">
 			<div id="wrap">
-				<h2>エリアから探す</h2>
+				<h2><span class="glyphicon glyphicon-globe" style="padding-right: 5px;"></span>エリアから探す</h2>
 				<div id="contents" class="search">
 					<div id="contentsLeft">
 						<?php echo $this->Form->create('Project', array('role' => 'form')); ?>
 
-						<!--<form action="search" method="post" name="form1">-->
+						<form action="search" method="post" name="form1">
 						<div class="contentsInner areaSearchBox">
 							<div class="areaMapBox form-group">
 								<ul>
@@ -117,18 +117,18 @@ $this->Html->addCrumb('ユーザーを探す');
 					</div>
 
 					<div class="row">
-						<h2>業種から探す</h2>
+						<h2><span class="glyphicon glyphicon-briefcase" style="padding-right: 5px;"></span>業種から探す</h2>
 						<div class="form-horizontal">
 							<div class="form-group">
 								<div class="checkbox">
 									<div class="col-sm-12"><input type="checkbox" id="select_all_industry"><label for="select_all_industry">全て選択</label></div>
-									<?php echo $this->Form->input('Project.Industry', array('label' => false,'class' => 'col-sm-2 industry','multiple' => 'checkbox')); ?>
+									<?php /*echo $this->Form->input('Project.Industry', array('label' => false,'class' => 'col-sm-2 industry','multiple' => 'checkbox')); */?>
 								</div>
 							</div>
 						</div>
 
 						<div style="clear: both;"></div>
-						<h2>スキルから探す</h2>
+						<h2><span class="glyphicon glyphicon-pencil" style="padding-right: 5px;"></span>スキルから探す</h2>
 						<div class="form-horizontal">
 							<div class="form-group">
 								<div class="checkbox">
@@ -255,3 +255,8 @@ $this->Html->addCrumb('ユーザーを探す');
 		</div> <!-- end col md 12 -->
 	</div><!-- end row -->
 </div><!-- end containing of content -->
+
+		</div>
+	</div>
+</div>
+</div>
