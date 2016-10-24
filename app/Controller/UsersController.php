@@ -53,9 +53,97 @@ class UsersController extends AppController {
 	public function index() {
         session_start();
 
-		$this->User->recursive = 1;
-		$this->set('users', $this->Paginator->paginate());
-	}
+	//	$this->User->recursive = 1;
+        if ($this->request->is('post')) {
+            $this->log($this->request);
+            $areas = $this->request['data']['area'];
+            $skills = $this->request['data']['User']['Skill'];
+            $industries = $this->request['data']['User']['Industry'];
+
+            $opt_area = array('OR' => array('Area.id' => $areas));
+            $opt_skill = array('OR' => array('Skill.id' => $skills));
+            $opt_industry = array('OR' => array('Industry.id' => $industries));
+
+            $opt = array($opt_area, $opt_skill, $opt_industry);
+//            $opt = array(
+//                array('OR' => array('Area.id' => $areas)),
+//                array('OR' => array('Skill.id' => $skills)),
+//                array('OR' => array('Industry.id' => $industries))
+//            );
+
+            $this->Paginator->settings = array(
+                'conditions' => $opt,
+                'recursive' => 1,
+                'group' => array('User.id'),
+                'joins' => array(
+/*                    array('table' => 'areas_users',
+                        'alias' => 'AreasUser',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'User.id = AreasUser.user_id',
+                        )
+                    ),*/
+//                    array(
+//                        'table' => 'areas',
+//                        'alias' => 'Area',
+//                        'type' => 'inner',
+//                        'conditions' => array(
+//                            'AreasUser.area_id = Area.id',
+//                        ),
+//                    ),
+                    array('table' => 'skills_users',
+                        'alias' => 'SkillsUser',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'User.id = SkillsUser.user_id',
+                        )
+                    ),
+                    array(
+                        'table' => 'skills',
+                        'alias' => 'Skill',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'SkillsUser.skill_id = Skill.id',
+                        ),
+                    ),
+                    array('table' => 'industries_users',
+                        'alias' => 'IndustriesUser',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'User.id = IndustriesUser.user_id',
+                        )
+                    ),
+                    array(
+                        'table' => 'industries',
+                        'alias' => 'Industry',
+                        'type' => 'inner',
+                        'conditions' => array(
+                            'IndustriesUser.industry_id = Industry.id',
+                        ),
+                    )
+                )
+            );
+
+            $users = $this->Paginator->paginate('User');
+
+            $this->log($users);
+            $rolls = $this->User->Roll->find('list');
+            $skills = $this->User->Skill->find('list');
+            $industries = $this->User->Industry->find('list');
+            $this->set(compact('users', 'industries', 'rolls', 'skills'));
+
+
+        } else {
+            $rolls = $this->User->Roll->find('list');
+            $skills = $this->User->Skill->find('list');
+            $industries = $this->User->Industry->find('list');
+            $users = $this->Paginator->paginate();
+
+            $this->set(compact('users', 'industries', 'rolls', 'skills'));
+        }
+//        $options = array('conditions' => array('Project.' . $this->Project->primaryKey => 5));
+//        $this->set('projects', $this->Project->find('all',$options));
+    }
 
 /**
  * view method

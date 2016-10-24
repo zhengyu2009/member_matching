@@ -1,3 +1,4 @@
+
 <style>
 	*, *:before, *:after {
 		-webkit-box-sizing: content-box;
@@ -88,7 +89,7 @@ $this->Html->addCrumb('ユーザーを探す');
 				<h2><span class="glyphicon glyphicon-globe" style="padding-right: 5px;"></span>エリアから探す</h2>
 				<div id="contents" class="search">
 					<div id="contentsLeft">
-						<?php echo $this->Form->create('Project', array('role' => 'form')); ?>
+						<?php echo $this->Form->create('User', array('role' => 'form')); ?>
 
 						<form action="search" method="post" name="form1">
 						<div class="contentsInner areaSearchBox">
@@ -116,34 +117,45 @@ $this->Html->addCrumb('ユーザーを探す');
 						</div>
 					</div>
 
-					<div class="row">
-						<h2><span class="glyphicon glyphicon-briefcase" style="padding-right: 5px;"></span>業種から探す</h2>
+				<!--	<div class="row">-->
+						<h2 class="search-title"><span class="glyphicon glyphicon-briefcase" style="padding-right: 5px;"></span>業種から探す</h2>
 						<div class="form-horizontal">
 							<div class="form-group">
 								<div class="checkbox">
 									<div class="col-sm-12"><input type="checkbox" id="select_all_industry"><label for="select_all_industry">全て選択</label></div>
-									<?php /*echo $this->Form->input('Project.Industry', array('label' => false,'class' => 'col-sm-2 industry','multiple' => 'checkbox')); */?>
+									<?php echo $this->Form->input('User.Industry', array('label' => false,'class' => 'col-sm-2 industry','multiple' => 'checkbox')); ?>
 								</div>
 							</div>
 						</div>
 
 						<div style="clear: both;"></div>
-						<h2><span class="glyphicon glyphicon-pencil" style="padding-right: 5px;"></span>スキルから探す</h2>
+						<h2 class="search-title"><span class="glyphicon glyphicon-pencil" style="padding-right: 5px;"></span>スキルから探す</h2>
 						<div class="form-horizontal">
 							<div class="form-group">
 								<div class="checkbox">
 									<div class="col-sm-12"><input type="checkbox" id="select_all_skill"><label for="select_all_skill">全て選択</label></div>
-									<?php echo $this->Form->input('Project.Skill', array('label' => false,'class' => 'col-sm-2 skill','multiple' => 'checkbox')); ?>
+									<?php echo $this->Form->input('User.Skill', array('label' => false,'class' => 'col-sm-2 skill','multiple' => 'checkbox')); ?>
 								</div>
 							</div>
 						</div>
 						<div style="clear: both;"></div>
-						<div class="form-group">
-							<?php echo $this->Form->submit(__('Search'), array('class' => 'btn btn-default')); ?>
+						<div class="form-group" style="text-align: center; margin: 10px 0; padding: 30px;">
+
+							<?php echo $this->Form->button(
+								'<span class="glyphicon glyphicon-search" aria-hidden="true"></span>'.__(' 検索'),
+								array(
+									'type' => 'submit',
+									'class' => 'btn btn-primary btn-lg',
+								)
+							); ?>
+
+
+	<!--						--><?php /*echo $this->Form->submit(__('検  索'), array('class' => 'btn btn-primary btn-lg')); */?>
 						</div>
 
 						<?php echo $this->Form->end() ?>
 					</div>
+				<hr class="style-three">
 	<div class="row">
 		<div class="col-md-12">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
@@ -169,7 +181,7 @@ $this->Html->addCrumb('ユーザーを探す');
 					</tr>
 				</thead>
 				<tbody>
-<!--				--><?php //$this->log($users); ?>
+<!--				<?php $this->log($users); ?>
 				<?php foreach ($users as $user): ?>
 					<tr>
 <!--					<td nowrap><?php echo h($user['User']['id']); ?></td>	-->

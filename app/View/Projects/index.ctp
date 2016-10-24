@@ -141,13 +141,20 @@ $this->Html->addCrumb('プロジェクトを探す');
 								</div>
                             </div>
                             <div style="clear: both;"></div>
-								<div class="form-group">
-									<?php echo $this->Form->submit(__('Search'), array('class' => 'btn btn-default')); ?>
+                            <div class="form-group" style="text-align: center; margin: 10px 0; padding: 30px;">
+
+                                <?php echo $this->Form->button(
+                                    '<span class="glyphicon glyphicon-search" aria-hidden="true"></span>'.__(' 検索'),
+                                    array(
+                                        'type' => 'submit',
+                                        'class' => 'btn btn-primary btn-lg',
+                                    )
+                                ); ?>
 								</div>
 
 								<?php echo $this->Form->end() ?>
 						</div>
-
+                        <hr class="style-three">
                         <div class="row">
                             <table cellpadding="0" cellspacing="0" class="table table-striped">
                                 <thead>
