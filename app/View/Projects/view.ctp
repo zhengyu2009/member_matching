@@ -38,7 +38,7 @@ $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」�
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1><?php
-					echo __('プロジェクトの詳細   ');
+//					echo __('プロジェクトの詳細   ');
 					if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $project['Project']['user_id'])) {
 						echo __('プロジェクト「'.$project['Project']['title'].'」の詳細   ');
 						if($_SESSION['login_user_id'] == $project['Project']['user_id']) {

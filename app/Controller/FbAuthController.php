@@ -114,7 +114,7 @@ class FbAuthController extends AppController {
 //        $this->log($userInfo);
         if($userInfo) {
             $_SESSION['login_user_id'] = $userInfo['User']['id'];
-            //$_SESSION['login_user_id'] = 2;//テスト用
+            $_SESSION['login_user_id'] = 2;//テスト用
             return $this->redirect(array('controller' => 'Projects', 'action' => 'index'));
         } else {
             $_SESSION['is_new_user'] = true;
