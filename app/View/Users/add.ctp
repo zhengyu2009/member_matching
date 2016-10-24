@@ -1,8 +1,24 @@
+<link rel="stylesheet" href="../css/croppie.css" />
+<script src="../js/croppie.js"></script>
+<script type="text/javascript">
+    $(document).ready(function() {
+        $('.my-image').croppie({
+            viewport: {
+                width: 200,
+                height: 200,
+                type: 'circle'
+            },
+            boundary: {
+                width: 300,
+                height: 300
+            }});
+    });
+</script>
 <?php
 $this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
 $this->Html->addCrumb('ユーザーの新規追加');
 ;?><div class="users form">
-
+    <img class="my-image" src="../files/user/photo/40/220x270.jpeg" />
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
