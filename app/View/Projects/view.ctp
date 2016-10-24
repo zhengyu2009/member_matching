@@ -61,6 +61,16 @@ $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」�
 <!--						&nbsp;-->
 <!--					</td>-->
 <!--				</tr>-->
+<tr>
+	<th><?php echo __('Photo'); ?></th>
+	<td>
+		<div class="thumbnail">
+			<?php $base = $this->Html->url("../../files/project/photo/");
+			echo $this->Html->image($base . $project['Project']['photo_dir'] . "/" . $project['Project']['photo']); ?>
+		</div>
+	</td>
+</tr>
+<tr>
 				<tr>
 					<th><?php echo __('作成日'); ?></th>
 					<td>
@@ -79,13 +89,13 @@ $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」�
 						<?php echo h($project['Project']['title']); ?>
 					</td>
 				</tr>
-				<tr>
-					<th><?php echo __('Photo'); ?></th>
+				<!--<tr>-->
+					<!--<th><?php /*echo __('Photo'); */?></th>
 					<td>
-						<?php $base = $this->Html->url("../../files/project/photo/");
-						echo $this->Html->image($base . $project['Project']['photo_dir'] . "/" . $project['Project']['photo']); ?>
+						<?php /*$base = $this->Html->url("../../files/project/photo/");
+						echo $this->Html->image($base . $project['Project']['photo_dir'] . "/" . $project['Project']['photo']); */?>
 					</td>
-				</tr>
+				</tr>-->
 				<tr>
 					<th><?php echo __('プロジェクトオーナー'); ?></th>
 					<td>
