@@ -84,7 +84,7 @@ $this->Html->addCrumb('ユーザーを探す');
 
 	<div class="row">
 		<div class="col-md-12">
-			<tbody id="content">
+			<div id="content">
 			<div id="wrap">
 				<h2><span class="glyphicon glyphicon-globe" style="padding-right: 5px;"></span>エリアから探す</h2>
 				<div id="contents" class="search">
@@ -118,7 +118,8 @@ $this->Html->addCrumb('ユーザーを探す');
 					</div>
 
 				<!--	<div class="row">-->
-						<h2 class="search-title"><span class="glyphicon glyphicon-briefcase" style="padding-right: 5px;"></span>業種から探す</h2>
+					<div class="col-md-12" style="padding: 10px 0">
+						<h2 class="search-title"><span class="glyphicon glyphicon-tree-deciduous" style="padding-right: 5px;"></span>業種から探す</h2>
 						<div class="form-horizontal">
 							<div class="form-group">
 								<div class="checkbox">
@@ -127,18 +128,20 @@ $this->Html->addCrumb('ユーザーを探す');
 								</div>
 							</div>
 						</div>
-
-						<div style="clear: both;"></div>
-						<h2 class="search-title"><span class="glyphicon glyphicon-pencil" style="padding-right: 5px;"></span>スキルから探す</h2>
-						<div class="form-horizontal">
-							<div class="form-group">
-								<div class="checkbox">
-									<div class="col-sm-12"><input type="checkbox" id="select_all_skill"><label for="select_all_skill">全て選択</label></div>
-									<?php echo $this->Form->input('User.Skill', array('label' => false,'class' => 'col-sm-2 skill','multiple' => 'checkbox')); ?>
+					</div>
+					<div style="clear: both;"></div>
+						<div class="col-md-12" style="padding: 10px 0">
+							<h2 class="search-title"><span class="glyphicon glyphicon-pencil" style="padding-right: 5px;"></span>スキルから探す</h2>
+							<div class="form-horizontal">
+								<div class="form-group">
+									<div class="checkbox">
+										<div class="col-sm-12"><input type="checkbox" id="select_all_skill"><label for="select_all_skill">全て選択</label></div>
+										<?php echo $this->Form->input('User.Skill', array('label' => false,'class' => 'col-sm-2 skill','multiple' => 'checkbox')); ?>
+									</div>
 								</div>
 							</div>
-						</div>
-						<div style="clear: both;"></div>
+							</div>
+							<div style="clear: both;"></div>
 						<div class="form-group" style="text-align: center; margin: 10px 0; padding: 30px;">
 
 							<?php echo $this->Form->button(
@@ -156,7 +159,7 @@ $this->Html->addCrumb('ユーザーを探す');
 						<?php echo $this->Form->end() ?>
 					</div>
 				<hr class="style-three">
-	<div class="row">
+
 		<div class="col-md-12">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">
 				<thead>
@@ -180,7 +183,7 @@ $this->Html->addCrumb('ユーザーを探す');
 						<th class="actions"></th>
 					</tr>
 				</thead>
-				<tbody>
+				<div>
 <!--				<?php $this->log($users); ?>
 				<?php foreach ($users as $user): ?>
 					<tr>
@@ -244,7 +247,7 @@ $this->Html->addCrumb('ユーザーを探す');
 						</td>
 					</tr>
 				<?php endforeach; ?>
-				</tbody>
+				</div>
 			</table>
 
 			<p>

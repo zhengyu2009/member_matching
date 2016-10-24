@@ -120,7 +120,8 @@ $this->Html->addCrumb('プロジェクトを探す');
                             </div>
 
                         <div class="row">
-                            <h2><span class="glyphicon glyphicon-briefcase" style="padding-right: 5px;"></span>業種から探す</h2>
+                            <div class="col-md-12" style="padding: 10px 0">
+                            <h2><span class="glyphicon glyphicon-tree-deciduous" style="padding-right: 5px;"></span>業種から探す</h2>
                             <div class="form-horizontal">
                             	<div class="form-group">
 									<div class="checkbox">
@@ -129,8 +130,9 @@ $this->Html->addCrumb('プロジェクトを探す');
 									</div>
 								</div>
 							</div>
-
+                            </div>
                             <div style="clear: both;"></div>
+                            <div class="col-md-12" style="padding: 10px 0">
                             <h2><span class="glyphicon glyphicon-pencil" style="padding-right: 5px;"></span>スキルから探す</h2>
                             <div class="form-horizontal">
 								<div class="form-group">
@@ -140,6 +142,7 @@ $this->Html->addCrumb('プロジェクトを探す');
                                     </div>
 								</div>
                             </div>
+                                </div>
                             <div style="clear: both;"></div>
                             <div class="form-group" style="text-align: center; margin: 10px 0; padding: 30px;">
 
