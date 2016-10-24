@@ -1,3 +1,74 @@
+<style>
+	*, *:before, *:after {
+		-webkit-box-sizing: content-box;
+</style>
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+
+<script>
+	$(document).ready(function() {
+		//select all checkboxes for area
+		$("#select_all").change(function () {  //"select all" change
+			var status = this.checked; // "select all" checked status
+			$('.selected-area').each(function () { //iterate all listed checkbox items
+				this.checked = status; //change ".checkbox" checked status
+			});
+		});
+		$('.selected-area').change(function () { //".checkbox" change
+			console.log("hello world!");
+			//uncheck "select all", if one of the listed checkbox item is unchecked
+			if (this.checked == false) { //if this item is unchecked
+				$("#select_all")[0].checked = false; //change "select all" checked status to false
+			}
+
+			//check "select all" if all checkbox items are checked
+			if ($('.selected-area:checked').length == $('.selected-area').length) {
+				$("#select_all")[0].checked = true; //change "select all" checked status to true
+			}
+		});
+		//select all checkboxes for industry
+		$("#select_all_industry").change(function () {  //"select all" change
+			console.log("hello world!22");
+			var status = this.checked; // "select all" checked status
+			$('.industry input').each(function () {
+				console.log("hello world!11");
+				this.checked = status; //change ".checkbox" checked status
+			});
+		});
+		$('.industry input').change(function () { //".checkbox" change
+			console.log("hello world!");
+			//uncheck "select all", if one of the listed checkbox item is unchecked
+			if (this.checked == false) { //if this item is unchecked
+				$("#select_all_industry")[0].checked = false; //change "select all" checked status to false
+			}
+
+			//check "select all" if all checkbox items are checked
+			if ($('.industry input:checked').length == $('.industry').length) {
+				$("#select_all_industry")[0].checked = true; //change "select all" checked status to true
+			}
+		});
+		//select all checkboxes for skill
+		$("#select_all_skill").change(function () {  //"select all" change
+			console.log("hello world!22");
+			var status = this.checked; // "select all" checked status
+			$('.skill input').each(function () {
+				console.log("hello world!11");
+				this.checked = status; //change ".checkbox" checked status
+			});
+		});
+		$('.skill input').change(function () { //".checkbox" change
+			console.log("hello world!");
+			//uncheck "select all", if one of the listed checkbox item is unchecked
+			if (this.checked == false) { //if this item is unchecked
+				$("#select_all_skill")[0].checked = false; //change "select all" checked status to false
+			}
+
+			//check "select all" if all checkbox items are checked
+			if ($('.skill input:checked').length == $('.skill').length) {
+				$("#select_all_skill")[0].checked = true; //change "select all" checked status to true
+			}
+		});
+	});
+</script>
 <?php
 $this->Html->addCrumb('ユーザーを探す');
 ;?>
@@ -10,7 +81,69 @@ $this->Html->addCrumb('ユーザーを探す');
 		</div><!-- end col md 12 -->
 	</div><!-- end row -->
 
+	<div class="row">
+		<div class="col-md-12">
+			<tbody id="content">
+			<div id="wrap">
+				<h2>エリアから探す</h2>
+				<div id="contents" class="search">
+					<div id="contentsLeft">
+						<?php echo $this->Form->create('Project', array('role' => 'form')); ?>
 
+						<!--<form action="search" method="post" name="form1">-->
+						<div class="contentsInner areaSearchBox">
+							<div class="areaMapBox form-group">
+								<ul>
+									<li class="foreign"><input class="selected-area" type="checkbox" name="area[]" value="12"></li>
+									<li class="hokkaido"><input class="selected-area" type="checkbox" name="area[]" value="3"></li>
+									<li class="all"><input type="checkbox" name="area[]" value="13" id="select_all"></li>
+									<li class="tohoku"><input class="selected-area" type="checkbox" name="area[]" value="4"></li>
+									<li class="okinawa"><input class="selected-area" type="checkbox" name="area[]" value="11"></li>
+									<li class="shinetsu"><input class="selected-area" type="checkbox" name="area[]" value="2"></li>
+									<li class="kyusyu"><input class="selected-area" type="checkbox" name="area[]" value="10"></li>
+									<li class="chu-shi">
+										<p class="chugoku"><input class="selected-area" type="checkbox" name="area[]" value="8"></p>
+										<p class="shikoku"><input class="selected-area" type="checkbox" name="area[]" value="9"></p>
+									</li>
+									<li class="kansai"><input class="selected-area" type="checkbox" name="area[]" value="7"></li>
+									<li class="hoku-to">
+										<p class="hokuriku"><input class="selected-area" type="checkbox" name="area[]" value="5"></p>
+										<p class=""></p><input class="selected-area" type="checkbox" name="area[]" value="6">
+									</li>
+									<li class="kanto"><input class="selected-area"type="checkbox" name="area[]" value="1"></li>
+								</ul>
+							</div>
+						</div>
+					</div>
+
+					<div class="row">
+						<h2>業種から探す</h2>
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="checkbox">
+									<div class="col-sm-12"><input type="checkbox" id="select_all_industry"><label for="select_all_industry">全て選択</label></div>
+									<?php echo $this->Form->input('Project.Industry', array('label' => false,'class' => 'col-sm-2 industry','multiple' => 'checkbox')); ?>
+								</div>
+							</div>
+						</div>
+
+						<div style="clear: both;"></div>
+						<h2>スキルから探す</h2>
+						<div class="form-horizontal">
+							<div class="form-group">
+								<div class="checkbox">
+									<div class="col-sm-12"><input type="checkbox" id="select_all_skill"><label for="select_all_skill">全て選択</label></div>
+									<?php echo $this->Form->input('Project.Skill', array('label' => false,'class' => 'col-sm-2 skill','multiple' => 'checkbox')); ?>
+								</div>
+							</div>
+						</div>
+						<div style="clear: both;"></div>
+						<div class="form-group">
+							<?php echo $this->Form->submit(__('Search'), array('class' => 'btn btn-default')); ?>
+						</div>
+
+						<?php echo $this->Form->end() ?>
+					</div>
 	<div class="row">
 		<div class="col-md-12">
 			<table cellpadding="0" cellspacing="0" class="table table-striped">

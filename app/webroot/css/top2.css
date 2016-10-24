@@ -266,3 +266,6 @@ h4 a {
 h4 a:hover {
 	color: #ffffff;
 }
+tbody td {
+	white-space: normal;
+}
