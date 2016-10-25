@@ -198,7 +198,20 @@ class UsersController extends AppController {
         }  else {
             return $this->redirect(array('action' => 'index'));
         }
+        //save profile image in proper folder
+        if(isset($_POST['imagebase64'])){
+            $data = $_POST['imagebase64'];
 
+            list($type, $data) = explode(';', $data);
+            list(, $data) = explode(',', $data);
+            $data = base64_decode($data);
+
+            file_put_contents('image64.png', $data);
+        }
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+    }
     }
 
 /**
