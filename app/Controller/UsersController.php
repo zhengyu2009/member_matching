@@ -43,7 +43,7 @@ class UsersController extends AppController {
                 )
             )
         )
-        );
+    );
 
 /**
  * index method
@@ -170,8 +170,7 @@ class UsersController extends AppController {
  *
  * @return void
  */
-	public function add()
-    {
+	public function add(){
 //        session_start();
 //        $this->log($_SESSION);
          $_SESSION['is_new_fb_user'] = true;
@@ -200,35 +199,22 @@ class UsersController extends AppController {
         }  else {
             return $this->redirect(array('action' => 'index'));
         }
-<<<<<<< HEAD
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
     }
 
-=======
+
         //save profile image in proper folder
-//        if(isset($_POST['imagebase64'])){
-//            $data = $_POST['imagebase64'];
-//
-//            list($type, $data) = explode(';', $data);
-//            list(, $data) = explode(',', $data);
-//            $data = base64_decode($data);
-//
-//            file_put_contents('image64.png', $data);
-//        }
-    }
->>>>>>> 896b529ea5a750486f4a36c5771dddaed627dc2d
+        // if(isset($_POST['imagebase64'])){
+        //     $data = $_POST['imagebase64'];
 
+        //     list($type, $data) = explode(';', $data);
+        //     list(, $data) = explode(',', $data);
+        //     $data = base64_decode($data);
 
-/**
- * edit method
- *
- * @throws NotFoundException
- * @param string $id
- * @return void
- */
-	public function edit($id = null) {
+        //     file_put_contents('image64.png', $data);
+        // }
+    
+    
+    public function edit($id = null) {
 //        session_start();
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
@@ -310,6 +296,7 @@ class UsersController extends AppController {
         session_destroy();
         $this->redirect($this->Auth->logout());
     }
+    
     //Saving photo action by Croppie
     public function test2() {
         if(isset($_POST['imagebase64'])){
