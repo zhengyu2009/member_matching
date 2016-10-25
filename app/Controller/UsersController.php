@@ -29,10 +29,10 @@ class UsersController extends AppController {
  */
 	public $components = array('Paginator', 'Session', 'Flash',
         'Auth' => array(
-//                'loginRedirect' => array(
-//                    'controller' => 'posts',
-//                    'action' => 'index'
-//                ),
+                'loginRedirect' => array(
+                    'controller' => 'tops',
+                    'action' => 'index'
+                ),
                 'logoutRedirect' => array(
                     'controller' => 'tops',
                     'action' => 'index'
@@ -267,7 +267,7 @@ class UsersController extends AppController {
 
     public function login() {
 //        if (session_status() == PHP_SESSION_NONE) {
-//            session_start();
+            // session_start();
 //        }
         if(!defined('FACEBOOK_SDK_V4_SRC_DIR')){
             define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');

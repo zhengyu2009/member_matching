@@ -5,10 +5,31 @@ class FbAuthController extends AppController {
 
     public $autoRender = false;
     public $uses = array('User');
+    public function beforeFilter() {
+        session_start();
+        parent::beforeFilter();
+
+        $this->Auth->allow();
+    }
+    public $components = array('Paginator', 'Session', 'Flash',
+        'Auth' => array(
+                'logoutRedirect' => array(
+                    'controller' => 'tops',
+                    'action' => 'index'
+                ),
+            'authenticate' => array(
+                'Form' => array(
+                    'passwordHasher' => 'Blowfish'
+                )
+            )
+        )
+        );
 
     //直接に使ってない
     public function login() {
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
         require_once __DIR__ . '/../Vendor/facebook/src/Facebook/autoload.php';
 
@@ -26,7 +47,9 @@ class FbAuthController extends AppController {
     }
 
     public function logout() {
-        session_start();
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
         $_SESSION = array();
         session_destroy();
         return $this->redirect(array('controller' => 'Tops', 'action' => 'index'));
@@ -111,12 +134,14 @@ class FbAuthController extends AppController {
         
         $options = array('conditions' => array('User.fb_user_id' => $fbUserId));
         $userInfo = $this->User->find('first', $options);
-//        $this->log($userInfo);
+        $this->log($userInfo);
         if($userInfo) {
             $_SESSION['login_user_id'] = $userInfo['User']['id'];
             $_SESSION['login_user_name'] = $userInfo['User']['username'];
             //$_SESSION['login_user_id'] = 2;//テスト用
             //$_SESSION['login_user_name'] = "えびすや"; //テスト用
+            $this->request->data = $userInfo;
+            $this->Auth->login($userInfo['User']);
             return $this->redirect(array('controller' => 'Projects', 'action' => 'index'));
         } else {
             $_SESSION['is_new_fb_user'] = true;
