@@ -18,7 +18,7 @@ class UsersController extends AppController {
     public function beforeFilter() {
         parent::beforeFilter();
 
-        $this->Auth->allow();
+//        $this->Auth->allow();
     }
 
 /**
@@ -267,6 +267,23 @@ class UsersController extends AppController {
 	}
 
     public function login() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+        if(!defined('FACEBOOK_SDK_V4_SRC_DIR')){
+            define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
+        }
+        require_once __DIR__ . '/../Vendor/facebook/src/Facebook/autoload.php';
+
+        $fb = new Facebook\Facebook([
+            'app_id' => '1681825805467397',
+            'app_secret' => '72640533266ffc04d8e3ca2708a13c5d',
+            'default_graph_version' => 'v2.8',
+        ]);
+
+        $helper = $fb->getRedirectLoginHelper();
+        $permissions = ['email', 'user_likes']; // optional
+        $loginUrl = $helper->getLoginUrl('https://mecci2-zhengyuc9.c9users.io/FbAuth/fbCallback', $permissions);
         if($this->request->is('post')) {
             if ($this->Auth->login()) {
                 $this->redirect(array('controller' => 'projects', 'action' => 'index'));
@@ -274,6 +291,7 @@ class UsersController extends AppController {
                 $this->Flash->error(__('Invalid username or password'));
             }
         }
+        $this->set(compact('loginUrl'));
     }
 
     public function logout() {
