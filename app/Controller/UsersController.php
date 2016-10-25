@@ -16,9 +16,10 @@ class UsersController extends AppController {
     );
 
     public function beforeFilter() {
+        session_start();
         parent::beforeFilter();
 
-//        $this->Auth->allow();
+        $this->Auth->allow('index', 'view', 'add');
     }
 
 /**
@@ -51,7 +52,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function index() {
-        session_start();
+//        session_start();
 
 	//	$this->User->recursive = 1;
         if ($this->request->is('post')) {
@@ -153,9 +154,9 @@ class UsersController extends AppController {
  * @return void
  */
 	public function view($id = null) {
-	    if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
+//	    if (session_status() == PHP_SESSION_NONE) {
+//            session_start();
+//        }
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -172,10 +173,10 @@ class UsersController extends AppController {
  */
 	public function add()
     {
-        session_start();
+//        session_start();
 //        $this->log($_SESSION);
-         $_SESSION['is_new_user'] = true;
-        if (($_SESSION['is_new_user'] == true)) {
+         $_SESSION['is_new_fb_user'] = true;
+        if (isset($_SESSION['is_new_fb_user']) && ($_SESSION['is_new_fb_user'] == true)) {
             if ($this->request->is('post')) {
                 $this->User->create();
                 if ($this->User->save($this->request->data)) {
@@ -209,7 +210,7 @@ class UsersController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-        session_start();
+//        session_start();
 		if (!$this->User->exists($id)) {
 			throw new NotFoundException(__('Invalid user'));
 		}
@@ -254,9 +255,9 @@ class UsersController extends AppController {
 	}
 
     public function login() {
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
+//        if (session_status() == PHP_SESSION_NONE) {
+//            session_start();
+//        }
         if(!defined('FACEBOOK_SDK_V4_SRC_DIR')){
             define('FACEBOOK_SDK_V4_SRC_DIR', __DIR__ . '/../Vendor/facebook/src/Facebook');
         }
