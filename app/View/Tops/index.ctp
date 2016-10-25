@@ -155,7 +155,7 @@
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[0]['Project']['photo_dir'] . '/' . $projects[0]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
-                            <?php echo $projects[0]['Project']['description']?>
+                            <?php echo mb_strimwidth($projects[0]['Project']['description'], 0, 90, "..."); ?>
                         </p>
                         <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                         <?php echo $this->Html->link(
@@ -173,7 +173,7 @@
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[1]['Project']['photo_dir'] . '/' . $projects[1]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
-                            <?php echo $projects[1]['Project']['description']?>
+                            <?php echo mb_strimwidth($projects[1]['Project']['description'], 0, 90, "..."); ?>
                         </p>
                         <div class="moreBottunBox">
                             <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
@@ -194,7 +194,7 @@
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[2]['Project']['photo_dir'] . '/' . $projects[2]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
-                            <?php echo $projects[2]['Project']['description']?>
+                            <?php echo mb_strimwidth($projects[2]['Project']['description'], 0, 90, "..."); ?>
                         </p>
                         <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                         <?php echo $this->Html->link(
