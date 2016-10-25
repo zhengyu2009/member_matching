@@ -22,8 +22,9 @@
                     echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
             
                 } else {
-                    $loginUrl = $this->requestAction('Tops/index');
-                    echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
+//                    $loginUrl = $this->requestAction('Tops/index');
+//                    echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
+                      echo '<li>' . $this->Html->link(__('ログイン'), array('controller' => 'Users', 'action' => 'login')) . '</li>';
                 }
             ?>
             <!--<li><?php //echo $this->Html->link(__('facebookでログイン'), array('controller' => 'FbAuth', 'action' => 'login')); ?></li>-->

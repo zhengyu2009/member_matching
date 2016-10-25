@@ -29,5 +29,9 @@ $this->Html->addCrumb('ログイン');
             </div>
             <?php echo $this->Form->end();?>
         </div>
+
+        <div>
+            <?php echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>'; ?>
+        </div>
     </div>
 </div>
