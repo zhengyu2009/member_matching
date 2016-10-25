@@ -1,0 +1,12 @@
+diff a/app/View/Users/index.ctp b/app/View/Users/index.ctp	(rejected hunks)
+@@ -4,7 +4,9 @@
+ 		-webkit-box-sizing: content-box;
+ </style>
+ <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
+-
++<link href="../css/croppie.css" rel="stylesheet" type="text/css">
++<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
++<script type="text/javascript" src="../js/croppie.js"></script>
+ <script>
+ 	$(document).ready(function() {
+ 		//select all checkboxes for area

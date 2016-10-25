@@ -95,12 +95,12 @@ $this->Html->addCrumb('ユーザー登録');
 					<?php /*echo $this->Form->input('User.photo', array('type' => 'file'));*/?><!--
 					--><?php /*echo $this->Form->input('photo_dir', array('type' => 'hidden'));*/?>
 
-					<form action="test2" id="form" method="post">
-						<input type="file" id="upload" value="Choose a file">
-						<div id="upload-demo"></div>
-						<input type="hidden" id="imagebase64" name="imagebase64">
-						<a href="#" class="upload-result">Send</a>
-					</form>
+<!--					<form action="test2" id="form" method="post">-->
+<!--						<input type="file" id="upload" value="Choose a file">-->
+<!--						<div id="upload-demo"></div>-->
+<!--						<input type="hidden" id="imagebase64" name="imagebase64">-->
+<!--						<a href="#" class="upload-result">Send</a>-->
+<!--					</form>-->
 				</div>
 
 					<div class="form-group">

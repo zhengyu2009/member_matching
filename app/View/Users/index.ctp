@@ -4,9 +4,7 @@
 		-webkit-box-sizing: content-box;
 </style>
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js"></script>
-<link href="../css/croppie.css" rel="stylesheet" type="text/css">
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-<script type="text/javascript" src="../js/croppie.js"></script>
+
 <script>
 	$(document).ready(function() {
 		//select all checkboxes for area
@@ -186,7 +184,7 @@ $this->Html->addCrumb('ユーザーを探す');
 					</tr>
 				</thead>
 				<div>
-<!--				<?php $this->log($users); ?>
+<!--				<?php //$this->log($users); ?>
 				<?php foreach ($users as $user): ?>
 					<tr>
 <!--					<td nowrap><?php echo h($user['User']['id']); ?></td>	-->
@@ -240,7 +238,7 @@ $this->Html->addCrumb('ユーザーを探す');
 						<td class="actions">
 							<?php echo $this->Html->link('<span class="glyphicon glyphicon-search"></span>', array('action' => 'view', $user['User']['id']), array('escape' => false)); ?>
 							<!--テスト用、あとで削除。見た目改善しただけ、routeのアクセス権も必要-->
-							<?php $_SESSION['login_user_id'] = 2; ?>
+<!--							--><?php //$this->log($_SESSION); ?>
 							<?php if(isset($_SESSION['login_user_id'])) {
 							if($_SESSION['login_user_id'] == $user['User']['id']) {
 								echo $this->Html->link('<span class="glyphicon glyphicon-edit"></span>', array('action' => 'edit', $user['User']['id']), array('escape' => false));

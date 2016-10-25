@@ -41,7 +41,10 @@ class TopsController extends AppController {
             return $loginUrl;
         }
     }
-    
+
+
+
+
     public function resource() {
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
