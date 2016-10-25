@@ -92,8 +92,8 @@ $this->Html->addCrumb('ユーザー登録');
 
 				<!--photo-->
 				<div class="form-group">
-					<?php echo $this->Form->input('User.photo', array('type' => 'file'));?>
-					<?php echo $this->Form->input('photo_dir', array('type' => 'hidden'));?>
+					<?php /*echo $this->Form->input('User.photo', array('type' => 'file'));*/?><!--
+					--><?php /*echo $this->Form->input('photo_dir', array('type' => 'hidden'));*/?>
 
 <!--					<form action="test2" id="form" method="post">-->
 <!--						<input type="file" id="upload" value="Choose a file">-->
