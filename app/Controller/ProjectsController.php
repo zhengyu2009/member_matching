@@ -32,7 +32,7 @@ class ProjectsController extends AppController {
         session_start();
 //		$this->Project->recursive = 1;
         if ($this->request->is('post')) {
-        	$this->log($this->request);
+//        	$this->log($this->request);
             $areas = $this->request['data']['area'];
             $skills = $this->request['data']['Project']['Skill'];
             $industries = $this->request['data']['Project']['Industry'];
@@ -104,7 +104,7 @@ class ProjectsController extends AppController {
 
             $projects = $this->Paginator->paginate('Project');
 
-            $this->log($projects);
+//            $this->log($projects);
             $rolls = $this->Project->Roll->find('list');
             $skills = $this->Project->Skill->find('list');
             $industries = $this->Project->Industry->find('list');
@@ -138,7 +138,8 @@ class ProjectsController extends AppController {
 		$options = array('conditions' => array('Project.' . $this->Project->primaryKey => $id));
 		$this->set('project', $this->Project->find('first', $options));
         $users = $this->Project->User->find('list');
-        $this->set(compact('users'));
+        $rolls = $this->Project->Roll->find('list');
+        $this->set(compact('users', 'rolls'));
 	}
 
 /**

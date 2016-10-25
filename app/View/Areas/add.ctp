@@ -1,3 +1,7 @@
+<?php
+$this->Html->addCrumb('エリア一覧', array('controller'=>'areas','action'=>'index'));
+$this->Html->addCrumb('エリアの新規追加');
+;?>
 <div class="areas form">
 
 	<div class="row">

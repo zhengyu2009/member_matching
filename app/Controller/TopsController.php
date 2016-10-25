@@ -41,8 +41,34 @@ class TopsController extends AppController {
             return $loginUrl;
         }
     }
-    
+
+
+
+
     public function resource() {
+        if (session_status() == PHP_SESSION_NONE) {
+            session_start();
+        }
+    }
+    public function test() {
+    if (session_status() == PHP_SESSION_NONE) {
+        session_start();
+    }
+}
+
+    public function test2() {
+        echo 'aaaa';
+
+
+    if(isset($_POST['imagebase64'])){
+        $data = $_POST['imagebase64'];
+
+        list($type, $data) = explode(';', $data);
+        list(, $data) = explode(',', $data);
+        $data = base64_decode($data);
+
+        file_put_contents('image64.png', $data);
+    }
         if (session_status() == PHP_SESSION_NONE) {
             session_start();
         }

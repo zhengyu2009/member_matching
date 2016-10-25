@@ -71,6 +71,7 @@
         <li data-target="#carousel_sample" data-slide-to="0" class="active"></li>
         <li data-target="#carousel_sample" data-slide-to="1" class=""></li>
         <li data-target="#carousel_sample" data-slide-to="2" class=""></li>
+        <li data-target="#carousel_sample" data-slide-to="3" class=""></li>
     </ol>
     <!-- ここからCarouselの中身 -->
     <div class="carousel-inner">
@@ -79,7 +80,7 @@
             <?php echo $this->Html->image('top1.jpg');
             ?>
             <div class="carousel-caption">
-                <h1>なんかおもしろいことやりたいな</h1>
+                <h1>なんかおもしろいこと<br>やりたいな</h1>
             </div>
         </div>
         <div class="item">
@@ -118,16 +119,18 @@
 
 <!-- フロー-->
 <div class="row">
-    <div class="col-xs-12" align="center">
+    <div class="col-xs-12">
+        <div class="flow">
         <?php echo $this->Html->image('flow.png');
         ?>
+        </div>
     </div>
 </div>
 
 <!-- コンテンツサンプル：プロジェクト -->
     <div class="noticestyle">
-        <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> プロジェクト
-            <p class="" style="float: right"><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?></small></p>
+        <h4 class="titlestyle"><span class="glyphicon glyphicon-briefcase"></span> 新着プロジェクト
+            <p class="" style="float: right"><span class="glyphicon glyphicon-hand-right" style="padding-right: 5px;"></span><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?></small></p>
         </h4>
 
         <div class="navbar-header">
@@ -147,54 +150,59 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4><?php echo $projects[0]['Project']['title']; ?></h4>
+                    <h4><i class="fa fa-desktop" style="padding-right: 5px;"></i><?php echo $projects[0]['Project']['title']; ?></h4>
 
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[0]['Project']['photo_dir'] . '/' . $projects[0]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
-                            <?php echo $projects[0]['Project']['description']?>
+                            <?php echo mb_strimwidth($projects[0]['Project']['description'], 0, 90, "..."); ?>
                         </p>
+                        <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                         <?php echo $this->Html->link(
                             '詳細',
                             array('controller' => 'Projects', 'action' => 'view', $projects[0]['Project']['id']),
-                            array('class' => 'btn btn-primary', 'role' => 'button')
+                            array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                         ); ?>
+                        </p>
                     </div>
                 </div>
             </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4><?php echo $projects[1]['Project']['title']; ?></h4>
-
+                    <h4><i class="fa fa-desktop" style="padding-right: 5px;"></i><?php echo $projects[1]['Project']['title']; ?></h4>
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[1]['Project']['photo_dir'] . '/' . $projects[1]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
-                            <?php echo $projects[1]['Project']['description']?>
+                            <?php echo mb_strimwidth($projects[1]['Project']['description'], 0, 90, "..."); ?>
                         </p>
                         <div class="moreBottunBox">
+                            <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                             <?php echo $this->Html->link(
                             '詳細',
                             array('controller' => 'Projects', 'action' => 'view', $projects[1]['Project']['id']),
-                            array('class' => 'btn btn-primary', 'role' => 'button')
+                            array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                         ); ?>
+                            </p>
                     </div>
                 </div>
             </div>
                 </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4><?php echo $projects[2]['Project']['title']; ?></h4>
+                    <h4><i class="fa fa-desktop" style="padding-right: 5px;"></i><?php echo $projects[2]['Project']['title']; ?></h4>
 
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[2]['Project']['photo_dir'] . '/' . $projects[2]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
-                            <?php echo $projects[2]['Project']['description']?>
+                            <?php echo mb_strimwidth($projects[2]['Project']['description'], 0, 90, "..."); ?>
                         </p>
+                        <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                         <?php echo $this->Html->link(
                             '詳細',
                             array('controller' => 'Projects', 'action' => 'view', $projects[2]['Project']['id']),
-                            array('class' => 'btn btn-primary', 'role' => 'button')
+                            array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                         ); ?>
+                        </p>
                     </div>
                 </div>
             </div>
@@ -205,8 +213,9 @@
 <!-- コンテンツサンプル： ユーザー -->
 <div id="users" class="contents_area">
     <div class="noticestyle">
-    <h4 class="titlestyle"><i class="fa fa-comment-o fa-fw"></i> ユーザー
-        <p class="" style="float: right"><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Users', 'action' => 'index')); ?></small></p>
+    <h4 class="titlestyle"><span class="glyphicon glyphicon-user"></span> 新着ユーザー
+        <p class="" style="float: right"><span class="glyphicon glyphicon-hand-right" style="padding-right: 5px;"></span>
+                <small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Users', 'action' => 'index')); ?></small></p>
     </h4>
     <div class="navbar-header">
         <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
@@ -222,11 +231,13 @@
                     <p>
                         <?php echo $users[0]['User']['abstract']?>
                     </p>
+                    <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                     <?php echo $this->Html->link(
                         '詳細',
                         array('controller' => 'Users', 'action' => 'view', $users[0]['User']['id']),
-                        array('class' => 'btn btn-primary', 'role' => 'button')
+                        array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                     ); ?>
+                    </p>
                 </div>
             </div>
         </div>
@@ -238,11 +249,13 @@
                     <p>
                         <?php echo $users[1]['User']['abstract']?>
                     </p>
+                    <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                     <?php echo $this->Html->link(
                         '詳細',
                         array('controller' => 'Users', 'action' => 'view', $users[1]['User']['id']),
-                        array('class' => 'btn btn-primary', 'role' => 'button')
+                        array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                     ); ?>
+                    </p>
                 </div>
             </div>
         </div>
@@ -254,11 +267,13 @@
                     <p>
                         <?php echo $users[2]['User']['abstract']?>
                     </p>
+                    <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                     <?php echo $this->Html->link(
                         '詳細',
                         array('controller' => 'Users', 'action' => 'view', $users[2]['User']['id']),
-                        array('class' => 'btn btn-primary', 'role' => 'button')
+                        array('class' => 'btn btn-default btn-sm', 'role' => 'button')
                     ); ?>
+                    </p>
                 </div>
             </div>
         </div>

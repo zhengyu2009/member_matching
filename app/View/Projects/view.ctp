@@ -1,5 +1,3 @@
-<!--<?php //$this->log($project); ?>-->
-
 <script>
 	function asyncSend(){
 		var rollArray = [];
@@ -16,7 +14,7 @@
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
     		if (this.readyState == 4 && this.status == 200) {
-    		document.getElementById("teamMember").innerHTML = this.responseText;
+    			document.getElementById("teamMember").innerHTML = this.responseText;
     		}
 		};
 		var url = "<?php echo $this->Html->url(array('controller' =>'ProjectsRollsUsers', 'action' => 'ajaxCall')); ?>";
@@ -29,16 +27,24 @@
 	}
 </script>
 
+<?php
+$this->Html->addCrumb('プロジェクトを探す', array('controller'=>'projects','action'=>'index'));
+$this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」の詳細');
+?>
+
+
 <div class="projects view">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
 				<h1><?php
-					echo __('プロジェクトの詳細   ');
+//					echo __('プロジェクトの詳細   ');
 					if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $project['Project']['user_id'])) {
-						echo $this->Html->link('編集', array( 'controller' => 'projects', 'action' => 'edit', $project['Project']['id']), array('class' => 'btn btn-primary'));
-//						echo '<a class="btn btn-primary" role="button" href="">編集</a>';
-					}
+						echo __('プロジェクト「'.$project['Project']['title'].'」の詳細   ');
+						if($_SESSION['login_user_id'] == $project['Project']['user_id']) {
+							echo $this->Html->link('編集', array( 'controller' => 'projects', 'action' => 'edit', $project['Project']['id']), array('class' => 'btn btn-primary'));
+//							echo '<a class="btn btn-primary" role="button" href="">編集</a>';
+					}}
 					?>
 				</h1>
 			</div>
@@ -55,6 +61,16 @@
 <!--						&nbsp;-->
 <!--					</td>-->
 <!--				</tr>-->
+<tr>
+	<th><?php echo __('Photo'); ?></th>
+	<td>
+		<div class="thumbnail">
+			<?php $base = $this->Html->url("../../files/project/photo/");
+			echo $this->Html->image($base . $project['Project']['photo_dir'] . "/" . $project['Project']['photo']); ?>
+		</div>
+	</td>
+</tr>
+<tr>
 				<tr>
 					<th><?php echo __('作成日'); ?></th>
 					<td>
@@ -73,13 +89,13 @@
 						<?php echo h($project['Project']['title']); ?>
 					</td>
 				</tr>
-				<tr>
-					<th><?php echo __('Photo'); ?></th>
+				<!--<tr>-->
+					<!--<th><?php /*echo __('Photo'); */?></th>
 					<td>
-						<?php $base = $this->Html->url("../../files/project/photo/");
-						echo $this->Html->image($base . $project['Project']['photo_dir'] . "/" . $project['Project']['photo']); ?>
+						<?php /*$base = $this->Html->url("../../files/project/photo/");
+						echo $this->Html->image($base . $project['Project']['photo_dir'] . "/" . $project['Project']['photo']); */?>
 					</td>
-				</tr>
+				</tr>-->
 				<tr>
 					<th><?php echo __('プロジェクトオーナー'); ?></th>
 					<td>
@@ -91,7 +107,8 @@
 					<td id="teamMember">
 						<?php if(!empty($project['ProjectsRollsUser'])){
 							foreach ($project['ProjectsRollsUser'] as $member) {
-						echo $this->Html->link($users[$member['user_id']], array('controller' => 'users', 'action' => 'view', $member['user_id']));}} ?>
+						echo $this->Html->link($users[$member['user_id']], array('controller' => 'users', 'action' => 'view', $member['user_id'])); 
+						echo " :" . $rolls[$member['roll_id']] . " "; }}?>
 					</td>
 				</tr>
 				<tr>
@@ -159,4 +176,3 @@
 		</div><!-- end col md 9 -->
 
 	</div>
-</div>

@@ -8,11 +8,12 @@
 *******************************************************************************/
 body {
 	padding-top: 			51px;
+    padding-bottom: 0px;
 	font-family: 			Verdana, 'Noto Sans JP', sans-serif;
 	background-color:		#f2f3f5;
 }
 .contents_area {
-	padding:				30px 0 30px 0;
+	padding:				15px 0 0 0;
 	background-color:		#ffffff;
 }
 /******************************************************************************
@@ -56,7 +57,7 @@ body {
 /* はじめに
 *******************************************************************************/
 .noticestyle{
-	padding: 				0 15px 20px 15px;
+	padding: 				0 15px 0 15px;
 }
 .noticestyle p{
 	padding: 				0 15px 0 15px;
@@ -127,7 +128,7 @@ body {
 	margin:					0;
 	padding:				10px 0 10px 0;
 	text-align: 			center;
-	background-color: 		#4f4f4f;
+	background-color: 		#5CA4CA;
 	color: 					#f0f0f0;
 }
 .boxstyle_02 p {
@@ -259,9 +260,27 @@ ul.social_icons i.color_pinterest:hover {
 	color:					#acacee;
 }
 h4 a {
-	color: #d6e9c6;
+	color: #ffffff;
 	text-decoration: none;
 }
 h4 a:hover {
 	color: #ffffff;
+}
+tbody td {
+	white-space: normal;
+}
+.page-header {
+	padding-bottom: 9px;
+	margin: 40px 0 20px;
+	border-bottom: 1px solid #969393;
+}
+hr.style-three {
+	border: 0;
+	border-bottom: 1px dashed #357ebd;
+	margin-bottom: 30px;
+}
+
+h2 .search-title {
+	margin-top: 50px;
+	margin-bottom: 10px;
 }

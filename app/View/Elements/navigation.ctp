@@ -11,19 +11,25 @@
         </div>
         <div class="collapse navbar-collapse">
           <ul class="nav navbar-nav navbar-right">
-            <li><?php echo $this->Html->link(__('プロジェクト一覧'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
-            <li><?php echo $this->Html->link(__('ユーザー一覧'), array('controller' => 'Users', 'action' => 'index')); ?></li>
-            <li><?php echo $this->Html->link(__('リソース'), array('controller' => 'Tops', 'action' => 'resource')); ?></li>
-            <?php if(isset($_SESSION['fb_user_id'])){
-                    $login_user_id = $this->requestAction('FbAuth/fbCallback');
-                    //echo '<li><a href="">マイページ</a></li>';
+            <li><?php echo $this->Html->link(__('プロジェクトを探す'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
+            <li><?php echo $this->Html->link(__('ユーザーを探す'), array('controller' => 'Users', 'action' => 'index')); ?></li>
+            <li><?php echo $this->Html->link(__('リソース一覧'), array('controller' => 'Tops', 'action' => 'resource')); ?></li>
+            <?php if(isset($_SESSION['login_user_id'])){
+//                    $login_user_id = $this->requestAction('FbAuth/fbCallback');
+                    $login_user_id = $_SESSION['login_user_id'];
+                    $this->log($login_user_id);
                     echo '<li>' . $this->Html->link(__('マイページ'), array('controller' => 'Users', 'action' => 'view', $login_user_id)) . '</li>';
-                    $logoutUrl = 'https://mecci2-zhengyuc9.c9users.io/FbAuth/logout';
-                    echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
+                    if(isset($_SESSION['fb_user_id'])) {
+                      $logoutUrl = 'https://mecci2-zhengyuc9.c9users.io/FbAuth/logout';
+                      echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
+                    } else {
+                      echo '<li>' . $this->Html->link(__('ログアウト'), array('controller' => 'Users', 'action' => 'logout')) . '</li>';
+                    }
             
                 } else {
-                    $loginUrl = $this->requestAction('Tops/index');
-                    echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
+//                    $loginUrl = $this->requestAction('Tops/index');
+//                    echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
+                      echo '<li>' . $this->Html->link(__('ログイン'), array('controller' => 'Users', 'action' => 'login')) . '</li>';
                 }
             ?>
             <!--<li><?php //echo $this->Html->link(__('facebookでログイン'), array('controller' => 'FbAuth', 'action' => 'login')); ?></li>-->

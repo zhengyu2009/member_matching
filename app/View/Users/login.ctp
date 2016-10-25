@@ -1,4 +1,7 @@
-<div class="row">
+<?php
+$this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
+$this->Html->addCrumb('ログイン');
+;?><div class="row">
     <div class="col-lg-6 col-lg-offset-3">
 
         <h2>Login</h2>
@@ -25,6 +28,13 @@
                 </div>
             </div>
             <?php echo $this->Form->end();?>
+        </div>
+
+        <div>
+            <?php echo $this->Html->link(__('新規登録'), array('controller' => 'Users', 'action' => 'add')); ?>
+        </div>
+        <div>
+            <?php echo '<a href="' . $loginUrl . '">Or, Log in with Facebook!</a>'; ?>
         </div>
     </div>
 </div>

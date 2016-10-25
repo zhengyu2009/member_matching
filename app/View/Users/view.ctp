@@ -1,9 +1,13 @@
+<?php
+$this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
+$this->Html->addCrumb($user['User']['username'].'さんのページ');
+;?>
 <div class="users view">
 	<div class="row">
 		<div class="col-md-9">
 			<div class="page-header">
 				<h1><?php //$_SESSION['login_user_id'] = 2;
-					if($_SESSION['login_user_id'] == $user['User']['id']) {
+					if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $user['User']['id'])) {
 						echo __('マイページ    ');
 						echo $this->Html->link('編集', array('controller' => 'users', 'action' => 'edit', $user['User']['id']), array('class' => 'btn btn-primary'));
 					} else {
@@ -21,8 +25,10 @@
 				<tr>
 					<th><?php echo __('Photo'); ?></th>
 					<td>
+						<div class="thumbnail">
 						<?php $base = $this->Html->url("../../files/user/photo/");
 						echo $this->Html->image($base . $user['User']['photo_dir'] . "/" . $user['User']['photo']); ?>
+						</div>
 					</td>
 				</tr>
 				<tr>
@@ -184,7 +190,7 @@
 			<td><?php echo date('Y-m-d', strtotime($project['modified'])); ?></td>
 			<td class="actions">
 				<?php echo $this->Html->link(__('<span class="glyphicon glyphicon-search"></span>'), array('controller' => 'projects', 'action' => 'view', $project['id']), array('escape' => false)); ?>
-				<?php if($_SESSION['login_user_id'] == $user['User']['id']) {
+				<?php if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $user['User']['id'])) {
 				 echo $this->Html->link(__('<span class="glyphicon glyphicon-edit"></span>'), array('controller' => 'projects', 'action' => 'edit', $project['id']), array('escape' => false));
 				echo $this->Form->postLink(__('<span class="glyphicon glyphicon-remove"></span>'), array('controller' => 'projects', 'action' => 'delete', $project['id']), array('escape' => false), __('Are you sure you want to delete # %s?', $project['id'])); }?>
 			</td>

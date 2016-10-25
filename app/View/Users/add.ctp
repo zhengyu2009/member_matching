@@ -1,5 +1,53 @@
-<div class="users form">
+<link rel="stylesheet" href="../css/croppie.css" />
+<script src="../js/croppie.js"></script>
+<script type="text/javascript">
+	$( document ).ready(function() {
+		var $uploadCrop;
 
+		function readFile(input) {
+			if (input.files && input.files[0]) {
+				var reader = new FileReader();
+				reader.onload = function (e) {
+					$uploadCrop.croppie('bind', {
+						url: e.target.result
+					});
+					$('.upload-demo').addClass('ready');
+				}
+				reader.readAsDataURL(input.files[0]);
+			}
+		}
+
+		$uploadCrop = $('#upload-demo').croppie({
+			viewport: {
+				width: 200,
+				height: 200,
+				type: 'circle'
+			},
+			boundary: {
+				width: 300,
+				height: 300
+			}
+		});
+
+		$('#upload').on('change', function () {
+			readFile(this);
+		});
+		$('.upload-result').on('click', function (ev) {
+			$uploadCrop.croppie('result', {
+				type: 'canvas',
+				size: 'original'
+			}).then(function (resp) {
+				$('#imagebase64').val(resp);
+				$('#form').submit();
+			});
+		});
+
+	});
+</script>
+<?php
+$this->Html->addCrumb('ユーザーを探す', array('controller'=>'users','action'=>'index'));
+$this->Html->addCrumb('ユーザー登録');
+;?><div class="users form">
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
@@ -46,6 +94,13 @@
 				<div class="form-group">
 					<?php echo $this->Form->input('User.photo', array('type' => 'file'));?>
 					<?php echo $this->Form->input('photo_dir', array('type' => 'hidden'));?>
+
+<!--					<form action="test2" id="form" method="post">-->
+<!--						<input type="file" id="upload" value="Choose a file">-->
+<!--						<div id="upload-demo"></div>-->
+<!--						<input type="hidden" id="imagebase64" name="imagebase64">-->
+<!--						<a href="#" class="upload-result">Send</a>-->
+<!--					</form>-->
 				</div>
 
 					<div class="form-group">
