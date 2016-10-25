@@ -150,7 +150,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4><?php echo $projects[0]['Project']['title']; ?></h4>
+                    <h4><i class="fa fa-desktop" style="padding-right: 5px;"></i><?php echo $projects[0]['Project']['title']; ?></h4>
 
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[0]['Project']['photo_dir'] . '/' . $projects[0]['Project']['photo']; ?>" alt="" class="img-responsive">
@@ -169,7 +169,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4><?php echo $projects[1]['Project']['title']; ?></h4>
+                    <h4><i class="fa fa-desktop" style="padding-right: 5px;"></i><?php echo $projects[1]['Project']['title']; ?></h4>
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[1]['Project']['photo_dir'] . '/' . $projects[1]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
@@ -189,7 +189,7 @@
                 </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4><?php echo $projects[2]['Project']['title']; ?></h4>
+                    <h4><i class="fa fa-desktop" style="padding-right: 5px;"></i><?php echo $projects[2]['Project']['title']; ?></h4>
 
                     <div class="cardtyle">
                         <img src="app/webroot/files/project/photo/<?php echo $projects[2]['Project']['photo_dir'] . '/' . $projects[2]['Project']['photo']; ?>" alt="" class="img-responsive">
