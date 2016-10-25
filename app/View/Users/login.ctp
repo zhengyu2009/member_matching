@@ -31,7 +31,10 @@ $this->Html->addCrumb('ログイン');
         </div>
 
         <div>
-            <?php echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>'; ?>
+            <?php echo $this->Html->link(__('新規登録'), array('controller' => 'Users', 'action' => 'add')); ?>
+        </div>
+        <div>
+            <?php echo '<a href="' . $loginUrl . '">Or, Log in with Facebook!</a>'; ?>
         </div>
     </div>
 </div>

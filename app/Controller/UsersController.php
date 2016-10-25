@@ -33,11 +33,10 @@ class UsersController extends AppController {
 //                    'controller' => 'posts',
 //                    'action' => 'index'
 //                ),
-//                'logoutRedirect' => array(
-//                    'controller' => 'pages',
-//                    'action' => 'display',
-//                    'home'
-//                ),
+                'logoutRedirect' => array(
+                    'controller' => 'tops',
+                    'action' => 'index'
+                ),
             'authenticate' => array(
                 'Form' => array(
                     'passwordHasher' => 'Blowfish'
@@ -177,7 +176,7 @@ class UsersController extends AppController {
 //        $this->log($_SESSION);
          $_SESSION['is_new_fb_user'] = true;
         if (isset($_SESSION['is_new_fb_user']) && ($_SESSION['is_new_fb_user'] == true)) {
-            if ($this->request->is('post')) {
+            if ($this->request->is('post')) { //POSTされたら保存
                 $this->User->create();
                 if ($this->User->save($this->request->data)) {
                     $this->Session->setFlash(__('The user has been saved.'), 'default', array('class' => 'alert alert-success'));
@@ -186,10 +185,12 @@ class UsersController extends AppController {
                     $this->Session->setFlash(__('The user could not be saved. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
                 }
             } else {
-                $this->request->data('User.username', $_SESSION['fb_user_name'])
-                ->data('User.email', $_SESSION['fb_user_email'])
-                ->data('User.facebook', 'https://www.facebook.com/' . $_SESSION['fb_user_id'])
-                ->data('User.fb_user_id', $_SESSION['fb_user_id']);
+                if (isset($_SESSION['fb_user_id'])) {
+                    $this->request->data('User.username', $_SESSION['fb_user_name'])
+                        ->data('User.email', $_SESSION['fb_user_email'])
+                        ->data('User.facebook', 'https://www.facebook.com/' . $_SESSION['fb_user_id'])
+                        ->data('User.fb_user_id', $_SESSION['fb_user_id']);
+                }
             }
             $areas = $this->User->Area->find('list');
             $industries = $this->User->Industry->find('list');
@@ -200,20 +201,17 @@ class UsersController extends AppController {
             return $this->redirect(array('action' => 'index'));
         }
         //save profile image in proper folder
-        if(isset($_POST['imagebase64'])){
-            $data = $_POST['imagebase64'];
-
-            list($type, $data) = explode(';', $data);
-            list(, $data) = explode(',', $data);
-            $data = base64_decode($data);
-
-            file_put_contents('image64.png', $data);
-        }
-        if (session_status() == PHP_SESSION_NONE) {
-            session_start();
-        }
+//        if(isset($_POST['imagebase64'])){
+//            $data = $_POST['imagebase64'];
+//
+//            list($type, $data) = explode(';', $data);
+//            list(, $data) = explode(',', $data);
+//            $data = base64_decode($data);
+//
+//            file_put_contents('image64.png', $data);
+//        }
     }
-    }
+
 
 /**
  * edit method
@@ -285,17 +283,23 @@ class UsersController extends AppController {
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes']; // optional
         $loginUrl = $helper->getLoginUrl('https://mecci2-zhengyuc9.c9users.io/FbAuth/fbCallback', $permissions);
-        if($this->request->is('post')) {
+        $this->set(compact('loginUrl'));
+
+        if($this->request->is('post')) {//cakephp Auth login
             if ($this->Auth->login()) {
+                $this->log($this->Auth->user('id'));
+                $_SESSION['login_user_id'] = $this->Auth->user('id');
                 $this->redirect(array('controller' => 'projects', 'action' => 'index'));
             } else {
                 $this->Flash->error(__('Invalid username or password'));
             }
         }
-        $this->set(compact('loginUrl'));
+
     }
 
     public function logout() {
+        $_SESSION = array();
+        session_destroy();
         $this->redirect($this->Auth->logout());
     }
 
