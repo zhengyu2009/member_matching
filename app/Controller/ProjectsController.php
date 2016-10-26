@@ -148,6 +148,7 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function add() {
+	    session_start();
 		if ($this->request->is('post')) {
 			$this->Project->create();
 			if ($this->Project->save($this->request->data)) {
@@ -173,7 +174,7 @@ class ProjectsController extends AppController {
  * @return void
  */
 	public function edit($id = null) {
-//        session_start();
+        session_start();
 		if (!$this->Project->exists($id)) {
 			throw new NotFoundException(__('Invalid project'));
 		}
