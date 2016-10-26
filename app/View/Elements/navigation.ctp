@@ -10,24 +10,24 @@
             <span class="icon-bar"></span>
           </button>
         </div>
-
-         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-         <ul class="nav navbar-nav">
-            <li>
+         <?php echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); ?>
+         <div class="collapse navbar-collapse">
+         <ul class="nav navbar-nav navbar-right">
+<!--            <li>
             <div class="navbar-brand visible-xs">
-                <?php echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); ?>
+                <?php /*echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); */?>
                 <!--<a class="navbar-brand" href="/member_matching/">Mecci</a>-->
             </div>
-            </li>
+            </li>-->
 
             <li><?php echo $this->Html->link(__('プロジェクトを探す'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('ユーザーを探す'), array('controller' => 'Users', 'action' => 'index')); ?></li>
 
-            <li>
+           <!-- <li>
             <div class="navbar-brand hidden-xs">
-              <?php echo $this->Html->image('logo.png'); ?>
+              <?php /*echo $this->Html->image('logo.png'); */?>
             </div>
-            </li>
+            </li>-->
 
             <li><?php echo $this->Html->link(__('リソース一覧'), array('controller' => 'Tops', 'action' => 'resource')); ?></li>
             <?php if(isset($_SESSION['login_user_id'])){
