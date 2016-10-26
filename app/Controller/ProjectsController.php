@@ -150,6 +150,7 @@ class ProjectsController extends AppController {
 	public function add() {
 	    session_start();
 		if ($this->request->is('post')) {
+            $this->request->data('Project.user_id', $_SESSION['login_user_id']);
 			$this->Project->create();
 			if ($this->Project->save($this->request->data)) {
 				$this->Session->setFlash(__('The project has been saved.'), 'default', array('class' => 'alert alert-success'));

@@ -25,9 +25,9 @@ $this->Html->addCrumb('プロジェクトの新規追加');
 				<div class="form-group">
 					<?php echo $this->Form->input('description', array('type' => 'textarea', 'class' => 'form-control', 'placeholder' => 'Description'));?>
 				</div>
-				<div class="form-group">
-					<?php echo $this->Form->input('user_id', array('class' => 'form-control', 'placeholder' => 'User Id'));?>
-				</div>
+<!--				<div class="form-group">-->
+<!--					--><?php //echo $this->Form->input('user_id', array('class' => 'form-control', 'placeholder' => 'User Id'));?>
+<!--				</div>-->
 				<div class="form-group">
 					<?php echo $this->Form->input('industry_id', array('class' => 'form-control', 'placeholder' => 'Industry Id'));?>
 				</div>
