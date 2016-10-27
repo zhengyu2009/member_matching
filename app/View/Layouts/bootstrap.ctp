@@ -19,6 +19,7 @@
 
   	<!-- Latest compiled and minified CSS -->
   	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
       <!-- CSS for map search contents -->
       <?php echo $this->Html->css( 'top.css'); ?>
       <?php echo $this->Html->css( 'top2.css'); ?>
@@ -33,6 +34,7 @@
     <!--[if lt IE 9]>
       <script src="//cdnjs.cloudflare.com/ajax/libs/html5shiv/3.6.2/html5shiv.js"></script>
       <script src="//cdnjs.cloudflare.com/ajax/libs/respond.js/1.3.0/respond.min.js"></script>
+
     <![endif]-->
       <script type='text/javascript'>
           $(document).ready(function(){

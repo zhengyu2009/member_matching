@@ -13,7 +13,7 @@
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
     <link href="app/webroot/css/top.css" rel="stylesheet">
     <link href="app/webroot/css/top2.css" rel="stylesheet">
-    <link href="app/webroot/css/navbar.css" rel="stylesheet">
+    <!--<link href="app/webroot/css/navbar.css" rel="stylesheet">-->
     <!-- IE対応 -->
     <!--[if lt IE 9]>
     <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
@@ -142,7 +142,7 @@
             </button>
 
         </div>
-        <!--        <div class="collapse navbar-collapse navbar-ex1-collapse">-->
+            <!--        <div class="collapse navbar-collapse navbar-ex1-collapse">-->
         <!--            <ul class="nav navbar-nav navbar-right">-->
         <!---->
         <!--                <li>--><?php //echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?><!--</li>-->
@@ -220,7 +220,7 @@
                 <small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Users', 'action' => 'index')); ?></small></p>
         </h4>
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+                    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
             </button>
         </div>
 

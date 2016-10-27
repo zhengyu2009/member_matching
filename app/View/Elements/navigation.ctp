@@ -9,16 +9,43 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+            <?php echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); ?>
         </div>
-         <?php echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); ?>
          <div class="collapse navbar-collapse">
+
+             <style>
+                 #head_logo01_area_02 {
+                     /*width: 140px;*/
+                     /*float: left;*/
+                     margin-left: -50px;
+                     position: absolute;
+                 }
+
+                 div#head_toplogo01 {
+                     width: 140px;
+                     height: 164px;
+                     margin: 0;
+                     padding: 0;
+                     background: url(./img/logo.png) no-repeat top center;
+                     text-indent: -9999px;
+                 }
+
+             </style>
+             <div id="head_logo01_area_02">
+                 <div id="head_toplogo01">
+                     <p><a href="/member_matching/" title="Mecci">Mecci</a></p>
+                 </div>
+             </div>
+
+
+
          <ul class="nav navbar-nav navbar-right">
-<!--            <li>
-            <div class="navbar-brand visible-xs">
-                <?php /*echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); */?>
-                <!--<a class="navbar-brand" href="/member_matching/">Mecci</a>-->
-            </div>
-            </li>-->
+<!--           <li>-->
+<!--            <div class="navbar-brand visible-xs">-->
+<?php   /*echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); */?>
+<!--                <!--<a class="navbar-brand" href="/member_matching/">Mecci</a>-->
+<!--            </div>-->
+<!--            </li>-->
 
             <li><?php echo $this->Html->link(__('プロジェクトを探す'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('ユーザーを探す'), array('controller' => 'Users', 'action' => 'index')); ?></li>
