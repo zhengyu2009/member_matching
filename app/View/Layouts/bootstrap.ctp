@@ -2,7 +2,7 @@
 <html lang="ja">
   <head>
 	<title>
-		<?php echo $title_for_layout; ?>
+		<?php echo $title_for_layout.' | Mecci'; ?>
 	</title>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -19,6 +19,7 @@
 
   	<!-- Latest compiled and minified CSS -->
   	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap.min.css">
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css" rel="stylesheet">
     <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css" rel="stylesheet">
 
       <!-- Various favions  -->

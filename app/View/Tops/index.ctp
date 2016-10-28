@@ -28,41 +28,6 @@
 
 <body>
 
-<!-- ===== ナビゲーションバー ===== -->
-<!--<nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-    <div class="container">
-    <span class="navbar-brand"><a href="#">Mecci</a></span>
-    <div class="collapse navbar-collapse navbar-ex1-collapse">
-        <ul class="nav navbar-nav navbar-right">
-            <li><a href="#projects">プロジェクト</a></li>
-            <li><a href="#users">ユーザ</a></li>
-            <?php
-/*                if(isset($_SESSION['fb_user_id'])){
-                    echo '<li><a href="">マイページ</a></li>';
-                    echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
-            
-                } else {
-                    echo '<li><a href="' . $loginUrl . '">facebookでログイン</a></li>';
-                }
-            */?>
-        </ul>
-    </div>
-    </div>
-</nav>-->
-
-<!-- ===== ページタイトル ===== -->
-<!--<header class="page_top home_top">
-    <div class="container">
-        <h1>乗ってかない？</h1>
-        <p>
-            アイディアのない人orスキルのない人<br>
-            ひとりではなかなかできなかったけど、mecci（めっち）でチームを作ってやってみませんか？
-        </p>
-    </div>
-</header>
--->
-
-
 <!-- ===== スライダー ===== -->
 <!--  data-ride="carousel"を入れると自動的にスライドが開始される -->
 <div id="carousel_sample" class="carousel slide" data-ride="carousel">
@@ -82,28 +47,34 @@
             <?php echo $this->Html->image('top1.jpg');
             ?>
             <div class="carousel-caption">
-                <h1>なんかおもしろいこと<br>やりたいな</h1>
+                <h1>やりたいことあるけど<br>
+                    一緒にやってくれる人<br>
+                    いないかな？</h1>
             </div>
         </div>
         <div class="item">
             <?php echo $this->Html->image('top2.jpg');
             ?>
             <div class="carousel-caption">
-                <h1>アイディアを公開！</h1>
+                <h1>Mecciに無料登録。<br>
+                    やりたいことを公開！</h1>
             </div>
         </div>
         <div class="item">
             <?php echo $this->Html->image('top3.jpg');
             ?>
             <div class="carousel-caption">
-                <h1>いっしょにやるひと探し！</h1>
+                <h1>興味がある人が集まる or<br>
+                    あなたが興味がある人に<br>
+                    打診できる！</h1>
             </div>
         </div>
         <div class="item">
             <?php echo $this->Html->image('top4.jpg');
             ?>
             <div class="carousel-caption">
-                <h1>協力！</h1>
+                <h1>チーム結成。<br>
+                    あなたのアイデアが形に！</h1>
             </div>
         </div>
     </div>
@@ -123,9 +94,9 @@
     <div class="noticestyle">
         <h4 class="titlestyle"><span class="glyphicon glyphicon-question-sign"></span> Mecciとは</h4>
         <p>
-            Mecciは、アイデアがある人とそのアイデアを実現するスキルを持った人をマッチングする無料サービスです。<br>
+            <strong>Mecciは、アイデアがある人とそのアイデアを実現するスキルを持った人をマッチングする無料サービスです。</strong><br>
             アイデアがあっても資金がない人、そのアイデアへ資金提供したい人とのマッチングや、引っ越し手伝いなどの一日だけ人手を借りたい人と空いた一日を提供する人とのマッチングをする場としてもご利用可能です。
-            個人間の日常の小さなことから、企業間のビジネスの人材マッチングなど、ニーズの大小関係なく、幅広くご使用することができます。
+            個人間の日常の小さなことから、企業間のビジネスの人材マッチングなど、ニーズの大小関係なく、幅広くご使用いただくことができます。
         </p>
         <div class="flow">
             <?php echo $this->Html->image('flow.png');
@@ -238,6 +209,9 @@
                         <p>
                             <?php echo $users[0]['User']['abstract']?>
                         </p>
+                        <p>
+                            <i class="fa fa-calendar"></i> 作成日：<?php echo h(date('Y-m-d', strtotime($users[0]['User']['created']))); ?>
+                        </p>
                         <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                             <?php echo $this->Html->link(
                                 '詳細',
@@ -256,6 +230,9 @@
                         <p>
                             <?php echo $users[1]['User']['abstract']?>
                         </p>
+                        <p>
+                            <i class="fa fa-calendar"></i> 作成日：<?php echo h(date('Y-m-d', strtotime($users[1]['User']['created']))); ?>
+                        </p>
                         <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                             <?php echo $this->Html->link(
                                 '詳細',
@@ -273,6 +250,9 @@
                         <img src="app/webroot/files/user/photo/<?php echo $users[2]['User']['photo_dir'] . '/' . $users[2]['User']['photo']; ?>" alt="" class="img-responsive">
                         <p>
                             <?php echo $users[2]['User']['abstract']?>
+                        </p>
+                        <p>
+                            <i class="fa fa-calendar"></i> 作成日：<?php echo h(date('Y-m-d', strtotime($users[2]['User']['created']))); ?>
                         </p>
                         <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                             <?php echo $this->Html->link(
