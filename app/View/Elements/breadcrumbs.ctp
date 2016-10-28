@@ -1,4 +1,4 @@
-<div class="breadcrumbs" style="padding-left: 80px;">
+<div class="breadcrumbs" style="padding-left: 100px;">
     <?php echo $this->Html->getCrumbs(' &rsaquo; ', array(
         'text' => 'Home',
         'url' => '/',

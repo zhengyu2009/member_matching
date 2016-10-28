@@ -297,3 +297,15 @@ h2 .search-title {
 	background: url(../img/header/logo.png) no-repeat top center;
 	text-indent: -9999px;
 }
+.navbar{
+background-color: #247291;
+}
+.navbar-inverse {
+	border-color: #247291;
+}
+.navbar-inverse .navbar-nav>li>a {
+	color: #E0FFF9;
+}
+.navbar-inverse .navbar-nav>li>a:hover {
+	color: #FCF798;
+}
