@@ -1,20 +1,22 @@
 <script>
 	function asyncSend(){
 		var rollArray = [];
+		var rollChecked = [];
 		var rollElement = document.getElementById("rollList");
 		var rollAll = rollElement.querySelectorAll('input[type=checkbox]');
-		// console.log(rollAll);
 		for (var i = 0; i < rollAll.length; i++) {
 			if(rollAll[i].checked){
 				rollArray.push(rollAll[i].value);
+				rollChecked.push(rollAll[i].nextSibling.nextSibling.innerHTML);
 			}
 		}
-		// console.log(rollArray);
 		
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
     		if (this.readyState == 4 && this.status == 200) {
-    			document.getElementById("teamMember").innerHTML = this.responseText;
+    			for (var i = 0; i < rollChecked.length; i++) {
+    				document.getElementById("teamMember").innerHTML = document.getElementById("teamMember").innerHTML + rollChecked[i];
+    			}
     		}
 		};
 		var url = "<?php echo $this->Html->url(array('controller' =>'ProjectsRollsUsers', 'action' => 'ajaxCall')); ?>";
@@ -108,7 +110,7 @@ $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」�
 						<?php if(!empty($project['ProjectsRollsUser'])){
 							foreach ($project['ProjectsRollsUser'] as $member) {
 						echo $this->Html->link($users[$member['user_id']], array('controller' => 'users', 'action' => 'view', $member['user_id'])); 
-						echo " :" . $rolls[$member['roll_id']] . " "; }}?>
+						echo ": " . $rolls[$member['roll_id']] . "  "; }}?>
 					</td>
 				</tr>
 				<tr>
