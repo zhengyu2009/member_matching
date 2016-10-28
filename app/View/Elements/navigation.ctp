@@ -18,22 +18,8 @@
              </div>
 
              <ul class="nav navbar-nav navbar-right">
-<!--           <li>-->
-<!--            <div class="navbar-brand visible-xs">-->
-<?php   /*echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); */?>
-<!--                <!--<a class="navbar-brand" href="/member_matching/">Mecci</a>-->
-<!--            </div>-->
-<!--            </li>-->
-
             <li><?php echo $this->Html->link(__('プロジェクトを探す'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('ユーザーを探す'), array('controller' => 'Users', 'action' => 'index')); ?></li>
-
-           <!-- <li>
-            <div class="navbar-brand hidden-xs">
-              <?php /*echo $this->Html->image('logo.png'); */?>
-            </div>
-            </li>-->
-
             <li><?php echo $this->Html->link(__('リソース一覧'), array('controller' => 'Tops', 'action' => 'resource')); ?></li>
             <?php if(isset($_SESSION['login_user_id'])){
 //                    $login_user_id = $this->requestAction('FbAuth/fbCallback');
