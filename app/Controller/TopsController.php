@@ -40,6 +40,8 @@ class TopsController extends AppController {
         if ($this->request->is('requested')) {
             return $loginUrl;
         }
+        $title_for_layout = 'Mecciへようこそ！';
+        $this->set(compact('title_for_layout'));
     }
 
 

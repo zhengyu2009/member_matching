@@ -1,6 +1,6 @@
 <?php
-$this->Html->addCrumb('プロジェクト一覧', array('controller'=>'projects','action'=>'index'));
-$this->Html->addCrumb('プロジェクト'.$projects['Project']['id'].'の編集');
+$this->Html->addCrumb('プロジェクトを探す', array('controller'=>'projects','action'=>'index'));
+$this->Html->addCrumb('「'.$projects['Project']['title'].'」の編集');
 ;?>
 
 <div class="projects form">
@@ -8,7 +8,7 @@ $this->Html->addCrumb('プロジェクト'.$projects['Project']['id'].'の編集
 	<div class="row">
 		<div class="col-md-12">
 			<div class="page-header">
-				<h1><?php echo __('Edit Project'); ?></h1>
+				<h1><?php echo __('「'.$projects['Project']['title'].'」の編集'); ?></h1>
 			</div>
 		</div>
 	</div>

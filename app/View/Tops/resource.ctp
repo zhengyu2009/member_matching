@@ -5,13 +5,16 @@
 <!--    <title>resource</title>-->
 <!--</head>-->
 <?php
-$this->Html->addCrumb('リソース');
+$title_for_layout = 'リソース一覧 | Mecci';
+$this->set(compact('title_for_layout'));
+
+$this->Html->addCrumb('リソース一覧');
 ;?>
 <div class="users index">
     <div class="row">
         <div class="col-md-12">
             <div class="page-header">
-                <h1><?php echo __('リソース'); ?></h1>
+                <h1><?php echo __('リソース一覧'); ?></h1>
             </div>
         </div><!-- end col md 12 -->
     </div><!-- end row -->
@@ -329,6 +332,7 @@ $this->Html->addCrumb('リソース');
             </table>
         </div>
 
+
 <!--        <p>-->
 <!--            <small>--><?php //echo $this->Paginator->counter(array('format' => __('Page {:page} of {:pages}, showing {:current} records out of {:count} total, starting on record {:start}, ending on {:end}')));?><!--</small>-->
 <!--        </p>-->
@@ -345,7 +349,7 @@ $this->Html->addCrumb('リソース');
 //                ?>
 <!--            </ul>-->
 <!--        --><?php //} ?>
-     </div
+     </div>
 
 </div>
 </html>
