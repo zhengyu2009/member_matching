@@ -26,7 +26,7 @@ class TopsController extends AppController {
         $permissions = ['email', 'user_likes']; // optional
         $loginUrl = $helper->getLoginUrl($fbCallBackUrl, $permissions);
         $this->set('loginUrl', $loginUrl);
-        $logoutUrl = $fbCallBackUrl . '/FbAuth/logout';
+        $logoutUrl = $baseUrl . '/FbAuth/logout';
         $this->set('logoutUrl', $logoutUrl);
 
         $options = array(
