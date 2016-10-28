@@ -284,3 +284,16 @@ h2 .search-title {
 	margin-top: 50px;
 	margin-bottom: 10px;
 }
+
+ #head_logo01_area_02 {
+	 position: absolute;
+ }
+
+#head_toplogo01 {
+	width: 95px;
+	height: 98px;
+	margin: 0;
+	padding: 0;
+	background: url(../img/header/logo.png) no-repeat top center;
+	text-indent: -9999px;
+}
