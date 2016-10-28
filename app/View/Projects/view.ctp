@@ -36,10 +36,7 @@
 		xhttp.send("rollList=" + rollArray + "&project_id=" + project_id);
 	}
 </script>
-<!--<?php $this->log(isset($_SESSION['login_user_id'])); ?>-->
-<?php $login_user_name = $this->Html->link($users[$_SESSION['login_user_id']], array('controller' => 'users', 'action' => 'view', $_SESSION['login_user_id'])); 
-echo $login_user_name;
-?>
+
 <?php
 $this->Html->addCrumb('プロジェクトを探す', array('controller'=>'projects','action'=>'index'));
 $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」の詳細');
