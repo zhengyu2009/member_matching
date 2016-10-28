@@ -284,7 +284,16 @@ class UsersController extends AppController {
 
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes']; // optional
-        $loginUrl = $helper->getLoginUrl('https://mecci2-zhengyuc9.c9users.io/FbAuth/fbCallback', $permissions);
+        $baseUrl = Router::url("/", true);
+        $this->log($baseUrl);
+        $pattern = "/:\d{1,}\//";
+        $result = preg_replace($pattern, "", $baseUrl);
+        // $baseUrl = Router::url('/',true);
+        // $baseUrl = 'http://mecci2-zhengyuc9.c9users.io';
+        // $this->log($result);
+        $fbCallBackUrl = $result . '/FbAuth/fbCallback';
+        $this->log($fbCallBackUrl);
+        $loginUrl = $helper->getLoginUrl($fbCallBackUrl, $permissions);
         $this->set(compact('loginUrl'));
 
         if($this->request->is('post')) {//cakephp Auth login
