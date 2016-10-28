@@ -61,7 +61,7 @@
             </div>
         </div>
         <div class="item">
-            <?php echo $this->Html->image('top3.jpg');
+            <?php echo $this->Html->image('top3_2.jpg');
             ?>
             <div class="carousel-caption">
                 <h1>興味がある人が集まる or<br>
