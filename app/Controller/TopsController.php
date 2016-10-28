@@ -18,11 +18,15 @@ class TopsController extends AppController {
             'default_graph_version' => 'v2.8',
         ]);
 
+        $baseUrl = Router::fullBaseUrl();
+        // $this->log($baseUrl);
+        $fbCallBackUrl = $baseUrl . '/FbAuth/fbCallback';
+
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes']; // optional
-        $loginUrl = $helper->getLoginUrl('https://mecci2-zhengyuc9.c9users.io/FbAuth/fbCallback', $permissions);
+        $loginUrl = $helper->getLoginUrl($fbCallBackUrl, $permissions);
         $this->set('loginUrl', $loginUrl);
-        $logoutUrl = 'https://mecci2-zhengyuc9.c9users.io/FbAuth/logout';
+        $logoutUrl = $fbCallBackUrl . '/FbAuth/logout';
         $this->set('logoutUrl', $logoutUrl);
 
         $options = array(
