@@ -284,8 +284,9 @@ class UsersController extends AppController {
 
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes']; // optional
-        $baseUrl = Router::fullBaseUrl();
-        $pattern = "/:\d{1,}/";
+        $baseUrl = Router::url("/", true);
+        $this->log($baseUrl);
+        $pattern = "/:\d{1,}\//";
         $result = preg_replace($pattern, "", $baseUrl);
         // $baseUrl = Router::url('/',true);
         // $baseUrl = 'http://mecci2-zhengyuc9.c9users.io';
