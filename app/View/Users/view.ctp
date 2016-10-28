@@ -161,7 +161,13 @@ $this->Html->addCrumb($user['User']['username'].'さんのページ');
 
 <div class="related row">
 	<div class="col-md-9">
-	<h3><?php echo __('企画プロジェクト'); ?></h3>
+	<h3><?php echo __('企画プロジェクト'); ?>
+		<?php
+		if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $user['User']['id'])) {
+			echo $this->Html->link('新規', array('controller' => 'projects', 'action' => 'add'), array('class' => 'btn btn-primary'));
+		}
+		?>
+	</h3>
 	<?php if (!empty($user['Project'])): ?>
 	<table cellpadding = "0" cellspacing = "0" class="table table-striped">
 	<thead>
@@ -198,11 +204,6 @@ $this->Html->addCrumb($user['User']['username'].'さんのページ');
 	<?php endforeach; ?>
 	</tbody>
 	</table>
-<?php endif; ?>
-		<?php
-		if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $user['User']['id'])) {
-			echo $this->Html->link('新規プロジェクト', array('controller' => 'projects', 'action' => 'add'), array('class' => 'btn btn-primary'));
-		}
-		?>
+	<?php endif; ?>
 </div>
 </div>
