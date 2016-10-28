@@ -11,24 +11,35 @@
 			}
 		}
 		
+		var isLogin = "<?php echo isset($_SESSION['login_user_id']); ?>";
+		console.log(isLogin);
+		if (isLogin) {
+			var login_user_id = "<?php echo $_SESSION['login_user_id']; ?>";
+			var login_user_name = "<?php echo $users[$_SESSION['login_user_id']]; ?>";
+		}
+		
 		var xhttp = new XMLHttpRequest();
 		xhttp.onreadystatechange = function() {
     		if (this.readyState == 4 && this.status == 200) {
     			for (var i = 0; i < rollChecked.length; i++) {
-    				document.getElementById("teamMember").innerHTML = document.getElementById("teamMember").innerHTML + rollChecked[i];
+    				document.getElementById("teamMember").innerHTML = document.getElementById("teamMember").innerHTML 
+    				+ '  <a href="/users/view/' + login_user_id + '">' + login_user_name + '</a>' + ": " + rollChecked[i];
     			}
     		}
 		};
 		var url = "<?php echo $this->Html->url(array('controller' =>'ProjectsRollsUsers', 'action' => 'ajaxCall')); ?>";
 		var project_id = "<?php echo $project['Project']['id']; ?>";
-		// console.log(url);
+		console.log(url);
 		xhttp.open("POST", url, true);
 		xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
 		xhttp.setRequestHeader('X-Requested-With','XMLHttpRequest');
 		xhttp.send("rollList=" + rollArray + "&project_id=" + project_id);
 	}
 </script>
-
+<!--<?php $this->log(isset($_SESSION['login_user_id'])); ?>-->
+<?php $login_user_name = $this->Html->link($users[$_SESSION['login_user_id']], array('controller' => 'users', 'action' => 'view', $_SESSION['login_user_id'])); 
+echo $login_user_name;
+?>
 <?php
 $this->Html->addCrumb('プロジェクトを探す', array('controller'=>'projects','action'=>'index'));
 $this->Html->addCrumb('プロジェクト「'.$project['Project']['title'].'」の詳細');
