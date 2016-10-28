@@ -41,7 +41,10 @@ class FbAuthController extends AppController {
 
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes']; // optional
-        $loginUrl = $helper->getLoginUrl('https://mecci2-zhengyuc9.c9users.io/FbAuth/fbCallback', $permissions);
+        $baseUrl = Router::fullBaseUrl();
+        $fbCallBackUrl = $baseUrl . '/FbAuth/fbCallback';
+        
+        $loginUrl = $helper->getLoginUrl($fbCallBackUrl, $permissions);
 
         echo '<a href="' . $loginUrl . '">Log in with Facebook!</a>';
     }
