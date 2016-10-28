@@ -121,6 +121,8 @@ class ProjectsController extends AppController {
         }
 //        $options = array('conditions' => array('Project.' . $this->Project->primaryKey => 5));
 //        $this->set('projects', $this->Project->find('all',$options));
+        $title_for_layout = 'プロジェクトを探す| Mecci';
+        $this->set(compact('title_for_layout'));
 	}
 
 /**

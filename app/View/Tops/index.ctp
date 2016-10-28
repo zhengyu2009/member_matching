@@ -152,6 +152,10 @@
                         <p>
                             <?php echo mb_strimwidth($projects[0]['Project']['description'], 0, 90, "..."); ?>
                         </p>
+                        <p>
+                            <i class="fa fa-pencil"></i> 募集者： <?php echo $projects[0]['User']['username']; ?>さん　
+                            <i class="fa fa-calendar"></i> 掲載日：<?php echo h(date('Y-m-d', strtotime($projects[0]['User']['created']))); ?>
+                        </p>
                         <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                             <?php echo $this->Html->link(
                                 '詳細',
@@ -169,6 +173,10 @@
                         <img src="app/webroot/files/project/photo/<?php echo $projects[1]['Project']['photo_dir'] . '/' . $projects[1]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
                             <?php echo mb_strimwidth($projects[1]['Project']['description'], 0, 90, "..."); ?>
+                        </p>
+                        <p>
+                            <i class="fa fa-pencil"></i> 募集者： <?php echo $projects[1]['User']['username']; ?>さん　
+                            <i class="fa fa-calendar"></i> 掲載日：<?php echo h(date('Y-m-d', strtotime($projects[1]['User']['created']))); ?>
                         </p>
                         <div class="moreBottunBox">
                             <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
@@ -190,6 +198,10 @@
                         <img src="app/webroot/files/project/photo/<?php echo $projects[2]['Project']['photo_dir'] . '/' . $projects[2]['Project']['photo']; ?>" alt="" class="img-responsive">
                         <p>
                             <?php echo mb_strimwidth($projects[2]['Project']['description'], 0, 90, "..."); ?>
+                        </p>
+                        <p>
+                            <i class="fa fa-pencil"></i> 募集者： <?php echo $projects[2]['User']['username']; ?>さん　
+                            <i class="fa fa-calendar"></i> 掲載日：<?php echo h(date('Y-m-d', strtotime($projects[2]['User']['created']))); ?>
                         </p>
                         <p style="text-align: right; margin: 0 10px 10px 0; padding: 0;">
                             <?php echo $this->Html->link(
@@ -220,7 +232,7 @@
         <div class="row">
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4><?php echo $users[0]['User']['username']; ?></h4>
+                    <h4><span class="glyphicon glyphicon-education" style="padding-right: 5px;"></span><?php echo $users[0]['User']['username'].'さん'; ?></h4>
                     <div class="cardtyle">
                         <img src="app/webroot/files/user/photo/<?php echo $users[0]['User']['photo_dir'] . '/' . $users[0]['User']['photo']; ?>" alt="" class="img-responsive">
                         <p>
@@ -238,7 +250,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4><?php echo $users[1]['User']['username']; ?></h4>
+                    <h4><span class="glyphicon glyphicon-education" style="padding-right: 5px;"></span><?php echo $users[1]['User']['username'].'さん'; ?></h4>
                     <div class="cardtyle">
                         <img src="app/webroot/files/user/photo/<?php echo $users[1]['User']['photo_dir'] . '/' . $users[1]['User']['photo']; ?>" alt="" class="img-responsive">
                         <p>
@@ -256,7 +268,7 @@
             </div>
             <div class="col-sm-4">
                 <div class="boxstyle_02">
-                    <h4><?php echo $users[2]['User']['username']; ?></h4>
+                    <h4><span class="glyphicon glyphicon-education" style="padding-right: 5px;"></span><?php echo $users[2]['User']['username'].'さん'; ?></h4>
                     <div class="cardtyle">
                         <img src="app/webroot/files/user/photo/<?php echo $users[2]['User']['photo_dir'] . '/' . $users[2]['User']['photo']; ?>" alt="" class="img-responsive">
                         <p>
