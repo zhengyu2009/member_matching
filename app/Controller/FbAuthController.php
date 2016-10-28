@@ -42,7 +42,9 @@ class FbAuthController extends AppController {
         $helper = $fb->getRedirectLoginHelper();
         $permissions = ['email', 'user_likes']; // optional
         $baseUrl = Router::fullBaseUrl();
-        $fbCallBackUrl = $baseUrl . '/FbAuth/fbCallback';
+        $pattern = "/:\d{1,}/";
+        $result = preg_replace($pattern, "", $baseUrl);
+        $fbCallBackUrl = $result . '/FbAuth/fbCallback';
         
         $loginUrl = $helper->getLoginUrl($fbCallBackUrl, $permissions);
 
