@@ -43,8 +43,10 @@
                     $this->log($login_user_id);
                     echo '<li>' . $this->Html->link(__('マイページ'), array('controller' => 'Users', 'action' => 'view', $login_user_id)) . '</li>';
                     if(isset($_SESSION['fb_user_id'])) {
-                      $baseUrl = Router::fullBaseUrl();
-                      $logoutUrl = $baseUrl . '/FbAuth/logout';
+                      $baseUrl = Router::url("/", true);
+                      $pattern = "/:\d{1,}/";
+                      $result = preg_replace($pattern, "", $baseUrl);
+                      $logoutUrl = $result . '/FbAuth/logout';
                       echo '<li><a href="' . $logoutUrl . '">ログアウト</a></li>';
                     } else {
                       echo '<li>' . $this->Html->link(__('ログアウト'), array('controller' => 'Users', 'action' => 'logout')) . '</li>';
