@@ -120,12 +120,16 @@
 <div id="projects" class="contents_area">
 
     <!-- フロー-->
-    <div class="row">
-        <div class="col-xs-12">
-            <div class="flow">
-                <?php echo $this->Html->image('flow.png');
-                ?>
-            </div>
+    <div class="noticestyle">
+        <h4 class="titlestyle"><span class="glyphicon glyphicon-question-sign"></span> Mecciとは</h4>
+        <p>
+            Mecciは、アイデアがある人とそのアイデアを実現するスキルを持った人をマッチングする無料サービスです。<br>
+            アイデアがあっても資金がない人、そのアイデアへ資金提供したい人とのマッチングや、引っ越し手伝いなどの一日だけ人手を借りたい人と空いた一日を提供する人とのマッチングをする場としてもご利用可能です。
+            個人間の日常の小さなことから、企業間のビジネスの人材マッチングなど、ニーズの大小関係なく、幅広くご使用することができます。
+        </p>
+        <div class="flow">
+            <?php echo $this->Html->image('flow.png');
+            ?>
         </div>
     </div>
 
@@ -134,21 +138,10 @@
         <h4 class="titlestyle"><span class="glyphicon glyphicon-briefcase"></span> 新着プロジェクト
             <p class="" style="float: right"><span class="glyphicon glyphicon-hand-right" style="padding-right: 5px;"></span><small><?php echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?></small></p>
         </h4>
-
         <div class="navbar-header">
-
             <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-
             </button>
-
         </div>
-            <!--        <div class="collapse navbar-collapse navbar-ex1-collapse">-->
-        <!--            <ul class="nav navbar-nav navbar-right">-->
-        <!---->
-        <!--                <li>--><?php //echo $this->Html->link(__('もっと見る'), array('controller' => 'Projects', 'action' => 'index')); ?><!--</li>-->
-        <!--            </ul>-->
-        <!--        </div>-->
-
         <div class="row">
             <div class="col-sm-4">
                 <div class="boxstyle_02">
