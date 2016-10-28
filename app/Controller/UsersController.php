@@ -286,12 +286,12 @@ class UsersController extends AppController {
         $permissions = ['email', 'user_likes']; // optional
         $baseUrl = Router::url("/", true);
         $this->log($baseUrl);
-        $pattern = "/:\d{1,}\//";
+        $pattern = "/:\d{1,}/";
         $result = preg_replace($pattern, "", $baseUrl);
         // $baseUrl = Router::url('/',true);
         // $baseUrl = 'http://mecci2-zhengyuc9.c9users.io';
         // $this->log($result);
-        $fbCallBackUrl = $result . '/FbAuth/fbCallback';
+        $fbCallBackUrl = $result . 'FbAuth/fbCallback';
         $this->log($fbCallBackUrl);
         $loginUrl = $helper->getLoginUrl($fbCallBackUrl, $permissions);
         $this->set(compact('loginUrl'));
