@@ -140,6 +140,8 @@ class ProjectsController extends AppController {
         $users = $this->Project->User->find('list');
         $rolls = $this->Project->Roll->find('list');
         $this->set(compact('users', 'rolls'));
+        $title_for_layout = 'プロジェクトの詳細 | Mecci';
+        $this->set(compact('title_for_layout'));
 	}
 
 /**
@@ -150,6 +152,7 @@ class ProjectsController extends AppController {
 	public function add() {
 	    session_start();
 		if ($this->request->is('post')) {
+            $this->request->data('Project.user_id', $_SESSION['login_user_id']);
 			$this->Project->create();
 			if ($this->Project->save($this->request->data)) {
 				$this->Session->setFlash(__('The project has been saved.'), 'default', array('class' => 'alert alert-success'));
@@ -164,6 +167,8 @@ class ProjectsController extends AppController {
 		$skills = $this->Project->Skill->find('list');
         $areas = $this->Project->Area->find('list');
 		$this->set(compact('users', 'industries', 'rolls', 'skills', 'areas'));
+        $title_for_layout = 'プロジェクトの新規追加 | Mecci';
+        $this->set(compact('title_for_layout'));
 	}
 
 /**
@@ -199,6 +204,8 @@ class ProjectsController extends AppController {
 		$this->set(compact('users', 'industries', 'rolls', 'skills', 'areas'));
         $this->set('projects', $this->request->data);
 //        $_SESSION['project_photo'] = $this->request->data['Project']['photo'];
+        $title_for_layout = 'プロジェクトの編集 | Mecci';
+        $this->set(compact('title_for_layout'));
  	}
 
 /**
@@ -220,5 +227,7 @@ class ProjectsController extends AppController {
 			$this->Session->setFlash(__('The project could not be deleted. Please, try again.'), 'default', array('class' => 'alert alert-danger'));
 		}
 		return $this->redirect(array('action' => 'index'));
+        $title_for_layout = 'プロジェクトの削除 | Mecci';
+        $this->set(compact('title_for_layout'));
 	}
 }

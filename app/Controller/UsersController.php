@@ -143,7 +143,9 @@ class UsersController extends AppController {
         }
 //        $options = array('conditions' => array('Project.' . $this->Project->primaryKey => 5));
 //        $this->set('projects', $this->Project->find('all',$options));
-    }
+        $title_for_layout = 'ユーザーを探す | Mecci';
+        $this->set(compact('title_for_layout'));
+	}
 
 /**
  * view method
@@ -163,6 +165,8 @@ class UsersController extends AppController {
 		$this->set('user', $this->User->find('first', $options));
         $industryLists = $this->User->Industry->find('list');
         $this->set(compact( 'industryLists'));
+        $title_for_layout = 'マイページ | Mecci';
+        $this->set(compact('title_for_layout'));
 	}
 
 /**
@@ -199,6 +203,8 @@ class UsersController extends AppController {
         }  else {
             return $this->redirect(array('action' => 'index'));
         }
+        $title_for_layout = 'ユーザー登録 | Mecci';
+        $this->set(compact('title_for_layout'));
     }
 
 
@@ -236,7 +242,9 @@ class UsersController extends AppController {
 		$rolls = $this->User->Roll->find('list');
 		$skills = $this->User->Skill->find('list');
 		$this->set(compact('users', 'areas', 'industries', 'rolls', 'skills'));
-	}
+        $title_for_layout = 'ユーザー情報の編集 | Mecci';
+        $this->set(compact('title_for_layout'));
+    }
 
 /**
  * delete method
@@ -288,13 +296,16 @@ class UsersController extends AppController {
                 $this->Flash->error(__('Invalid username or password'));
             }
         }
-
+        $title_for_layout = 'ログイン | Mecci';
+        $this->set(compact('title_for_layout'));
     }
 
     public function logout() {
         $_SESSION = array();
         session_destroy();
         $this->redirect($this->Auth->logout());
+        $title_for_layout = 'ログアウト | Mecci';
+        $this->set(compact('title_for_layout'));
     }
     
     //Saving photo action by Croppie

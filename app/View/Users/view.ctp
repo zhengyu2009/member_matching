@@ -199,5 +199,10 @@ $this->Html->addCrumb($user['User']['username'].'さんのページ');
 	</tbody>
 	</table>
 <?php endif; ?>
+		<?php
+		if(isset($_SESSION['login_user_id']) && ($_SESSION['login_user_id'] == $user['User']['id'])) {
+			echo $this->Html->link('新規プロジェクト', array('controller' => 'projects', 'action' => 'add'), array('class' => 'btn btn-primary'));
+		}
+		?>
 </div>
 </div>
