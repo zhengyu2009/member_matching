@@ -2,7 +2,8 @@
 <footer>
     <div class="container">
         <ul class="pages list-unstyled text-center">
-            <li><?php echo $this->Html->link(__('Home'), array('controller' => 'Tops', 'action' => 'index')); ?></li>
+            <span class="glyphicon glyphicon-home" style="color: #E0FFF9;"></span>
+            <li><?php echo $this->Html->link(__('ホーム'), array('controller' => 'Tops', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('プロジェクトを探す'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('ユーザーを探す'), array('controller' => 'Users', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('リソース一覧'), array('controller' => 'Tops', 'action' => 'resource')); ?></li>
