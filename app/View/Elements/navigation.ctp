@@ -7,17 +7,15 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
+            <div id="head_logo01_area_02">
+                <a class="navbar-brand" href="/member_matching/" title="Mecci">
+                    <img alt="Mecci logo" src="./img/header/logo.png">
+                </a>
+            </div>
 <!--            --><?php //echo $this->Html->link(__('Mecci'), array('controller' => 'Tops', 'action' => 'index'), array('class' => 'navbar-brand')); ?>
         </div>
-         <div class="collapse navbar-collapse">
-             <div id="head_logo01_area_02">
-                 <a href="/member_matching/" title="Mecci">
-                     <div id="head_toplogo01">
-                 </div>
-                     </a>
-             </div>
-
-             <ul class="nav navbar-nav navbar-right">
+        <div class="collapse navbar-collapse navbar-ex1-collapse">
+            <ul class="nav navbar-nav navbar-right">
             <li><?php echo $this->Html->link(__('プロジェクトを探す'), array('controller' => 'Projects', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('ユーザーを探す'), array('controller' => 'Users', 'action' => 'index')); ?></li>
             <li><?php echo $this->Html->link(__('リソース一覧'), array('controller' => 'Tops', 'action' => 'resource')); ?></li>
@@ -46,4 +44,5 @@
           </ul>
         </div><!--/.nav-collapse -->
         </div>
+    </div>
     </nav>

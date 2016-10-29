@@ -73,7 +73,7 @@
             <?php echo $this->Html->image('top4.jpg');
             ?>
             <div class="carousel-caption">
-                <h1>チーム結成。<br>
+                <h1>チーム結成！<br>
                     あなたのアイデアが形に！</h1>
             </div>
         </div>
