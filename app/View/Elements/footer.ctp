@@ -26,11 +26,10 @@
             ?>
         </ul>
         <ul class="social_icons list-unstyled text-center">
-            <li><i class="fa fa-twitter fa-2x s_icon color_twitter"></i></li>
-            <li><i class="fa fa-facebook fa-2x s_icon color_facebook"></i></li>
-            <li><i class="fa fa-google-plus fa-2x s_icon color_google_plus"></i></li>
-            <li><i class="fa fa-instagram fa-2x s_icon color_instagram"></i></li>
-            <li><i class="fa fa-pinterest-p fa-2x s_icon color_pinterest"></i></li>
+            <li><a href="https://www.facebook.com/sharer/sharer.php?u=&t=" title="Share on Facebook" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-facebook fa-2x s_icon color_facebook"></i></a></li>
+            <li><a href="https://twitter.com/intent/tweet?source=&text=:%20" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"><i class="fa fa-twitter fa-2x s_icon color_twitter"></i></a></li>
+            <li><a href="https://plus.google.com/share?url=" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"><i class="fa fa-google-plus fa-2x s_icon color_google_plus"></i></a></li>
+            <li><a href="http://pinterest.com/pin/create/button/?url=&description=" target="_blank" title="Pin it" onclick="window.open('http://pinterest.com/pin/create/button/?url=' + encodeURIComponent(document.URL) + '&description=' +  encodeURIComponent(document.title)); return false;"><i class="fa fa-pinterest-p fa-2x s_icon color_pinterest"></i></a></li>
         </ul>
     </div>
 </footer>

@@ -240,6 +240,17 @@ ul.social_icons i.color_instagram:hover {
 ul.social_icons i.color_pinterest:hover {
 	background-color:		#cc2127;
 }
+
+ul.share-buttons .sr-only {
+  position: absolute;
+  clip: rect(1px 1px 1px 1px);
+  clip: rect(1px, 1px, 1px, 1px);
+  padding: 0;
+  border: 0;
+  height: 1px;
+  width: 1px;
+  overflow: hidden;
+}
 /******************************************************************************
 /* copyright
 *******************************************************************************/
