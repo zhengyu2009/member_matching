@@ -17,35 +17,6 @@ body {
 	background-color:		#ffffff;
 }
 /******************************************************************************
-/* ページトップ
-*******************************************************************************/
-.page_top {
-	color:					#ffffff;
-	background-position:	center center;
-	background-repeat:		no-repeat;
-	background-size:		cover;
-}
-.home_top {
-	background-image:		url("../img/top.png");
-	padding:				150px 0 150px 100px;
-}
-/*.service_top {*/
-/*background-image:		url("img/main_top3.png");*/
-/*padding:				100px 0 100px 100px;*/
-/*}*/
-/*.blog_top {*/
-/*background-image:		url("img/main_top4.png");*/
-/*padding:				150px 0 150px 100px;*/
-/*}*/
-/*.contact_top {*/
-/*background-image:		url("img/main_top5.png");*/
-/*padding:				100px 0 100px 100px;*/
-/*}*/
-.page_top p {
-	font-size: 				18px;
-	color: 					#ffffff;
-}
-/******************************************************************************
 /* タイトル
 *******************************************************************************/
 .titlestyle {
