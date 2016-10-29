@@ -158,7 +158,7 @@ $this->Html->addCrumb('プロジェクトを探す');
 								<?php echo $this->Form->end() ?>
 						</div>
                         <hr class="style-three">
-                        <div class="row">
+                        <div class="table-responsive">
                             <table cellpadding="0" cellspacing="0" class="table table-striped">
                                 <thead>
                                 <tr>
